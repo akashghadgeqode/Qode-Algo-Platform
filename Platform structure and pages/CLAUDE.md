@@ -9,7 +9,7 @@ Retail algo-trading platform (RA/SEBI-registered), styled after Stratzy-type pro
 - Secondary — Cream `#EFEDC3`
 - Page background used in mocks: `#FAF7EC` (lighter cream)
 - Strategy accent colors (not core UI): All Weather green `#008455`, Growth Fund navy `#0A3452` — reserved for algo/strategy branding, not chrome
-- Type: Fraunces (serif, headlines) + Inter (sans, body/UI)
+- Type: Playfair Display (`--font-primary`, serif, headlines) + Lato (`--font-secondary`, sans, body/UI)
 - Logo files: `assets/qode-logo-white.svg` (dark backgrounds), `assets/qode-logo.svg` (full color, light backgrounds) — more variants (black/grayscale/inverted) available in the user's local "Qode Algo Platform" asset folder
 
 ## Auth

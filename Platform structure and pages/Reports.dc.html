@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   body{margin:0}
   *{box-sizing:border-box}
@@ -21,7 +21,7 @@
 </style>
 </helmet>
 
-<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
 
   <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
     <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
@@ -35,14 +35,14 @@
       <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
         <div style="padding:0 24px;display:flex;flex-direction:column;gap:14px;flex:1;min-height:0">
 
-          <button style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 0;border-radius:9px;border:1px solid rgba(239,237,195,0.2);background:transparent;color:#EFEDC3;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+          <button style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 0;border-radius:9px;border:1px solid rgba(239,237,195,0.2);background:transparent;color:#EFEDC3;font:600 12.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
             Generate report
           </button>
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;flex:1;min-height:0">
             <div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px">
-              <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Recent downloads</span>
+              <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Recent downloads</span>
             </div>
             <div style="display:flex;flex-direction:column;overflow-x:hidden">
             <sc-for list="{{ recentDownloads }}" as="d" hint-placeholder-count="5">
@@ -50,8 +50,8 @@
                 <div style="display:flex;align-items:center;gap:9px;min-width:0">
                   <span style="width:26px;height:26px;border-radius:7px;background:rgba(239,237,195,0.1);color:#DCE7DF;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg></span>
                   <span style="display:flex;flex-direction:column;min-width:0">
-                    <span style="font:500 12.5px 'Inter',sans-serif;color:#EFEDC3;white-space:nowrap">{{ d.name }}</span>
-                    <span style="font:400 11px 'Inter',sans-serif;color:#8FA69A;white-space:nowrap">{{ d.date }}</span>
+                    <span style="font:500 12.5px 'Lato',sans-serif;color:#EFEDC3;white-space:nowrap">{{ d.name }}</span>
+                    <span style="font:400 11px 'Lato',sans-serif;color:#8FA69A;white-space:nowrap">{{ d.date }}</span>
                   </span>
                 </div>
               </div>
@@ -66,9 +66,9 @@
       <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
       <div style="display:flex;align-items:center;gap:10px">
         <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">Nuvama connected</span>
+        <span style="font:500 12.5px 'Lato',sans-serif;color:#CFE0D6">Nuvama connected</span>
       </div>
-      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
     </div>
   </div>
 
@@ -76,39 +76,39 @@
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30">
       <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
-        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
+        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
           Portfolio
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
-            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
-            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
-            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
-            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
+            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
+            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
+            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
+            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
           </div>
         </sc-if>
       </div>
-      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
-      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
-      <a href="Reports.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Inter',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">Reports</a>
-      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
+      <a href="Reports.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">Reports</a>
+      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
     </nav>
 
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
-        <h1 style="font:600 22px 'Fraunces',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Reports</h1>
-        <p style="font:400 13px 'Inter',sans-serif;color:#5B6A60;margin:0">Download statements, contract notes and tax reports</p>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Reports</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Download statements, contract notes and tax reports</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
-        <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Inter',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
+        <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
           FY 2025-26
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none">
-          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
-          <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Aditya Mehta</span>
+          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Lato',sans-serif">AM</div>
+          <span style="font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Aditya Mehta</span>
         </a>
       </div>
     </div>
@@ -117,96 +117,96 @@
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Realized P&amp;L (FY)</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A;white-space:nowrap">+₹1,84,320</span>
+          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Realized P&amp;L (FY)</span>
+          <span style="font:600 24px 'Playfair Display',serif;color:#0A7A4A;white-space:nowrap">+₹1,84,320</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Charges &amp; taxes</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">₹12,640</span>
+          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Charges &amp; taxes</span>
+          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">₹12,640</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Total turnover</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">₹42.6L</span>
+          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Total turnover</span>
+          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">₹42.6L</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Reports generated</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">14</span>
+          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Reports generated</span>
+          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">14</span>
         </div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:14px">
-        <h2 style="font:600 16px 'Fraunces',serif;margin:0;color:#02422B">Generate a report</h2>
+        <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:#02422B">Generate a report</h2>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(2,66,43,0.10);color:#02422B;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Tax P&amp;L Statement</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Tax P&amp;L Statement</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Realized gains and losses for filing your income tax return.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Realized gains and losses for filing your income tax return.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,132,85,0.10);color:#008455;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Contract Notes</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Contract Notes</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Trade-wise confirmation with brokerage and taxes for each order.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Trade-wise confirmation with brokerage and taxes for each order.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(10,52,82,0.10);color:#0A3452;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h4"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Ledger Statement</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Ledger Statement</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Complete record of funds credited, debited and settled.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Complete record of funds credited, debited and settled.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(2,66,43,0.10);color:#02422B;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Holdings Statement</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Holdings Statement</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Snapshot of demat holdings and valuation as of a chosen date.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Snapshot of demat holdings and valuation as of a chosen date.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,132,85,0.10);color:#008455;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Trade Book</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Trade Book</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Every executed order across brokers for the selected period.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Every executed order across brokers for the selected period.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(10,52,82,0.10);color:#0A3452;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-              <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">Algo Performance</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Algo Performance</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">Strategy-wise returns, drawdown and win rate for your algos.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Strategy-wise returns, drawdown and win rate for your algos.</p>
             <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Inter',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
+              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
             </div>
           </div>
 
@@ -215,7 +215,7 @@
 
       <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #EDE9DA">
-          <h2 style="font:600 15px 'Inter',sans-serif;margin:0;color:#33423A">Recently generated</h2>
+          <h2 style="font:600 15px 'Lato',sans-serif;margin:0;color:#33423A">Recently generated</h2>
         </div>
 
         <div style="display:grid;grid-template-columns:1.6fr 1fr 0.8fr 1fr 0.8fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
@@ -228,49 +228,49 @@
 
         <sc-for list="{{ history }}" as="h" hint-placeholder-count="5">
           <div style="display:grid;grid-template-columns:1.6fr 1fr 0.8fr 1fr 0.8fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
-            <span style="font:600 14px 'Inter',sans-serif;color:#0F1D16">{{ h.name }}</span>
-            <span style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60">{{ h.period }}</span>
-            <span style="display:inline-block;padding:4px 10px;border-radius:6px;background:#F0EEE2;color:#5B6A60;font:600 11.5px 'Inter',sans-serif;width:fit-content">{{ h.format }}</span>
-            <span style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60">{{ h.date }}</span>
+            <span style="font:600 14px 'Lato',sans-serif;color:#0F1D16">{{ h.name }}</span>
+            <span style="font:400 13.5px 'Lato',sans-serif;color:#5B6A60">{{ h.period }}</span>
+            <span style="display:inline-block;padding:4px 10px;border-radius:6px;background:#F0EEE2;color:#5B6A60;font:600 11.5px 'Lato',sans-serif;width:fit-content">{{ h.format }}</span>
+            <span style="font:400 13.5px 'Lato',sans-serif;color:#5B6A60">{{ h.date }}</span>
             <span style="text-align:right">
-              <button style="padding:7px 14px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12.5px 'Inter',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#FBF3D9" onClick="{{ noop }}">Download</button>
+              <button style="padding:7px 14px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#FBF3D9" onClick="{{ noop }}">Download</button>
             </span>
           </div>
         </sc-for>
       </div>
 
-      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Reports are generated from your connected brokers and may take a few minutes to reflect same-day trades.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Reports are generated from your connected brokers and may take a few minutes to reflect same-day trades.</p>
 
       <div style="margin:8px -40px -48px;padding:32px 40px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;gap:24px">
         <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:24px">
           <div style="display:flex;flex-direction:column;gap:10px">
             <img src="assets/qode-logo-white.svg" alt="Qode" style="height:22px;display:block"/>
-            <p style="font:400 12.5px/1.6 'Inter',sans-serif;color:#B9C7BC;margin:0;max-width:280px">Research-backed algo strategies, executed through your own broker. You retain full control of capital and execution. Trading algos are subject to market risk.</p>
+            <p style="font:400 12.5px/1.6 'Lato',sans-serif;color:#B9C7BC;margin:0;max-width:280px">Research-backed algo strategies, executed through your own broker. You retain full control of capital and execution. Trading algos are subject to market risk.</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Product</span>
-            <a href="Positions.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Positions</a>
-            <a href="My%20Algos.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">My Algos</a>
-            <a href="Marketplace.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Marketplace</a>
-            <a href="Reports.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Reports</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Product</span>
+            <a href="Positions.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Positions</a>
+            <a href="My%20Algos.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">My Algos</a>
+            <a href="Marketplace.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Marketplace</a>
+            <a href="Reports.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Reports</a>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Support</span>
-            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Help Center</a>
-            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Raise a ticket</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Contact us</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Support</span>
+            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Help Center</a>
+            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Raise a ticket</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Contact us</a>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Legal</span>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Terms &amp; Conditions</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Privacy Policy</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Risk Disclosure Document</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Investor Grievance</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Legal</span>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Terms &amp; Conditions</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Privacy Policy</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Risk Disclosure Document</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Investor Grievance</a>
           </div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:20px;border-top:1px solid rgba(239,237,195,0.15)">
-          <span style="font:400 11.5px 'Inter',sans-serif;color:rgba(239,237,195,0.6)">&copy; 2026 Qode Algo Pvt. Ltd. All rights reserved.</span>
-          <span style="font:400 11.5px 'Inter',sans-serif;color:rgba(239,237,195,0.6)">SEBI RA Reg. No. INHXXXXXXXXX &middot; CIN U67XXXMHXXXXPTCXXXXXX</span>
+          <span style="font:400 11.5px 'Lato',sans-serif;color:rgba(239,237,195,0.6)">&copy; 2026 Qode Algo Pvt. Ltd. All rights reserved.</span>
+          <span style="font:400 11.5px 'Lato',sans-serif;color:rgba(239,237,195,0.6)">SEBI RA Reg. No. INHXXXXXXXXX &middot; CIN U67XXXMHXXXXPTCXXXXXX</span>
         </div>
       </div>
     </div>
@@ -284,7 +284,7 @@ class Component extends DCLogic {
 
   renderVals() {
     const panelOpen = this.state.panelOpen;
-    const headStyle = "font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
+    const headStyle = "font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
 
     return {
       headStyle,

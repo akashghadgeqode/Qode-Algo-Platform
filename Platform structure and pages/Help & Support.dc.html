@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   body{margin:0}
   *{box-sizing:border-box}
@@ -21,7 +21,7 @@
 </style>
 </helmet>
 
-<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
 
   <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
     <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
@@ -36,22 +36,22 @@
         <div style="padding:0 24px;display:flex;flex-direction:column;gap:14px;flex:1;min-height:0">
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Contact us</span>
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Contact us</span>
             <div style="display:flex;align-items:center;gap:9px">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
-              <span style="font:500 12.5px 'Inter',sans-serif;color:#EFEDC3">support@qodealgo.com</span>
+              <span style="font:500 12.5px 'Lato',sans-serif;color:#EFEDC3">support@qodealgo.com</span>
             </div>
             <div style="display:flex;align-items:center;gap:9px">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
-              <span style="font:500 12.5px 'Inter',sans-serif;color:#EFEDC3">+91 22 6821 4400</span>
+              <span style="font:500 12.5px 'Lato',sans-serif;color:#EFEDC3">+91 22 6821 4400</span>
             </div>
-            <p style="font:400 11.5px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.6);margin:0">Mon&ndash;Fri, 9:00&ndash;18:00 IST</p>
+            <p style="font:400 11.5px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.6);margin:0">Mon&ndash;Fri, 9:00&ndash;18:00 IST</p>
           </div>
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:6px;display:flex;flex-direction:column">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px 2px">Popular topics</span>
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px 2px">Popular topics</span>
             <sc-for list="{{ popularTopics }}" as="t" hint-placeholder-count="4">
-              <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Inter',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+              <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Lato',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>
                 {{ t }}
               </button>
@@ -65,9 +65,9 @@
       <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
       <div style="display:flex;align-items:center;gap:10px">
         <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">Nuvama connected</span>
+        <span style="font:500 12.5px 'Lato',sans-serif;color:#CFE0D6">Nuvama connected</span>
       </div>
-      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
     </div>
   </div>
 
@@ -75,34 +75,34 @@
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30">
       <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
-        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
+        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
           Portfolio
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
-            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
-            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
-            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
-            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
+            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
+            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
+            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
+            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
           </div>
         </sc-if>
       </div>
-      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
-      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
-      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
-      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-      <a href="Help%20%26%20Support.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Inter',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">Help &amp; Support</a>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
+      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
+      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">Help &amp; Support</a>
     </nav>
 
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
-        <h1 style="font:600 22px 'Fraunces',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Help &amp; Support</h1>
-        <p style="font:400 13px 'Inter',sans-serif;color:#5B6A60;margin:0">Browse help articles or raise a support ticket</p>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Help &amp; Support</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Browse help articles or raise a support ticket</p>
       </div>
       <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none">
-        <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
-        <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A">Aditya Mehta</span>
+        <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Lato',sans-serif">AM</div>
+        <span style="font:500 13.5px 'Lato',sans-serif;color:#33423A">Aditya Mehta</span>
       </a>
     </div>
 
@@ -110,16 +110,16 @@
 
       <div style="display:flex;flex-direction:column;gap:14px">
         <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <h2 style="font:600 16px 'Fraunces',serif;margin:0;color:#02422B">Help articles</h2>
-          <a href="#" style="font:600 12.5px 'Inter',sans-serif">View all articles</a>
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:#02422B">Help articles</h2>
+          <a href="#" style="font:600 12.5px 'Lato',sans-serif">View all articles</a>
         </div>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
           <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
             <a href="#" style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit">
-              <span style="display:inline-block;padding:4px 10px;border-radius:6px;background:{{ a.tagBg }};color:{{ a.tagColor }};font:600 11px 'Inter',sans-serif;width:fit-content">{{ a.category }}</span>
-              <span style="font:600 15px 'Inter',sans-serif;color:#0F1D16;line-height:1.3">{{ a.title }}</span>
-              <p style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0;flex:1">{{ a.excerpt }}</p>
-              <span style="font:500 11.5px 'Inter',sans-serif;color:#9AA294">{{ a.readTime }}</span>
+              <span style="display:inline-block;padding:4px 10px;border-radius:6px;background:{{ a.tagBg }};color:{{ a.tagColor }};font:600 11px 'Lato',sans-serif;width:fit-content">{{ a.category }}</span>
+              <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16;line-height:1.3">{{ a.title }}</span>
+              <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">{{ a.excerpt }}</p>
+              <span style="font:500 11.5px 'Lato',sans-serif;color:#9AA294">{{ a.readTime }}</span>
             </a>
           </sc-for>
         </div>
@@ -130,31 +130,31 @@
         <sc-if value="{{ ticketSubmitted }}" hint-placeholder-val="{{ false }}">
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
             <span style="width:48px;height:48px;border-radius:50%;background:rgba(10,122,74,0.12);display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A7A4A" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <h2 style="font:600 19px 'Fraunces',serif;margin:0;color:#02422B">Ticket submitted</h2>
-            <p style="font:400 14px/1.6 'Inter',sans-serif;color:#5B6A60;margin:0">Your ticket <strong style="color:#0F1D16">{{ ticketId }}</strong> has been raised. We&#39;ll email a response to <strong style="color:#0F1D16">{{ form.email }}</strong> within one business day.</p>
-            <button style="padding:10px 20px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ resetTicket }}">Raise another ticket</button>
+            <h2 style="font:600 19px 'Playfair Display',serif;margin:0;color:#02422B">Ticket submitted</h2>
+            <p style="font:400 14px/1.6 'Lato',sans-serif;color:#5B6A60;margin:0">Your ticket <strong style="color:#0F1D16">{{ ticketId }}</strong> has been raised. We&#39;ll email a response to <strong style="color:#0F1D16">{{ form.email }}</strong> within one business day.</p>
+            <button style="padding:10px 20px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ resetTicket }}">Raise another ticket</button>
           </div>
         </sc-if>
 
         <sc-if value="{{ ticketNotSubmitted }}" hint-placeholder-val="{{ true }}">
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:18px">
             <div>
-              <h2 style="font:600 17px 'Fraunces',serif;margin:0 0 4px;color:#02422B">Raise a support ticket</h2>
-              <p style="font:400 13px 'Inter',sans-serif;color:#5B6A60;margin:0">We&#39;ll reply by email &mdash; usually within one business day.</p>
+              <h2 style="font:600 17px 'Playfair Display',serif;margin:0 0 4px;color:#02422B">Raise a support ticket</h2>
+              <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">We&#39;ll reply by email &mdash; usually within one business day.</p>
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:16px">
               <label style="display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 12.5px 'Inter',sans-serif;color:#33423A">Name</span>
-                <input type="text" value="{{ form.name }}" onChange="{{ setName }}" placeholder="Your full name" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+                <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Name</span>
+                <input type="text" value="{{ form.name }}" onChange="{{ setName }}" placeholder="Your full name" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Lato',sans-serif;background:#fff;color:#0F1D16"/>
               </label>
               <label style="display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 12.5px 'Inter',sans-serif;color:#33423A">Email</span>
-                <input type="email" value="{{ form.email }}" onChange="{{ setEmail }}" placeholder="you@example.com" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+                <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Email</span>
+                <input type="email" value="{{ form.email }}" onChange="{{ setEmail }}" placeholder="you@example.com" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Lato',sans-serif;background:#fff;color:#0F1D16"/>
               </label>
               <label style="display:flex;flex-direction:column;gap:6px;grid-column:1 / -1">
-                <span style="font:500 12.5px 'Inter',sans-serif;color:#33423A">Category</span>
-                <select value="{{ form.category }}" onChange="{{ setCategory }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Inter',sans-serif;background:#fff;color:#0F1D16">
+                <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Category</span>
+                <select value="{{ form.category }}" onChange="{{ setCategory }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Lato',sans-serif;background:#fff;color:#0F1D16">
                   <option value="Broker connection">Broker connection</option>
                   <option value="Orders & execution">Orders &amp; execution</option>
                   <option value="Billing & subscriptions">Billing &amp; subscriptions</option>
@@ -163,67 +163,67 @@
                 </select>
               </label>
               <label style="display:flex;flex-direction:column;gap:6px;grid-column:1 / -1">
-                <span style="font:500 12.5px 'Inter',sans-serif;color:#33423A">Subject</span>
-                <input type="text" value="{{ form.subject }}" onChange="{{ setSubject }}" placeholder="Brief summary of the issue" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+                <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Subject</span>
+                <input type="text" value="{{ form.subject }}" onChange="{{ setSubject }}" placeholder="Brief summary of the issue" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Lato',sans-serif;background:#fff;color:#0F1D16"/>
               </label>
               <label style="display:flex;flex-direction:column;gap:6px;grid-column:1 / -1">
-                <span style="font:500 12.5px 'Inter',sans-serif;color:#33423A">Message</span>
-                <textarea value="{{ form.message }}" onChange="{{ setMessage }}" placeholder="Describe what's happening, including any error messages" rows="5" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px/1.5 'Inter',sans-serif;background:#fff;color:#0F1D16;resize:vertical"></textarea>
+                <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Message</span>
+                <textarea value="{{ form.message }}" onChange="{{ setMessage }}" placeholder="Describe what's happening, including any error messages" rows="5" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px/1.5 'Lato',sans-serif;background:#fff;color:#0F1D16;resize:vertical"></textarea>
               </label>
             </div>
 
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <span style="font:400 12px/1.5 'Inter',sans-serif;color:#9AA294">By submitting you agree to be contacted by email about this ticket.</span>
+              <span style="font:400 12px/1.5 'Lato',sans-serif;color:#9AA294">By submitting you agree to be contacted by email about this ticket.</span>
               <button disabled="{{ submitDisabled }}" style="{{ submitStyle }}" onClick="{{ submitTicket }}">Submit ticket</button>
             </div>
           </div>
         </sc-if>
 
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:24px 26px;display:flex;flex-direction:column;gap:16px">
-          <h2 style="font:600 15px 'Inter',sans-serif;margin:0;color:#33423A">Frequently asked</h2>
+          <h2 style="font:600 15px 'Lato',sans-serif;margin:0;color:#33423A">Frequently asked</h2>
           <div style="display:flex;flex-direction:column;gap:14px">
             <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
               <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:14px;border-bottom:1px solid #F1EEE2">
-                <span style="font:600 13.5px 'Inter',sans-serif;color:#0F1D16">{{ f.q }}</span>
-                <span style="font:400 12.5px/1.5 'Inter',sans-serif;color:#5B6A60">{{ f.a }}</span>
+                <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ f.q }}</span>
+                <span style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60">{{ f.a }}</span>
               </div>
             </sc-for>
           </div>
         </div>
       </div>
 
-      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Support does not include investment advice specific to your holdings.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Support does not include investment advice specific to your holdings.</p>
 
       <div style="margin:8px -40px -48px;padding:32px 40px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;gap:24px">
         <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:24px">
           <div style="display:flex;flex-direction:column;gap:10px">
             <img src="assets/qode-logo-white.svg" alt="Qode" style="height:22px;display:block"/>
-            <p style="font:400 12.5px/1.6 'Inter',sans-serif;color:#B9C7BC;margin:0;max-width:280px">Research-backed algo strategies, executed through your own broker. You retain full control of capital and execution. Trading algos are subject to market risk.</p>
+            <p style="font:400 12.5px/1.6 'Lato',sans-serif;color:#B9C7BC;margin:0;max-width:280px">Research-backed algo strategies, executed through your own broker. You retain full control of capital and execution. Trading algos are subject to market risk.</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Product</span>
-            <a href="Positions.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Positions</a>
-            <a href="My%20Algos.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">My Algos</a>
-            <a href="Marketplace.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Marketplace</a>
-            <a href="Reports.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Reports</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Product</span>
+            <a href="Positions.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Positions</a>
+            <a href="My%20Algos.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">My Algos</a>
+            <a href="Marketplace.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Marketplace</a>
+            <a href="Reports.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Reports</a>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Support</span>
-            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Help Center</a>
-            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Raise a ticket</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Contact us</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Support</span>
+            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Help Center</a>
+            <a href="Help%20%26%20Support.dc.html" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Raise a ticket</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Contact us</a>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 12px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Legal</span>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Terms &amp; Conditions</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Privacy Policy</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Risk Disclosure Document</a>
-            <a href="#" style="font:400 13px 'Inter',sans-serif;color:#CFE0D6">Investor Grievance</a>
+            <span style="font:600 12px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Legal</span>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Terms &amp; Conditions</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Privacy Policy</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Risk Disclosure Document</a>
+            <a href="#" style="font:400 13px 'Lato',sans-serif;color:#CFE0D6">Investor Grievance</a>
           </div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:20px;border-top:1px solid rgba(239,237,195,0.15)">
-          <span style="font:400 11.5px 'Inter',sans-serif;color:rgba(239,237,195,0.6)">&copy; 2026 Qode Algo Pvt. Ltd. All rights reserved.</span>
-          <span style="font:400 11.5px 'Inter',sans-serif;color:rgba(239,237,195,0.6)">SEBI RA Reg. No. INHXXXXXXXXX &middot; CIN U67XXXMHXXXXPTCXXXXXX</span>
+          <span style="font:400 11.5px 'Lato',sans-serif;color:rgba(239,237,195,0.6)">&copy; 2026 Qode Algo Pvt. Ltd. All rights reserved.</span>
+          <span style="font:400 11.5px 'Lato',sans-serif;color:rgba(239,237,195,0.6)">SEBI RA Reg. No. INHXXXXXXXXX &middot; CIN U67XXXMHXXXXPTCXXXXXX</span>
         </div>
       </div>
     </div>
@@ -282,7 +282,7 @@ class Component extends DCLogic {
       setSubject: setField("subject"),
       setMessage: setField("message"),
       submitDisabled: !canSubmit,
-      submitStyle: "padding:11px 24px;border-radius:9px;border:none;font:600 13.5px 'Inter',sans-serif;cursor:" + (canSubmit ? "pointer" : "not-allowed") + ";background:" + (canSubmit ? "#02422B" : "#DDE3D8") + ";color:" + (canSubmit ? "#EFEDC3" : "#9AA294") + ";white-space:nowrap",
+      submitStyle: "padding:11px 24px;border-radius:9px;border:none;font:600 13.5px 'Lato',sans-serif;cursor:" + (canSubmit ? "pointer" : "not-allowed") + ";background:" + (canSubmit ? "#02422B" : "#DDE3D8") + ";color:" + (canSubmit ? "#EFEDC3" : "#9AA294") + ";white-space:nowrap",
       submitTicket: () => {
         if (!canSubmit) return;
         const id = "QA-" + Math.floor(10000 + Math.random() * 89999);

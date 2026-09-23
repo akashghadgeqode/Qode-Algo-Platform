@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   body{margin:0}
   *{box-sizing:border-box}
@@ -19,7 +19,7 @@
 </style>
 </helmet>
 
-<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
 
   <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
     <div style="display:flex;flex-direction:column;gap:18px">
@@ -28,7 +28,7 @@
         <div style="display:flex;align-items:center;gap:8px">
           <button style="position:relative;width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ noop }}" aria-label="Notifications">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#DABD38;color:#02422B;font:700 9px 'Inter',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
+            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#DABD38;color:#02422B;font:700 9px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
           </button>
           <button style="width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
@@ -39,11 +39,11 @@
       <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px">
         <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:9px;background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <input type="text" placeholder="Jump to algo or symbol" style="border:none;outline:none;background:transparent;font:400 12.5px 'Inter',sans-serif;color:#EFEDC3;width:100%"/>
+          <input type="text" placeholder="Jump to algo or symbol" style="border:none;outline:none;background:transparent;font:400 12.5px 'Lato',sans-serif;color:#EFEDC3;width:100%"/>
         </label>
         <div style="display:flex;align-items:center;gap:7px">
           <div style="width:7px;height:7px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-          <span style="font:500 12px 'Inter',sans-serif;color:#CFE0D6;white-space:nowrap">Market open &middot; closes 15:30 IST</span>
+          <span style="font:500 12px 'Lato',sans-serif;color:#CFE0D6;white-space:nowrap">Market open &middot; closes 15:30 IST</span>
         </div>
       </div>
 
@@ -52,8 +52,8 @@
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:12px">
             <div style="display:flex;align-items:baseline;justify-content:space-between">
-              <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0">Profile completion</span>
-              <span style="font:700 12px 'Inter',sans-serif;color:#EFEDC3;white-space:nowrap;flex-shrink:0">{{ completionPct }}%</span>
+              <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0">Profile completion</span>
+              <span style="font:700 12px 'Lato',sans-serif;color:#EFEDC3;white-space:nowrap;flex-shrink:0">{{ completionPct }}%</span>
             </div>
             <div style="height:5px;border-radius:3px;background:rgba(239,237,195,0.15);overflow:hidden;margin-top:2px">
               <div style="height:100%;border-radius:3px;background:#DABD38;width:{{ completionPct }}%"></div>
@@ -66,32 +66,32 @@
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#02422B" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>
                     </sc-if>
                   </span>
-                  <span style="font:400 12.5px 'Inter',sans-serif;color:{{ item.textColor }};white-space:nowrap">{{ item.label }}</span>
+                  <span style="font:400 12.5px 'Lato',sans-serif;color:{{ item.textColor }};white-space:nowrap">{{ item.label }}</span>
                 </div>
               </sc-for>
             </div>
           </div>
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:6px;display:flex;flex-direction:column">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px 2px">Quick links</span>
-            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Inter',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px 2px">Quick links</span>
+            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Lato',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
               Change password
             </button>
-            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Inter',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Lato',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
               Download statements
             </button>
-            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Inter',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+            <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:#DCE7DF;font:500 12.5px 'Lato',sans-serif;cursor:pointer;text-align:left" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
               Manage devices
             </button>
           </div>
 
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Need help?</span>
-            <span style="font:400 12px/1.5 'Inter',sans-serif;color:#CFE0D6">Talk to your relationship manager or raise a support ticket.</span>
-            <button style="padding:8px 0;border-radius:8px;border:none;background:#DABD38;color:#02422B;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:#E8CE5C" onClick="{{ noop }}">Contact Support</button>
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Need help?</span>
+            <span style="font:400 12px/1.5 'Lato',sans-serif;color:#CFE0D6">Talk to your relationship manager or raise a support ticket.</span>
+            <button style="padding:8px 0;border-radius:8px;border:none;background:#DABD38;color:#02422B;font:600 12.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:#E8CE5C" onClick="{{ noop }}">Contact Support</button>
           </div>
         </div>
       </sc-if>
@@ -101,9 +101,9 @@
       <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
       <div style="display:flex;align-items:center;gap:10px">
         <div style="width:8px;height:8px;border-radius:50%;background:{{ brokerDotColor }};flex-shrink:0"></div>
-        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">{{ brokerStatusLabel }}</span>
+        <span style="font:500 12.5px 'Lato',sans-serif;color:#CFE0D6">{{ brokerStatusLabel }}</span>
       </div>
-      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
     </div>
   </div>
 
@@ -111,39 +111,39 @@
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30">
       <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
-        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
+        <button style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
           Portfolio
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
-            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
-            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
-            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
-            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
+            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
+            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
+            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
+            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
           </div>
         </sc-if>
       </div>
-      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
-      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
-      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
-      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
+      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
+      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
     </nav>
 
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
-        <h1 style="font:600 22px 'Fraunces',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Profile</h1>
-        <p style="font:400 13px 'Inter',sans-serif;color:#5B6A60;margin:0">Manage your account, broker connection and funds</p>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Profile</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Manage your account, broker connection and funds</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
-        <button style="display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13.5px 'Inter',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap;flex-shrink:0" onClick="{{ openBrokerModal }}">
+        <button style="display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13.5px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap;flex-shrink:0" onClick="{{ openBrokerModal }}">
           <span style="width:8px;height:8px;border-radius:50%;background:#4CAF7D"></span>
           Broker connected
         </button>
         <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none" aria-label="View profile">
-          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
-          <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A">{{ name }}</span>
+          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Lato',sans-serif">AM</div>
+          <span style="font:500 13.5px 'Lato',sans-serif;color:#33423A">{{ name }}</span>
         </a>
       </div>
     </div>
@@ -151,36 +151,36 @@
     <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px;max-width:1100px">
 
       <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:22px">
-        <h2 style="font:600 17px 'Fraunces',serif;margin:0;color:#02422B">Personal details</h2>
+        <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:#02422B">Personal details</h2>
         <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:20px">
           <label style="display:flex;flex-direction:column;gap:7px">
-            <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089">Name</span>
-            <input type="text" value="{{ name }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Inter',sans-serif;color:#33423A"/>
+            <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089">Name</span>
+            <input type="text" value="{{ name }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Lato',sans-serif;color:#33423A"/>
           </label>
           <div style="display:flex;flex-direction:column;gap:7px">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;white-space:nowrap;flex-shrink:0">Phone number</span>
-              <span style="display:flex;align-items:center;gap:5px;font:600 12px 'Inter',sans-serif;color:#0A7A4A;white-space:nowrap;flex-shrink:0">
+              <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;white-space:nowrap;flex-shrink:0">Phone number</span>
+              <span style="display:flex;align-items:center;gap:5px;font:600 12px 'Lato',sans-serif;color:#0A7A4A;white-space:nowrap;flex-shrink:0">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
                 Verified
               </span>
             </div>
-            <input type="text" value="{{ phone }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Inter',sans-serif;color:#33423A"/>
+            <input type="text" value="{{ phone }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Lato',sans-serif;color:#33423A"/>
           </div>
           <div style="display:flex;flex-direction:column;gap:7px;grid-column:1 / -1;max-width:calc(50% - 12px)">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;white-space:nowrap;flex-shrink:0">Email</span>
+              <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;white-space:nowrap;flex-shrink:0">Email</span>
               <sc-if value="{{ emailVerified }}" hint-placeholder-val="{{ false }}">
-                <span style="display:flex;align-items:center;gap:5px;font:600 12px 'Inter',sans-serif;color:#0A7A4A;white-space:nowrap;flex-shrink:0">
+                <span style="display:flex;align-items:center;gap:5px;font:600 12px 'Lato',sans-serif;color:#0A7A4A;white-space:nowrap;flex-shrink:0">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
                   Verified
                 </span>
               </sc-if>
               <sc-if value="{{ emailNotVerified }}" hint-placeholder-val="{{ true }}">
-                <button style="font:600 12px 'Inter',sans-serif;color:#B54B3A;background:transparent;border:none;cursor:pointer;padding:0;white-space:nowrap;flex-shrink:0" onClick="{{ noop }}">Not verified &middot; Resend link</button>
+                <button style="font:600 12px 'Lato',sans-serif;color:#B54B3A;background:transparent;border:none;cursor:pointer;padding:0;white-space:nowrap;flex-shrink:0" onClick="{{ noop }}">Not verified &middot; Resend link</button>
               </sc-if>
             </div>
-            <input type="email" value="{{ email }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Inter',sans-serif;color:#33423A"/>
+            <input type="email" value="{{ email }}" readonly style="padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:400 15px 'Lato',sans-serif;color:#33423A"/>
           </div>
         </div>
       </div>
@@ -189,37 +189,37 @@
 
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:20px">
           <div style="display:flex;align-items:center;justify-content:space-between">
-            <h2 style="font:600 17px 'Fraunces',serif;margin:0;color:#02422B">Broker details</h2>
-            <button style="font:600 12.5px 'Inter',sans-serif;color:#02422B;background:transparent;border:none;cursor:pointer;padding:0;white-space:nowrap;flex-shrink:0" onClick="{{ openBrokerModal }}">+ Connect another broker</button>
+            <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:#02422B">Broker details</h2>
+            <button style="font:600 12.5px 'Lato',sans-serif;color:#02422B;background:transparent;border:none;cursor:pointer;padding:0;white-space:nowrap;flex-shrink:0" onClick="{{ openBrokerModal }}">+ Connect another broker</button>
           </div>
           <div style="display:grid;grid-template-columns:1.1fr 1fr 1fr;column-gap:20px;padding-bottom:6px;border-bottom:1px solid #EDE9DA">
-            <span style="font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Broker</span>
-            <span style="font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Demat ID</span>
-            <span style="font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Depository</span>
+            <span style="font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Broker</span>
+            <span style="font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Demat ID</span>
+            <span style="font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Depository</span>
           </div>
           <div style="display:grid;grid-template-columns:1.1fr 1fr 1fr;column-gap:20px;align-items:center">
             <span style="display:flex;align-items:center;gap:10px">
-              <span style="width:26px;height:26px;border-radius:7px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 11px 'Inter',sans-serif;flex-shrink:0">N</span>
-              <span style="font:500 14.5px 'Inter',sans-serif;color:#0F1D16">Nuvama</span>
+              <span style="width:26px;height:26px;border-radius:7px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 11px 'Lato',sans-serif;flex-shrink:0">N</span>
+              <span style="font:500 14.5px 'Lato',sans-serif;color:#0F1D16">Nuvama</span>
             </span>
-            <span style="font:400 14.5px 'Inter',sans-serif;color:#33423A">IN30XXXX12345678</span>
-            <span style="font:400 14.5px 'Inter',sans-serif;color:#33423A">CDSL</span>
+            <span style="font:400 14.5px 'Lato',sans-serif;color:#33423A">IN30XXXX12345678</span>
+            <span style="font:400 14.5px 'Lato',sans-serif;color:#33423A">CDSL</span>
           </div>
         </div>
 
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
-          <h2 style="font:600 17px 'Fraunces',serif;margin:0;color:#02422B">Funds</h2>
+          <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:#02422B">Funds</h2>
           <div style="display:flex;flex-direction:column;gap:7px">
-            <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089">Total balance</span>
+            <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089">Total balance</span>
             <div style="display:flex;gap:10px">
-              <input type="text" value="{{ balance }}" readonly style="flex:1;min-width:0;padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:600 15px 'Inter',sans-serif;color:#02422B;white-space:nowrap"/>
-              <button style="padding:0 18px;border-radius:9px;border:none;background:#02422B;color:#EFEDC3;font:600 13.5px 'Inter',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#0A5C3B" onClick="{{ noop }}">Add Funds</button>
+              <input type="text" value="{{ balance }}" readonly style="flex:1;min-width:0;padding:12px 14px;border-radius:9px;border:1.5px solid #E9E5D6;background:#FAF9F3;font:600 15px 'Lato',sans-serif;color:#02422B;white-space:nowrap"/>
+              <button style="padding:0 18px;border-radius:9px;border:none;background:#02422B;color:#EFEDC3;font:600 13.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#0A5C3B" onClick="{{ noop }}">Add Funds</button>
             </div>
           </div>
         </div>
       </div>
 
-      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst. Broker balances and identity details are shown as reported by your connected broker.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst. Broker balances and identity details are shown as reported by your connected broker.</p>
     </div>
   </div>
 
@@ -227,25 +227,25 @@
     <div style="position:fixed;inset:0;background:rgba(0,32,23,0.55);display:flex;align-items:center;justify-content:center;z-index:50" onClick="{{ closeBrokerModal }}">
       <div style="background:#fff;border-radius:18px;width:440px;max-width:90vw;padding:32px;display:flex;flex-direction:column;gap:22px" onClick="{{ stopClick }}">
         <div style="display:flex;align-items:center;justify-content:space-between">
-          <h2 style="font:600 20px 'Fraunces',serif;margin:0;color:#02422B">Connect a broker</h2>
+          <h2 style="font:600 20px 'Playfair Display',serif;margin:0;color:#02422B">Connect a broker</h2>
           <button style="width:30px;height:30px;border-radius:50%;border:none;background:#F0EEE2;color:#5B6A60;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ closeBrokerModal }}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
-        <p style="font:400 14px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0">Choose your broker to authorise Qode to place trades on your behalf. Your credentials are never stored by us.</p>
+        <p style="font:400 14px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0">Choose your broker to authorise Qode to place trades on your behalf. Your credentials are never stored by us.</p>
         <div style="display:flex;flex-direction:column;gap:12px">
           <sc-for list="{{ brokers }}" as="broker" hint-placeholder-count="3">
             <button style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;border:1.5px solid #E9E5D6;background:#FAF9F3;cursor:pointer;text-align:left" style-hover="border-color:#02422B" onClick="{{ noop }}">
-              <span style="width:38px;height:38px;border-radius:9px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 14px 'Inter',sans-serif;flex-shrink:0">{{ broker.initial }}</span>
+              <span style="width:38px;height:38px;border-radius:9px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 14px 'Lato',sans-serif;flex-shrink:0">{{ broker.initial }}</span>
               <span style="display:flex;flex-direction:column;gap:2px">
-                <span style="font:600 15px 'Inter',sans-serif;color:#0F1D16">{{ broker.name }}</span>
-                <span style="font:400 12.5px 'Inter',sans-serif;color:#8A9089">{{ broker.desc }}</span>
+                <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16">{{ broker.name }}</span>
+                <span style="font:400 12.5px 'Lato',sans-serif;color:#8A9089">{{ broker.desc }}</span>
               </span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA294" stroke-width="2.2" style="margin-left:auto;flex-shrink:0"><path d="M9 6l6 6-6 6"/></svg>
             </button>
           </sc-for>
         </div>
-        <p style="font:400 11.5px/1.5 'Inter',sans-serif;color:#9AA294;margin:0">You&#39;ll be redirected to your broker to authenticate and grant trade permissions.</p>
+        <p style="font:400 11.5px/1.5 'Lato',sans-serif;color:#9AA294;margin:0">You&#39;ll be redirected to your broker to authenticate and grant trade permissions.</p>
       </div>
     </div>
   </sc-if>

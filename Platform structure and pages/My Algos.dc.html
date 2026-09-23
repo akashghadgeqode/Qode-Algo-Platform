@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   body{margin:0}
   *{box-sizing:border-box}
@@ -19,7 +19,7 @@
 </style>
 </helmet>
 
-<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
 
   <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
     <div style="display:flex;flex-direction:column;gap:18px">
@@ -28,7 +28,7 @@
         <div style="display:flex;align-items:center;gap:8px">
           <button style="position:relative;width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ noop }}" aria-label="Notifications">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#DABD38;color:#02422B;font:700 9px 'Inter',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
+            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#DABD38;color:#02422B;font:700 9px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
           </button>
           <button style="width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
@@ -39,31 +39,31 @@
       <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px">
         <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:9px;background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <input type="text" placeholder="Jump to algo or symbol" style="border:none;outline:none;background:transparent;font:400 12.5px 'Inter',sans-serif;color:#EFEDC3;width:100%"/>
+          <input type="text" placeholder="Jump to algo or symbol" style="border:none;outline:none;background:transparent;font:400 12.5px 'Lato',sans-serif;color:#EFEDC3;width:100%"/>
         </label>
         <div style="display:flex;align-items:center;gap:7px">
           <div style="width:7px;height:7px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-          <span style="font:500 12px 'Inter',sans-serif;color:#CFE0D6;white-space:nowrap">Market open &middot; closes 15:30 IST</span>
+          <span style="font:500 12px 'Lato',sans-serif;color:#CFE0D6;white-space:nowrap">Market open &middot; closes 15:30 IST</span>
         </div>
       </div>
 
       <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
         <div style="padding:8px 24px 0;display:flex;flex-direction:column;gap:10px">
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Account snapshot</span>
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Account snapshot</span>
             <div style="display:flex;align-items:baseline;justify-content:space-between">
-              <span style="font:400 12px 'Inter',sans-serif;color:#CFE0D6">Allocated</span>
-              <span style="font:600 13.5px 'Inter',sans-serif;color:#EFEDC3;white-space:nowrap">&#8377;16,00,000</span>
+              <span style="font:400 12px 'Lato',sans-serif;color:#CFE0D6">Allocated</span>
+              <span style="font:600 13.5px 'Lato',sans-serif;color:#EFEDC3;white-space:nowrap">&#8377;16,00,000</span>
             </div>
             <div style="display:flex;align-items:baseline;justify-content:space-between">
-              <span style="font:400 12px 'Inter',sans-serif;color:#CFE0D6">Today&#39;s P&amp;L</span>
-              <span style="font:600 13.5px 'Inter',sans-serif;color:#7FD9A8;white-space:nowrap">+&#8377;3,710</span>
+              <span style="font:400 12px 'Lato',sans-serif;color:#CFE0D6">Today&#39;s P&amp;L</span>
+              <span style="font:600 13.5px 'Lato',sans-serif;color:#7FD9A8;white-space:nowrap">+&#8377;3,710</span>
             </div>
           </div>
           <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-            <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Broker balance</span>
-            <span style="font:600 15px 'Inter',sans-serif;color:#EFEDC3;white-space:nowrap">&#8377;1,24,500.00</span>
-            <button style="padding:8px 0;border-radius:8px;border:none;background:#DABD38;color:#02422B;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:#E8CE5C" onClick="{{ noop }}">Add Funds</button>
+            <span style="font:600 11px 'Lato',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Broker balance</span>
+            <span style="font:600 15px 'Lato',sans-serif;color:#EFEDC3;white-space:nowrap">&#8377;1,24,500.00</span>
+            <button style="padding:8px 0;border-radius:8px;border:none;background:#DABD38;color:#02422B;font:600 12.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:#E8CE5C" onClick="{{ noop }}">Add Funds</button>
           </div>
         </div>
       </sc-if>
@@ -73,9 +73,9 @@
       <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
       <div style="display:flex;align-items:center;gap:10px">
         <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">Nuvama connected</span>
+        <span style="font:500 12.5px 'Lato',sans-serif;color:#CFE0D6">Nuvama connected</span>
       </div>
-      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
     </div>
   </div>
 
@@ -83,46 +83,46 @@
 
     <nav style="display:flex;align-items:center;gap:2px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;flex-wrap:wrap;position:relative;z-index:30">
       <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
-        <button style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px" onClick="{{ togglePortfolio }}">
+        <button style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px" onClick="{{ togglePortfolio }}">
           Portfolio
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
-            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
-            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
-            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
-            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
+            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
+            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
+            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
+            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Analytics</a>
           </div>
         </sc-if>
       </div>
-      <a href="My%20Algos.dc.html" aria-current="page" style="padding:8px 13px;border-radius:8px;font:600 13.5px 'Inter',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">My Algos</a>
-      <a href="Marketplace.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
-      <a href="Reports.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
-      <a href="#" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-      <a href="Help%20%26%20Support.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
+      <a href="My%20Algos.dc.html" aria-current="page" style="padding:8px 13px;border-radius:8px;font:600 13.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
+      <a href="Reports.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
+      <a href="#" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
     </nav>
 
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div style="display:flex;align-items:center;gap:28px">
         <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font:500 11.5px 'Inter',sans-serif;color:#8A9089">Nifty 50</span>
+          <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089">Nifty 50</span>
           <span style="display:flex;align-items:baseline;gap:8px;white-space:nowrap">
-            <span style="font:600 15px 'Inter',sans-serif;color:#0F1D16">23,417.30</span>
-            <span style="font:600 12.5px 'Inter',sans-serif;color:#0A7A4A">(+0.38%)</span>
+            <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16">23,417.30</span>
+            <span style="font:600 12.5px 'Lato',sans-serif;color:#0A7A4A">(+0.38%)</span>
           </span>
         </div>
         <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font:500 11.5px 'Inter',sans-serif;color:#8A9089">India VIX</span>
+          <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089">India VIX</span>
           <span style="display:flex;align-items:baseline;gap:8px;white-space:nowrap">
-            <span style="font:600 15px 'Inter',sans-serif;color:#0F1D16">10.35</span>
-            <span style="font:600 12.5px 'Inter',sans-serif;color:#B54B3A">(-5.91%)</span>
+            <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16">10.35</span>
+            <span style="font:600 12.5px 'Lato',sans-serif;color:#B54B3A">(-5.91%)</span>
           </span>
         </div>
       </div>
       <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none" aria-label="View profile">
-        <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
-        <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A">Aditya Mehta</span>
+        <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Lato',sans-serif">AM</div>
+        <span style="font:500 13.5px 'Lato',sans-serif;color:#33423A">Aditya Mehta</span>
       </a>
     </div>
 
@@ -131,7 +131,7 @@
       <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;gap:22px">
 
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
-          <h1 style="font:600 22px 'Fraunces',serif;margin:0;color:#02422B;white-space:nowrap">My Algos</h1>
+          <h1 style="font:600 22px 'Playfair Display',serif;margin:0;color:#02422B;white-space:nowrap">My Algos</h1>
           <div style="display:flex;align-items:center;gap:10px;margin-left:auto;white-space:nowrap">
             <span style="{{ todayLabelStyle }}">Today</span>
             <button style="{{ toggleTrackStyle }}" onClick="{{ toggleWindow }}">
@@ -143,24 +143,24 @@
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));column-gap:24px;row-gap:16px">
           <div style="display:flex;flex-direction:column;gap:6px">
-            <span style="font:500 12px 'Inter',sans-serif;color:#8A9089">Capital allocated</span>
-            <span style="font:600 21px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ allocated }}</span>
+            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089">Capital allocated</span>
+            <span style="font:600 21px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ allocated }}</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <span style="font:500 12px 'Inter',sans-serif;color:#8A9089">{{ pnlLabel1 }}</span>
-            <span style="font:600 21px 'Fraunces',serif;color:{{ pnlColor }};white-space:nowrap">{{ pnlValue1 }}</span>
+            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089">{{ pnlLabel1 }}</span>
+            <span style="font:600 21px 'Playfair Display',serif;color:{{ pnlColor }};white-space:nowrap">{{ pnlValue1 }}</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <span style="font:500 12px 'Inter',sans-serif;color:#8A9089">{{ pnlLabel2 }}</span>
-            <span style="font:600 21px 'Fraunces',serif;color:{{ pnlColor2 }};white-space:nowrap">{{ pnlValue2 }}</span>
+            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089">{{ pnlLabel2 }}</span>
+            <span style="font:600 21px 'Playfair Display',serif;color:{{ pnlColor2 }};white-space:nowrap">{{ pnlValue2 }}</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <span style="font:500 12px 'Inter',sans-serif;color:#8A9089">Active algos</span>
-            <span style="font:600 21px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ activeCount }}</span>
+            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089">Active algos</span>
+            <span style="font:600 21px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ activeCount }}</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <span style="font:500 12px 'Inter',sans-serif;color:#8A9089">Subscribed to</span>
-            <span style="font:600 21px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ subscribedCount }}</span>
+            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089">Subscribed to</span>
+            <span style="font:600 21px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ subscribedCount }}</span>
           </div>
         </div>
 
@@ -177,10 +177,10 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A9089" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
             </div>
             <div style="text-align:center;display:flex;flex-direction:column;gap:4px">
-              <span style="font:600 15px 'Inter',sans-serif;color:#33423A">{{ emptyTitle }}</span>
-              <span style="font:400 13.5px 'Inter',sans-serif;color:#8A9089">Deploy an algo to make your first automated trade</span>
+              <span style="font:600 15px 'Lato',sans-serif;color:#33423A">{{ emptyTitle }}</span>
+              <span style="font:400 13.5px 'Lato',sans-serif;color:#8A9089">Deploy an algo to make your first automated trade</span>
             </div>
-            <button style="padding:11px 22px;border-radius:9px;border:1.5px solid #02422B;background:transparent;color:#02422B;font:600 13.5px 'Inter',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#F0EEE2" onClick="{{ noop }}">Browse Marketplace &rarr;</button>
+            <button style="padding:11px 22px;border-radius:9px;border:1.5px solid #02422B;background:transparent;color:#02422B;font:600 13.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#F0EEE2" onClick="{{ noop }}">Browse Marketplace &rarr;</button>
           </div>
         </sc-if>
 
@@ -196,14 +196,14 @@
             <sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
               <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 0.9fr;column-gap:16px;align-items:center;padding:16px 20px;border-bottom:1px solid #F1EEE2">
                 <span style="display:flex;align-items:center;gap:12px">
-                  <span style="width:32px;height:32px;border-radius:8px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 12px 'Inter',sans-serif;flex-shrink:0">{{ row.initial }}</span>
-                  <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">{{ row.name }}</span>
+                  <span style="width:32px;height:32px;border-radius:8px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ row.initial }}</span>
+                  <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">{{ row.name }}</span>
                 </span>
-                <span style="font:500 14px 'Inter',sans-serif;color:#33423A;text-align:right;white-space:nowrap">{{ row.capital }}</span>
-                <span style="font:600 14px 'Inter',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.pnl }}</span>
+                <span style="font:500 14px 'Lato',sans-serif;color:#33423A;text-align:right;white-space:nowrap">{{ row.capital }}</span>
+                <span style="font:600 14px 'Lato',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.pnl }}</span>
                 <span><span style="{{ row.statusStyle }}">{{ row.status }}</span></span>
                 <span style="text-align:right">
-                  <button style="padding:7px 16px;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;color:#33423A;font:600 12.5px 'Inter',sans-serif;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">Manage</button>
+                  <button style="padding:7px 16px;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;color:#33423A;font:600 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">Manage</button>
                 </span>
               </div>
             </sc-for>
@@ -211,7 +211,7 @@
         </sc-if>
       </div>
 
-      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Past performance is not indicative of future returns. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Past performance is not indicative of future returns. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
     </div>
   </div>
 </div>
@@ -232,10 +232,10 @@ class Component extends DCLogic {
     const toggleOff = "position:relative;width:40px;height:22px;border-radius:11px;border:none;cursor:pointer;background:#DDE3D8;flex-shrink:0";
     const thumb = "position:absolute;top:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left 0.15s;left:" + (isToday ? "2px" : "20px");
 
-    const tabBase = "padding:8px 16px;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;color:#5B6A60;font:600 13px 'Inter',sans-serif;cursor:pointer;white-space:nowrap";
-    const tabActive = "padding:8px 16px;border-radius:8px;border:1.5px solid #02422B;background:#02422B;color:#EFEDC3;font:600 13px 'Inter',sans-serif;cursor:pointer;white-space:nowrap";
+    const tabBase = "padding:8px 16px;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;color:#5B6A60;font:600 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
+    const tabActive = "padding:8px 16px;border-radius:8px;border:1.5px solid #02422B;background:#02422B;color:#EFEDC3;font:600 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
 
-    const statusStyle = (bg, color) => "display:inline-block;padding:4px 10px;border-radius:20px;font:600 11.5px 'Inter',sans-serif;background:" + bg + ";color:" + color;
+    const statusStyle = (bg, color) => "display:inline-block;padding:4px 10px;border-radius:20px;font:600 11.5px 'Lato',sans-serif;background:" + bg + ";color:" + color;
 
     const allRows = [
       { initial: "AW", name: "Qode All Weather+", capital: "\u20b95,00,000", pnlToday: "+\u20b94,850", pnlOverall: "+\u20b962,400", statusStyle: statusStyle("rgba(10,122,74,0.12)", "#0A7A4A"), status: "Active", tab: "active" },
@@ -259,8 +259,8 @@ class Component extends DCLogic {
     const showEmpty = !hasAlgos || filteredRows.length === 0;
 
     return {
-      todayLabelStyle: "font:600 13px 'Inter',sans-serif;white-space:nowrap;color:" + (isToday ? "#02422B" : "#9AA294"),
-      overallLabelStyle: "font:600 13px 'Inter',sans-serif;white-space:nowrap;color:" + (isToday ? "#9AA294" : "#02422B"),
+      todayLabelStyle: "font:600 13px 'Lato',sans-serif;white-space:nowrap;color:" + (isToday ? "#02422B" : "#9AA294"),
+      overallLabelStyle: "font:600 13px 'Lato',sans-serif;white-space:nowrap;color:" + (isToday ? "#9AA294" : "#02422B"),
       toggleTrackStyle: isToday ? toggleOn : toggleOff,
       toggleThumbStyle: thumb,
       toggleWindow: () => this.setState({ window: isToday ? "overall" : "today" }),
@@ -287,7 +287,7 @@ class Component extends DCLogic {
       showTable: !showEmpty,
       emptyTitle: "You haven't deployed any algo yet!",
       rows: filteredRows,
-      headStyle: "font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em",
+      headStyle: "font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em",
       panelOpen,
       chevronStyleUnused: "",
       chevronStyle: "transform:rotate(" + (panelOpen ? "90deg" : "-90deg") + ");transition:transform 0.15s",
