@@ -82,19 +82,7 @@
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
     <nav style="display:flex;align-items:center;gap:2px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;flex-wrap:wrap;position:relative;z-index:30">
-      <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
-        <button style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px" onClick="{{ togglePortfolio }}">
-          Dashboard
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
-            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
-            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
-            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Lato',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
-          </div>
-        </sc-if>
-      </div>
+      <a href="Analytics.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px">Dashboard</a>
       <a href="My%20Algos.dc.html" aria-current="page" style="padding:8px 13px;border-radius:8px;font:600 13.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
       <a href="Reports.dc.html" style="padding:8px 13px;border-radius:8px;font:500 13.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
