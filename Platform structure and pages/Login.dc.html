@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0}
+  a{color:#02422B}
+  a:hover{color:#0A5C3B}
+  ::placeholder{color:#8A9089}
+  input:focus, button:focus{outline:2px solid #DABD38;outline-offset:1px}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+
+  <div style="flex:1 1 42%;min-width:320px;max-width:560px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);color:#EFEDC3;padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(218,189,56,0.14),transparent 70%)"></div>
+
+    <div style="display:flex;flex-direction:column;gap:56px;position:relative;z-index:1">
+      <div style="display:inline-flex;align-self:flex-start">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:28px;display:block"/>
+      </div>
+
+      <div>
+        <h1 style="font:600 40px/1.2 'Fraunces',serif;margin:0 0 18px;letter-spacing:-0.3px">Welcome back.</h1>
+        <p style="font:400 16px/1.6 'Inter',sans-serif;color:#CFE0D6;max-width:400px;margin:0">Log in to track your algos, positions and performance across your connected brokers.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;position:relative;z-index:1">
+      <sc-for list="{{ trustBadges }}" as="badge" hint-placeholder-count="3">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(239,237,195,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <div style="width:8px;height:8px;border-radius:50%;background:#DABD38"></div>
+          </div>
+          <span style="font:400 14px/1.4 'Inter',sans-serif;color:#DCE7DF">{{ badge.text }}</span>
+        </div>
+      </sc-for>
+      <p style="font:400 12px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.55);margin:24px 0 0;border-top:1px solid rgba(239,237,195,0.15);padding-top:20px">SEBI RA Reg. No. INHXXXXXXXXX &middot; Registered Research Analyst</p>
+    </div>
+  </div>
+
+  <div style="flex:1 1 58%;display:flex;align-items:center;justify-content:center;padding:48px 24px">
+    <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:28px">
+
+      <div>
+        <h2 style="font:600 28px/1.3 'Fraunces',serif;margin:0 0 8px;color:#02422B">Log in to Qode</h2>
+        <p style="font:400 15px/1.5 'Inter',sans-serif;color:#5B6A60;margin:0">New here? <a href="#" style="font-weight:600;text-decoration:none">Create an account</a></p>
+      </div>
+
+      <sc-if value="{{ showGoogle }}" hint-placeholder-val="{{ true }}">
+      <button style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid #DDE3D8;background:#fff;font:600 15px 'Inter',sans-serif;color:#1B2A22;cursor:pointer" style-hover="border-color:#02422B" onClick="{{ noop }}">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84c-.21 1.12-.85 2.07-1.81 2.71v2.26h2.92c1.71-1.57 2.69-3.89 2.69-6.61z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.19l-2.92-2.26c-.81.54-1.84.87-3.04.87-2.34 0-4.32-1.58-5.03-3.7H.96v2.33C2.44 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M3.97 10.72A5.4 5.4 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.95H.96A8.96 8.96 0 0 0 0 9c0 1.45.35 2.82.96 4.05l3.01-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.59-2.59C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
+        Continue with Google
+      </button>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="flex:1;height:1px;background:#E4E7DE"></div>
+        <span style="font:500 12px 'Inter',sans-serif;color:#9AA294">OR</span>
+        <div style="flex:1;height:1px;background:#E4E7DE"></div>
+      </div>
+      </sc-if>
+
+      <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:4px">
+        <button style="{{ emailTabStyle }}" onClick="{{ selectEmail }}">Email</button>
+        <button style="{{ phoneTabStyle }}" onClick="{{ selectPhone }}">Phone</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-if value="{{ isEmail }}" hint-placeholder-val="{{ true }}">
+          <label style="display:flex;flex-direction:column;gap:6px">
+            <span style="font:500 13px 'Inter',sans-serif;color:#33423A">Email address</span>
+            <input type="email" placeholder="you@example.com" style="padding:12px 14px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 15px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+          </label>
+        </sc-if>
+        <sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}">
+          <label style="display:flex;flex-direction:column;gap:6px">
+            <span style="font:500 13px 'Inter',sans-serif;color:#33423A">Phone number</span>
+            <div style="display:flex;gap:8px">
+              <span style="padding:12px 12px;border-radius:9px;border:1.5px solid #DDE3D8;background:#F7F6EE;font:500 15px 'Inter',sans-serif;color:#5B6A60">+91</span>
+              <input type="tel" placeholder="98765 43210" style="flex:1;padding:12px 14px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 15px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+            </div>
+          </label>
+        </sc-if>
+
+        <sc-if value="{{ isEmail }}" hint-placeholder-val="{{ true }}">
+          <label style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between">
+              <span style="font:500 13px 'Inter',sans-serif;color:#33423A">Password</span>
+              <a href="#" style="font:500 12.5px 'Inter',sans-serif;text-decoration:none">Forgot password?</a>
+            </div>
+            <input type="password" placeholder="Enter your password" style="padding:12px 14px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 15px 'Inter',sans-serif;background:#fff;color:#0F1D16"/>
+          </label>
+        </sc-if>
+      </div>
+
+      <button style="width:100%;padding:14px;border-radius:10px;border:none;background:#02422B;color:#EFEDC3;font:600 15px 'Inter',sans-serif;cursor:pointer" style-hover="background:#0A5C3B">
+        {{ ctaLabel }}
+      </button>
+
+      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;text-align:center;margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst. Trading algos are subject to market risk.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:800},&quot;defaultAuthMethod&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;email&quot;,&quot;options&quot;:[&quot;email&quot;,&quot;phone&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;showGoogleLogin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { method: null };
+
+  renderVals() {
+    if (this.state.method === null) this.state.method = this.props.defaultAuthMethod ?? 'email';
+    const isEmail = this.state.method === 'email';
+    const tabBase = "flex:1;padding:9px 0;border-radius:8px;border:none;font:600 14px 'Inter',sans-serif;cursor:pointer;";
+    return {
+      trustBadges: [
+        { text: 'SEBI Registered Research Analyst' },
+        { text: 'Works with your own broker \u2014 Nuvama, iRage, Dhan' },
+        { text: 'You retain full control of funds & execution' }
+      ],
+      isEmail,
+      isPhone: !isEmail,
+      ctaLabel: isEmail ? 'Log in' : 'Send OTP',
+      showGoogle: this.props.showGoogleLogin ?? true,
+      emailTabStyle: tabBase + (isEmail ? 'background:#02422B;color:#EFEDC3' : 'background:transparent;color:#5B6A60'),
+      phoneTabStyle: tabBase + (!isEmail ? 'background:#02422B;color:#EFEDC3' : 'background:transparent;color:#5B6A60'),
+      selectEmail: () => this.setState({ method: 'email' }),
+      selectPhone: () => this.setState({ method: 'phone' }),
+      noop: () => {}
+    };
+  }
+}
+
+</script>
+</body>
+</html>
