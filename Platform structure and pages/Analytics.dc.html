@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Analytics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0}
+  *{box-sizing:border-box}
+  a{color:#02422B;text-decoration:none}
+  a:hover{color:#0A5C3B}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#DDE3D8;border-radius:6px}
+  button:focus{outline:2px solid #DABD38;outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+
+  <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
+    <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
+      <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block"/>
+        <button style="width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:0 24px;display:flex;flex-direction:column;gap:14px;flex:1;min-height:0">
+
+          <button style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 0;border-radius:9px;border:1px solid rgba(239,237,195,0.2);background:transparent;color:#EFEDC3;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:rgba(239,237,195,0.08)" onClick="{{ noop }}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            Export CSV
+          </button>
+
+          <div style="background:rgba(239,237,195,0.08);border:1px solid rgba(239,237,195,0.14);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;flex:1;min-height:0">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px">
+              <span style="font:600 11px 'Inter',sans-serif;color:#8FA69A;text-transform:uppercase;letter-spacing:0.04em">Watchlist</span>
+              <button style="width:20px;height:20px;border-radius:6px;border:none;background:rgba(239,237,195,0.1);color:#DCE7DF;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ noop }}" aria-label="Add to watchlist">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </div>
+            <label style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:8px;background:rgba(0,0,0,0.15);border:1px solid rgba(239,237,195,0.14)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8FA69A" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="text" placeholder="Search symbol" style="border:none;outline:none;background:transparent;font:400 12px 'Inter',sans-serif;color:#EFEDC3;width:100%"/>
+            </label>
+            <div style="display:flex;flex-direction:column;overflow-x:hidden">
+            <sc-for list="{{ watchlist }}" as="w" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:9px" style-hover="background:rgba(239,237,195,0.08)">
+                <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                  <span style="width:26px;height:26px;border-radius:7px;background:rgba(239,237,195,0.1);color:#DCE7DF;display:flex;align-items:center;justify-content:center;font:700 10px 'Inter',sans-serif;flex-shrink:0">{{ w.initial }}</span>
+                  <span style="font:500 12.5px 'Inter',sans-serif;color:#EFEDC3;white-space:nowrap">{{ w.symbol }}</span>
+                </div>
+                <span style="display:flex;align-items:center;gap:3px;font:600 12px 'Inter',sans-serif;color:{{ w.color }};white-space:nowrap;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="{{ w.color }}" style="{{ w.arrowStyle }}"><path d="M12 4l8 10H4z"/></svg>
+                  {{ w.change }}
+                </span>
+              </div>
+            </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
+      <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
+        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">Nuvama connected</span>
+      </div>
+      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+    </div>
+  </div>
+
+  <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30">
+      <div style="position:relative" onMouseEnter="{{ openPortfolio }}" onMouseLeave="{{ closePortfolio }}">
+        <button style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Inter',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap;border:none;cursor:pointer;display:flex;align-items:center;gap:4px" onClick="{{ togglePortfolio }}">
+          Portfolio
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ portfolioOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;background:#fff;border:1px solid #E9E5D6;border-radius:10px;box-shadow:0 8px 20px rgba(2,66,43,0.12);padding:6px;display:flex;flex-direction:column;min-width:140px;z-index:20">
+            <a href="Positions.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Positions</a>
+            <a href="Orders.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Orders</a>
+            <a href="Holdings.dc.html" style="padding:9px 12px;border-radius:7px;font:500 13.5px 'Inter',sans-serif;color:#33423A;white-space:nowrap">Holdings</a>
+            <a href="Analytics.dc.html" style="padding:9px 12px;border-radius:7px;font:600 13.5px 'Inter',sans-serif;color:#02422B;background:#F0EEE2;white-space:nowrap">Analytics</a>
+          </div>
+        </sc-if>
+      </div>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
+      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
+      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0;flex-wrap:wrap">
+      <div>
+        <h1 style="font:600 22px 'Fraunces',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Analytics</h1>
+        <p style="font:400 13px 'Inter',sans-serif;color:#5B6A60;margin:0">Performance, P&amp;L and activity across every connected broker and algo</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#33423A;flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v6h-6"/></svg>
+        </button>
+        <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none" aria-label="View profile">
+          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
+          <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A">Aditya Mehta</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px">
+
+      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:4px">
+          <button style="{{ rangeTabStyle_1m }}" onClick="{{ selectRange1m }}">1M</button>
+          <button style="{{ rangeTabStyle_3m }}" onClick="{{ selectRange3m }}">3M</button>
+          <button style="{{ rangeTabStyle_6m }}" onClick="{{ selectRange6m }}">6M</button>
+          <button style="{{ rangeTabStyle_1y }}" onClick="{{ selectRange1y }}">1Y</button>
+          <button style="{{ rangeTabStyle_custom }}" onClick="{{ selectRangeCustom }}">Custom</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <sc-if value="{{ showCustomDates }}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;align-items:center;gap:7px">
+              <span style="font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">From</span>
+              <input type="date" value="{{ fromDate }}" style="padding:8px 10px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:400 13px 'Inter',sans-serif;color:#33423A"/>
+            </label>
+            <label style="display:flex;align-items:center;gap:7px">
+              <span style="font:500 12.5px 'Inter',sans-serif;color:#5B6A60;white-space:nowrap">To</span>
+              <input type="date" value="{{ toDate }}" style="padding:8px 10px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:400 13px 'Inter',sans-serif;color:#33423A"/>
+            </label>
+          </sc-if>
+          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Inter',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
+            All brokers
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Inter',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
+            All algos
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Portfolio value</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ stats.portfolioValue }}</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">P&amp;L ({{ rangeLabel }})</span>
+          <span style="font:600 24px 'Fraunces',serif;color:{{ stats.pnlColor }};white-space:nowrap">{{ stats.pnl }} <span style="font:500 14px 'Inter',sans-serif;color:{{ stats.pnlColor }};white-space:nowrap">({{ stats.pnlPct }})</span></span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Win rate</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ stats.winRate }}</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Trades executed</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">{{ stats.trades }}</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Best day</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A;white-space:nowrap">{{ stats.bestDay }}</span>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+          <h2 style="font:600 15px 'Fraunces',serif;margin:0;color:#02422B">P&amp;L over time ({{ rangeLabel }})</h2>
+          <div style="display:flex;gap:20px">
+            <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Inter',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#02422B;display:inline-block"></span>Cumulative P&amp;L</span>
+            <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Inter',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#B54B3A;display:inline-block"></span>Drawdown</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 900 220" style="width:100%;height:220px" preserveAspectRatio="none">
+          <polyline points="{{ equityPoints }}" fill="none" stroke="#02422B" stroke-width="2.5"/>
+          <polyline points="{{ drawdownPoints }}" fill="none" stroke="#B54B3A" stroke-width="2"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between">
+          <sc-for list="{{ axisLabels }}" as="a" hint-placeholder-count="6">
+            <span style="font:400 11px 'Inter',sans-serif;color:#9AA294">{{ a.label }}</span>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:16px">
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+          <h2 style="font:600 15px 'Fraunces',serif;margin:0;color:#02422B">P&amp;L by algo ({{ rangeLabel }})</h2>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ byAlgo }}" as="a" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <span style="{{ a.tagStyle }}">{{ a.name }}</span>
+                  <span style="font:600 13.5px 'Inter',sans-serif;color:{{ a.color }};white-space:nowrap">{{ a.pnl }}</span>
+                </div>
+                <div style="height:6px;border-radius:3px;background:#F0EEE2;overflow:hidden">
+                  <div style="height:100%;border-radius:3px;background:{{ a.color }};width:{{ a.barWidth }}"></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+          <h2 style="font:600 15px 'Fraunces',serif;margin:0;color:#02422B">P&amp;L by broker ({{ rangeLabel }})</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ byBroker }}" as="b" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F1EEE2">
+                <span style="display:flex;align-items:center;gap:10px">
+                  <span style="width:26px;height:26px;border-radius:7px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 11px 'Inter',sans-serif;flex-shrink:0">{{ b.initial }}</span>
+                  <span style="font:500 13.5px 'Inter',sans-serif;color:#0F1D16">{{ b.name }}</span>
+                </span>
+                <span style="font:600 13.5px 'Inter',sans-serif;color:{{ b.color }};white-space:nowrap">{{ b.pnl }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
+        <div style="padding:18px 24px;border-bottom:1px solid #EDE9DA">
+          <h2 style="font:600 15px 'Fraunces',serif;margin:0;color:#33423A">Daily P&amp;L ({{ rangeLabel }})</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+          <span style="{{ headStyle }}">Date</span>
+          <span style="{{ headStyle }};text-align:right">Trades</span>
+          <span style="{{ headStyle }};text-align:right">P&amp;L</span>
+        </div>
+        <sc-for list="{{ daily }}" as="d" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;align-items:center;padding:14px 24px;border-bottom:1px solid #F1EEE2">
+            <span style="font:400 13.5px 'Inter',sans-serif;color:#33423A">{{ d.date }}</span>
+            <span style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60;text-align:right">{{ d.trades }}</span>
+            <span style="font:600 13.5px 'Inter',sans-serif;color:{{ d.color }};text-align:right;white-space:nowrap">{{ d.pnl }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Figures are aggregated across your connected brokers and deployed algos for the selected date range. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { panelOpen: true, portfolioOpen: false, range: "1m" };
+
+  renderVals() {
+    const panelOpen = this.state.panelOpen;
+    const range = this.state.range;
+    const headStyle = "font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
+    const rangeTabBase = "padding:9px 18px;border-radius:8px;border:none;font:600 13px 'Inter',sans-serif;cursor:pointer;white-space:nowrap;";
+    const rangeTabStyle = (key) => rangeTabBase + (range === key ? "background:#02422B;color:#EFEDC3" : "background:transparent;color:#5B6A60");
+
+    const tagStyle = (bg, color) =>
+      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px 'Inter',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
+
+    const byRange = {
+      "1m": {
+        rangeLabel: "1M",
+        stats: { portfolioValue: "₹34,51,230", pnl: "+₹1,240", pnlPct: "+0.36%", pnlColor: "#0A7A4A", winRate: "64%", trades: "42", bestDay: "+₹3,410" },
+        equityPoints: "0,150 90,142 180,148 270,120 360,110 450,90 540,95 630,70 720,78 810,55 900,45",
+        drawdownPoints: "0,180 90,183 180,186 270,175 360,180 450,172 540,178 630,168 720,174 810,165 900,168",
+        axisLabels: ["Wk 1", "Wk 2", "Wk 3", "Wk 4", "Wk 5", "Today"].map((label) => ({ label })),
+        byAlgo: [
+          { name: "All Weather", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "+₹3,150", color: "#0A7A4A", barWidth: "72%" },
+          { name: "Growth Fund", tagStyle: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), pnl: "+₹1,890", color: "#0A7A4A", barWidth: "48%" },
+          { name: "Momentum Edge", tagStyle: tagStyle("rgba(2,66,43,0.10)", "#02422B"), pnl: "-₹1,410", color: "#B54B3A", barWidth: "36%" },
+          { name: "Yield Enhancer +", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "-₹390", color: "#B54B3A", barWidth: "18%" }
+        ],
+        byBroker: [
+          { initial: "N", name: "Nuvama", pnl: "+₹980", color: "#0A7A4A" },
+          { initial: "I", name: "iRage", pnl: "+₹640", color: "#0A7A4A" },
+          { initial: "D", name: "Dhan", pnl: "-₹380", color: "#B54B3A" }
+        ],
+        daily: [
+          { date: "22 Sep 2026", trades: "6", pnl: "+₹820", color: "#0A7A4A" },
+          { date: "21 Sep 2026", trades: "4", pnl: "-₹310", color: "#B54B3A" },
+          { date: "19 Sep 2026", trades: "7", pnl: "+₹1,450", color: "#0A7A4A" },
+          { date: "18 Sep 2026", trades: "3", pnl: "+₹260", color: "#0A7A4A" },
+          { date: "17 Sep 2026", trades: "5", pnl: "-₹680", color: "#B54B3A" },
+          { date: "16 Sep 2026", trades: "8", pnl: "+₹990", color: "#0A7A4A" }
+        ]
+      },
+      "3m": {
+        rangeLabel: "3M",
+        stats: { portfolioValue: "₹34,51,230", pnl: "+₹6,820", pnlPct: "+2.02%", pnlColor: "#0A7A4A", winRate: "61%", trades: "128", bestDay: "+₹5,120" },
+        equityPoints: "0,170 90,165 180,150 270,155 360,130 450,120 540,100 630,108 720,80 810,88 900,60",
+        drawdownPoints: "0,195 90,193 180,188 270,190 360,182 450,178 540,170 630,175 720,165 810,170 900,158",
+        axisLabels: ["Jul", "", "Aug", "", "Sep", "Today"].map((label) => ({ label })),
+        byAlgo: [
+          { name: "All Weather", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "+₹8,940", color: "#0A7A4A", barWidth: "80%" },
+          { name: "Growth Fund", tagStyle: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), pnl: "+₹4,210", color: "#0A7A4A", barWidth: "52%" },
+          { name: "Momentum Edge", tagStyle: tagStyle("rgba(2,66,43,0.10)", "#02422B"), pnl: "-₹5,680", color: "#B54B3A", barWidth: "58%" },
+          { name: "Yield Enhancer +", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "-₹650", color: "#B54B3A", barWidth: "22%" }
+        ],
+        byBroker: [
+          { initial: "N", name: "Nuvama", pnl: "+₹4,340", color: "#0A7A4A" },
+          { initial: "I", name: "iRage", pnl: "+₹3,180", color: "#0A7A4A" },
+          { initial: "D", name: "Dhan", pnl: "-₹700", color: "#B54B3A" }
+        ],
+        daily: [
+          { date: "Week of 15 Sep", trades: "24", pnl: "+₹2,140", color: "#0A7A4A" },
+          { date: "Week of 08 Sep", trades: "19", pnl: "+₹1,560", color: "#0A7A4A" },
+          { date: "Week of 01 Sep", trades: "22", pnl: "-₹980", color: "#B54B3A" },
+          { date: "Week of 25 Aug", trades: "17", pnl: "+₹990", color: "#0A7A4A" },
+          { date: "Week of 18 Aug", trades: "21", pnl: "-₹720", color: "#B54B3A" },
+          { date: "Week of 11 Aug", trades: "25", pnl: "+₹3,830", color: "#0A7A4A" }
+        ]
+      },
+      "6m": {
+        rangeLabel: "6M",
+        stats: { portfolioValue: "₹34,51,230", pnl: "+₹14,960", pnlPct: "+4.53%", pnlColor: "#0A7A4A", winRate: "59%", trades: "246", bestDay: "+₹6,780" },
+        equityPoints: "0,190 90,182 180,175 270,160 360,150 450,130 540,138 630,105 720,115 810,80 900,65",
+        drawdownPoints: "0,205 90,202 180,198 270,192 360,188 450,180 540,184 630,172 720,176 810,162 900,158",
+        axisLabels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep"].map((label) => ({ label })),
+        byAlgo: [
+          { name: "All Weather", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "+₹17,420", color: "#0A7A4A", barWidth: "85%" },
+          { name: "Growth Fund", tagStyle: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), pnl: "+₹8,960", color: "#0A7A4A", barWidth: "60%" },
+          { name: "Momentum Edge", tagStyle: tagStyle("rgba(2,66,43,0.10)", "#02422B"), pnl: "-₹10,340", color: "#B54B3A", barWidth: "64%" },
+          { name: "Yield Enhancer +", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "-₹1,080", color: "#B54B3A", barWidth: "26%" }
+        ],
+        byBroker: [
+          { initial: "N", name: "Nuvama", pnl: "+₹8,900", color: "#0A7A4A" },
+          { initial: "I", name: "iRage", pnl: "+₹7,220", color: "#0A7A4A" },
+          { initial: "D", name: "Dhan", pnl: "-₹1,160", color: "#B54B3A" }
+        ],
+        daily: [
+          { date: "Sep 2026", trades: "58", pnl: "+₹4,760", color: "#0A7A4A" },
+          { date: "Aug 2026", trades: "51", pnl: "+₹3,240", color: "#0A7A4A" },
+          { date: "Jul 2026", trades: "44", pnl: "-₹1,860", color: "#B54B3A" },
+          { date: "Jun 2026", trades: "39", pnl: "+₹2,010", color: "#0A7A4A" },
+          { date: "May 2026", trades: "31", pnl: "-₹990", color: "#B54B3A" },
+          { date: "Apr 2026", trades: "23", pnl: "+₹7,800", color: "#0A7A4A" }
+        ]
+      },
+      "1y": {
+        rangeLabel: "1Y",
+        stats: { portfolioValue: "₹34,51,230", pnl: "+₹62,340", pnlPct: "+21.4%", pnlColor: "#0A7A4A", winRate: "57%", trades: "512", bestDay: "+₹8,940" },
+        equityPoints: "0,205 90,195 180,180 270,170 360,150 450,140 540,120 630,110 720,90 810,60 900,40",
+        drawdownPoints: "0,210 90,206 180,200 270,195 360,186 450,182 540,172 630,168 720,158 810,148 900,140",
+        axisLabels: ["Oct", "Dec", "Feb", "Apr", "Jun", "Sep"].map((label) => ({ label })),
+        byAlgo: [
+          { name: "All Weather", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "+₹38,900", color: "#0A7A4A", barWidth: "90%" },
+          { name: "Growth Fund", tagStyle: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), pnl: "+₹21,300", color: "#0A7A4A", barWidth: "68%" },
+          { name: "Momentum Edge", tagStyle: tagStyle("rgba(2,66,43,0.10)", "#02422B"), pnl: "-₹15,860", color: "#B54B3A", barWidth: "58%" },
+          { name: "Yield Enhancer +", tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"), pnl: "+₹18,000", color: "#0A7A4A", barWidth: "50%" }
+        ],
+        byBroker: [
+          { initial: "N", name: "Nuvama", pnl: "+₹33,400", color: "#0A7A4A" },
+          { initial: "I", name: "iRage", pnl: "+₹24,700", color: "#0A7A4A" },
+          { initial: "D", name: "Dhan", pnl: "+₹4,240", color: "#0A7A4A" }
+        ],
+        daily: [
+          { date: "Q3 2026", trades: "134", pnl: "+₹15,900", color: "#0A7A4A" },
+          { date: "Q2 2026", trades: "128", pnl: "+₹11,220", color: "#0A7A4A" },
+          { date: "Q1 2026", trades: "119", pnl: "-₹4,860", color: "#B54B3A" },
+          { date: "Q4 2025", trades: "131", pnl: "+₹40,080", color: "#0A7A4A" }
+        ]
+      }
+    };
+
+    const active = byRange[range] || byRange["1m"];
+
+    return {
+      panelOpen,
+      chevronStyle: "transform:rotate(" + (panelOpen ? "90deg" : "-90deg") + ");transition:transform 0.15s",
+      togglePanel: () => this.setState({ panelOpen: !panelOpen }),
+      portfolioOpen: this.state.portfolioOpen,
+      openPortfolio: () => this.setState({ portfolioOpen: true }),
+      closePortfolio: () => this.setState({ portfolioOpen: false }),
+      togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
+
+      headStyle,
+      rangeTabStyle_1m: rangeTabStyle("1m"),
+      rangeTabStyle_3m: rangeTabStyle("3m"),
+      rangeTabStyle_6m: rangeTabStyle("6m"),
+      rangeTabStyle_1y: rangeTabStyle("1y"),
+      rangeTabStyle_custom: rangeTabStyle("custom"),
+      selectRange1m: () => this.setState({ range: "1m" }),
+      selectRange3m: () => this.setState({ range: "3m" }),
+      selectRange6m: () => this.setState({ range: "6m" }),
+      selectRange1y: () => this.setState({ range: "1y" }),
+      selectRangeCustom: () => this.setState({ range: "custom" }),
+      showCustomDates: range === "custom",
+      fromDate: "2026-08-23",
+      toDate: "2026-09-22",
+
+      rangeLabel: active.rangeLabel,
+      stats: active.stats,
+      equityPoints: active.equityPoints,
+      drawdownPoints: active.drawdownPoints,
+      axisLabels: active.axisLabels,
+      byAlgo: active.byAlgo,
+      byBroker: active.byBroker,
+      daily: active.daily,
+
+      watchlist: [
+        { symbol: "NIFTYBEES", initial: "NB", change: "0.85%", color: "#7FD9A8", arrowStyle: "" },
+        { symbol: "RELIANCE", initial: "RE", change: "0.40%", color: "#E8A9A0", arrowStyle: "transform:rotate(180deg)" },
+        { symbol: "HDFCBANK", initial: "HB", change: "1.10%", color: "#7FD9A8", arrowStyle: "" },
+        { symbol: "TATASTEEL", initial: "TS", change: "1.88%", color: "#E8A9A0", arrowStyle: "transform:rotate(180deg)" },
+        { symbol: "INFY", initial: "IN", change: "2.24%", color: "#7FD9A8", arrowStyle: "" }
+      ],
+      noop: () => {}
+    };
+  }
+}
+
+</script>
+</body>
+</html>
