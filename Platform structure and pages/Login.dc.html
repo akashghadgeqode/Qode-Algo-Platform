@@ -101,7 +101,7 @@
         </sc-if>
       </div>
 
-      <button style="width:100%;padding:14px;border-radius:10px;border:none;background:#02422B;color:#EFEDC3;font:600 15px 'Lato',sans-serif;cursor:pointer" style-hover="background:#0A5C3B">
+      <button style="width:100%;padding:14px;border-radius:10px;border:none;background:#02422B;color:#EFEDC3;font:600 15px 'Lato',sans-serif;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ goToApp }}">
         {{ ctaLabel }}
       </button>
 
@@ -133,6 +133,7 @@ class Component extends DCLogic {
       phoneTabStyle: tabBase + (!isEmail ? 'background:#02422B;color:#EFEDC3' : 'background:transparent;color:#5B6A60'),
       selectEmail: () => this.setState({ method: 'email' }),
       selectPhone: () => this.setState({ method: 'phone' }),
+      goToApp: () => { window.location.href = 'Positions.dc.html'; },
       noop: () => {}
     };
   }
