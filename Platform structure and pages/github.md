@@ -17,3 +17,5 @@ commit: a05ee680bc1f
 | Positions | `Positions.dc.html` | `qode-logo-white.svg` |
 | Orders | `Orders.dc.html` | `qode-logo-white.svg` |
 | Holdings | `Holdings.dc.html` | `qode-logo-white.svg` |
+| Reports | `Reports.dc.html` | `qode-logo-white.svg` |
+| Help & Support | `Help & Support.dc.html` | `qode-logo-white.svg` |

@@ -26,12 +26,14 @@ Email+password, phone OTP, and Google OAuth, backed by Supabase.
 | Profile | `Profile.dc.html` | Sidebar-shell app page; Personal details, Broker details, Funds cards; tweaks for name/phone/email/verification/broker/balance |
 | Profile (broker connected) | `Profile - Broker Connected.dc.html` | Same as Profile, defaults to connected state with real broker row; includes "Connect a broker" modal (Nuvama/iRage/Dhan picker) |
 | My Algos | `My Algos.dc.html` | Sidebar-shell app page; market ticker, summary stats (Today/Overall toggle), status tabs (Active/Subscribed/Paused/Expired), algo table, empty state; tweak for hasAlgos |
+| Reports | `Reports.dc.html` | Sidebar-shell app page; FY summary cards, report-type grid (Tax P&L/Contract Notes/Ledger/Holdings/Trade Book/Algo Performance) with PDF/CSV download, recently-generated table; sidebar panel shows recent downloads instead of watchlist |
+| Help & Support | `Help & Support.dc.html` | Sidebar-shell app page; help-article grid, live support ticket form (name/email/category/subject/message) that submits to a confirmation state with a generated ticket ID, FAQ list; sidebar panel shows contact info + popular topics |
 
 ## App shell (sidebar pages)
-Positions/Orders/Holdings/Dashboard etc. share a fixed 240px dark-gradient sidebar (logo, nav links, broker-connected status, SEBI reg footer) + topbar (page title, broker filter, refresh, user avatar) + body (summary cards row + white table card). Reuse this shell for remaining app pages (Dashboard, My Algos, Marketplace, Reports, Blogs, Help & Support).
+Positions/Orders/Holdings/My Algos/Profile/Reports/Help & Support share a fixed 240px dark-gradient sidebar (logo, page-specific panel content, broker-connected status, SEBI reg footer) + top nav bar (Dashboard/Portfolio dropdown/My Algos/Marketplace/Reports/Blogs/Help & Support) + topbar (page title, contextual filter, user avatar linking to Profile) + body (summary cards row + white content card). The sidebar's collapsible panel content is page-specific (Positions/Orders/Holdings: watchlist; Profile: profile completion + quick links; Reports: recent downloads; Help & Support: contact info + popular topics) — never the old full nav-link list. Dashboard, Marketplace and Blogs are not built yet, so their nav links stay `href="#"`.
 
 ## Full page list still to design (from platform spec)
-Home (algo catalog + compliance disclosures), Investor login/connect-broker, Main dashboard, My Algos, Algo Marketplace + algo detail (metrics, deploy), Reports, Blogs, Help & Support.
+Home (algo catalog + compliance disclosures), Investor login/connect-broker, Main dashboard, Algo Marketplace + algo detail (metrics, deploy), Blogs.
 
 ## Conventions
 - Each page is a standalone Design Component (`.dc.html`), split-panel shell reused for auth pages, sidebar shell reused for app pages.
