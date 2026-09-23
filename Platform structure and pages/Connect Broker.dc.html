@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3;
+    --page:#F7F5E9; --ink:#1C2B26; --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD; --gain:#008455;
+    --forest-tint:rgba(2,66,43,0.10); --scrim:rgba(0,32,23,0.6);
+  }
+  body{margin:0}
+  *{box-sizing:border-box}
+  a{color:var(--forest);text-decoration:none}
+  a:hover{color:var(--deep)}
+  button:focus{outline:2px solid var(--gold);outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;width:100%;background:var(--scrim);font-family:'Lato',system-ui,sans-serif;padding:24px">
+
+  <div style="background:#fff;border-radius:18px;width:560px;max-width:92vw;padding:32px;display:flex;flex-direction:column;gap:22px;box-shadow:0 20px 50px rgba(0,32,23,0.28)">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <h1 style="font:600 20px 'Playfair Display',serif;margin:0;color:var(--forest)">Connect your broker</h1>
+      <a href="Profile.dc.html" style="width:30px;height:30px;border-radius:50%;background:var(--page);color:var(--grey-10);display:flex;align-items:center;justify-content:center" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </a>
+    </div>
+
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+      <p style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">Qode places and manages orders on your behalf, using your own broker account. You keep full control of your capital and can disconnect anytime.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="3">
+          <button style="display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;text-align:left" style-hover="border-color:var(--forest);background:var(--forest-tint)" onClick="{{ b.select }}">
+            <span style="width:42px;height:42px;border-radius:10px;background:{{ b.bg }};color:{{ b.fg }};display:flex;align-items:center;justify-content:center;font:700 15px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+              <span style="font:700 14.5px 'Lato',sans-serif;color:{{ b.fg }}">{{ b.name }}</span>
+              <span style="font:400 12px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Session validity: {{ b.validity }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+
+      <p style="font:400 11.5px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0">Your consent to connect is recorded with date and time. You can view or revoke broker access anytime from your Profile.</p>
+
+      <div style="height:1px;background:var(--border)"></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">Don&#39;t have an account with these brokers?</span>
+          <span style="font:400 12px 'Lato',sans-serif;color:var(--grey-10)">Talk to our team and we&#39;ll help you get set up.</span>
+        </div>
+        <button style="padding:10px 18px;border-radius:9px;border:1.5px solid var(--forest);background:transparent;color:var(--forest);font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;align-self:flex-start" style-hover="background:var(--forest-tint)" onClick="{{ requestCallback }}">Request a callback</button>
+      </div>
+
+      <sc-if value="{{ redirecting }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;background:var(--forest-tint)">
+          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--forest)">Connecting to {{ redirectingName }}&hellip;</span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ callbackRequested }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;background:var(--forest-tint)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--forest)">Thanks &mdash; our team will reach out shortly.</span>
+        </div>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0">
+        <span style="width:52px;height:52px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+          <span style="font:600 17px 'Playfair Display',serif;color:var(--forest)">{{ connectedBroker }} connected</span>
+          <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);text-align:center">Your account is linked. Qode can now place and manage orders on your behalf.</span>
+        </div>
+        <a href="Analytics.dc.html" style="margin-top:6px;padding:11px 26px;border-radius:9px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;text-decoration:none">Continue to Dashboard</a>
+      </div>
+    </sc-if>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:700}}">
+class Component extends DCLogic {
+  state = { redirecting: false, redirectingName: "", callbackRequested: false, connectedBroker: null };
+
+  renderVals() {
+    const select = (name, url) => () => {
+      this.setState({ redirecting: true, redirectingName: name });
+      if (url) window.open(url, "_blank");
+      setTimeout(() => {
+        try { localStorage.setItem("qode_connected_broker", name); } catch (e) {}
+        this.setState({ connectedBroker: name });
+      }, 1100);
+    };
+    return {
+      showForm: !this.state.connectedBroker,
+      showSuccess: !!this.state.connectedBroker,
+      connectedBroker: this.state.connectedBroker,
+      redirecting: this.state.redirecting,
+      redirectingName: this.state.redirectingName,
+      callbackRequested: this.state.callbackRequested,
+      requestCallback: () => this.setState({ callbackRequested: true }),
+      brokers: [
+        { initial: "N", name: "Nuvama", validity: "30 Days", bg: "var(--forest-tint)", fg: "var(--forest)", select: select("Nuvama") },
+        { initial: "i", name: "iRage", validity: "1 Day", bg: "rgba(218,189,56,0.16)", fg: "#7A5E12", select: select("iRage") },
+        { initial: "D", name: "Dhan", validity: "30 Days", bg: "rgba(10,132,85,0.12)", fg: "#0A7A4A", select: select("Dhan", "https://partner-login.dhan.co/?consentID=62913574-07c2-4784-862d-5254cad81d16") }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

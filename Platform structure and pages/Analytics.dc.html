@@ -12,96 +12,134 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3; --brand-green:#00AE5B;
+    --all-weather:#008455; --growth:#0A3452; --tactical:#550E0E;
+    --grad-brand:linear-gradient(160deg,#00AE5B 0%,#002017 100%); --grad-app:linear-gradient(160deg,#02422B 0%,#002017 100%);
+    --page:#F7F5E9; --white:#FFFFFF; --ink:#1C2B26;
+    --grey-1:#F8F9F9; --grey-2:#ECF0F1; --grey-3:#E5E7E9; --grey-4:#D7DBDD; --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD;
+    --gain:#008455; --gain-on-dark:#00AE5B; --loss:#E7000B;
+    --on-dark-tint:rgba(239,237,195,0.08); --on-dark-line:rgba(239,237,195,0.15); --on-dark-muted:rgba(239,237,195,0.6);
+    --gold-tint:rgba(218,189,56,0.16); --forest-tint:rgba(2,66,43,0.10); --growth-tint:rgba(10,52,82,0.10);
+    --gain-tint:rgba(0,132,85,0.12); --loss-tint:rgba(231,0,11,0.08); --loss-line:rgba(231,0,11,0.25); --scrim:rgba(0,32,23,0.55);
+  }
   body{margin:0}
   *{box-sizing:border-box}
-  a{color:#02422B;text-decoration:none}
-  a:hover{color:#0A5C3B}
+  a{color:var(--forest);text-decoration:none}
+  a:hover{color:var(--deep)}
   ::-webkit-scrollbar{width:10px;height:10px}
-  ::-webkit-scrollbar-thumb{background:#DDE3D8;border-radius:6px}
-  button:focus{outline:2px solid #DABD38;outline-offset:1px}
+  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:6px}
+  button:focus{outline:2px solid var(--gold);outline-offset:1px}
 </style>
 </helmet>
 
-<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
 
-  <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
-    <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
-      <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
-        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block"/>
-        <button style="width:28px;height:28px;border-radius:7px;border:none;background:rgba(239,237,195,0.1);color:#CFE0D6;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
+  <div style="flex:0 0 240px;background:var(--grad-app);display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:28px 0 24px;position:sticky;top:0;height:100vh;align-self:flex-start">
+    <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block;filter:brightness(0) saturate(100%) invert(80%) sepia(55%) saturate(750%) hue-rotate(2deg) brightness(101%) contrast(92%)"/>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="position:relative">
+          <button style="position:relative;width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ toggleNotif }}" aria-label="Notifications">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:var(--gold);color:var(--forest);font:700 9px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
+          </button>
+          <sc-if value="{{ notifOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:36px;left:0;width:280px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 32px rgba(0,32,23,0.22);z-index:50;overflow:hidden">
+              <div style="padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">Notifications</span>
+              </div>
+              <sc-for list="{{ notifications }}" as="n" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                  <span style="{{ n.dotStyle }}"></span>
+                  <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                    <span style="font:400 12.5px/1.4 'Lato',sans-serif;color:var(--ink)">{{ n.text }}</span>
+                    <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">{{ n.time }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          </div>
+        <button style="width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
         </button>
+        </div>
       </div>
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
 
       <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
         <div style="padding:0 12px;display:flex;flex-direction:column;gap:4px">
-          <a href="Analytics.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:#EFEDC3;color:#02422B;font:700 14px 'Lato',sans-serif">
+          <a href="Analytics.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--gold);color:var(--deep);font:700 14px 'Lato',sans-serif">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
             Portfolio
           </a>
-          <a href="Positions.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:#CFE0D6;font:500 14px 'Lato',sans-serif" style-hover="background:rgba(239,237,195,0.08)">
+          <a href="Positions.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
             Positions
           </a>
-          <a href="Orders.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:#CFE0D6;font:500 14px 'Lato',sans-serif" style-hover="background:rgba(239,237,195,0.08)">
+          <a href="Orders.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
             Orders
           </a>
-          <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:#CFE0D6;font:500 14px 'Lato',sans-serif" style-hover="background:rgba(239,237,195,0.08)">
+          <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg>
             Holdings
+          </a>
+          <a href="Reports.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+            Reports
           </a>
         </div>
       </sc-if>
     </div>
 
     <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
-      <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
+      <div style="height:1px;background:var(--on-dark-line);margin-bottom:6px"></div>
       <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
-        <span style="font:500 12.5px 'Lato',sans-serif;color:#CFE0D6">Nuvama connected</span>
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--gain-on-dark);flex-shrink:0"></div>
+        <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream)">{{ connectedBrokerLabel }}</span>
       </div>
-      <p style="font:400 11px/1.5 'Lato',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:var(--on-dark-muted);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
     </div>
   </div>
 
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
-    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30">
-      <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap;">Dashboard</a>
-      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
-      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Marketplace</a>
-      <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
-      <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+      <a href="Analytics.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap;">Dashboard</a>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Marketplace</a>
+      <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
+      </a>
     </nav>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);gap:20px;flex-shrink:0;flex-wrap:wrap">
       <div>
-        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Portfolio</h1>
-        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Inception date {{ inceptionDate }} &middot; Data as of {{ dataAsOf }}</p>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:var(--forest);white-space:nowrap">Portfolio</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">Inception date {{ inceptionDate }} &middot; Data as of {{ dataAsOf }}</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
-        <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#33423A;flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
+        <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--grey-12);flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v6h-6"/></svg>
         </button>
-        <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6;text-decoration:none" aria-label="View profile">
-          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Lato',sans-serif">AM</div>
-          <span style="font:500 13.5px 'Lato',sans-serif;color:#33423A">Aditya Mehta</span>
-        </a>
       </div>
     </div>
 
     <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px">
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <span style="{{ algoTagStyle }}">Qode Yield Enhancer++</span>
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
+          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:400 13px 'Lato',sans-serif;color:var(--grey-12);cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
             PDF
           </button>
-          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
+          <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:400 13px 'Lato',sans-serif;color:var(--grey-12);cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
             Excel
           </button>
@@ -109,39 +147,39 @@
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Amount invested</span>
-          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ invested }}</span>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Amount invested</span>
+          <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ invested }}</span>
         </div>
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Current portfolio value</span>
-          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ current }}</span>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Current portfolio value</span>
+          <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ current }}</span>
         </div>
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-            <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Returns</span>
-            <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:3px">
+            <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Returns</span>
+            <div style="display:flex;background:var(--grey-2);border-radius:10px;padding:3px">
               <button style="{{ retValStyle }}" onClick="{{ setRetVal }}">&#8377;</button>
               <button style="{{ retPctStyle }}" onClick="{{ setRetPct }}">%</button>
             </div>
           </div>
-          <span style="font:600 24px 'Playfair Display',serif;color:#0A7A4A;white-space:nowrap">{{ returnsShown }}</span>
+          <span style="font:700 24px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">{{ returnsShown }}</span>
         </div>
       </div>
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
-        <div style="padding:18px 24px;border-bottom:1px solid #EDE9DA">
-          <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#33423A">Trailing returns &amp; drawdown</h2>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div style="padding:18px 24px;border-bottom:1px solid var(--border)">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Trailing returns &amp; drawdown</h2>
         </div>
         <div style="overflow-x:auto">
           <div style="min-width:860px">
-            <div style="{{ trailGrid }};padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+            <div style="{{ trailGrid }};padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
               <sc-for list="{{ trailHead }}" as="h" hint-placeholder-count="11">
                 <span style="{{ h.style }}">{{ h.t }}</span>
               </sc-for>
             </div>
             <sc-for list="{{ trailRows }}" as="r" hint-placeholder-count="2">
-              <div style="{{ trailGrid }};padding:14px 24px;border-bottom:1px solid #F1EEE2">
+              <div style="{{ trailGrid }};padding:14px 24px;border-bottom:1px solid var(--grey-2)">
                 <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="11">
                   <span style="{{ c.style }}">{{ c.t }}</span>
                 </sc-for>
@@ -149,48 +187,48 @@
             </sc-for>
           </div>
         </div>
-        <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0;padding:14px 24px"><b style="color:#5B6A60">Returns:</b> periods under 1 year are absolute, periods over 1 year are annualized (CAGR).</p>
+        <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0;padding:14px 24px"><b style="color:var(--grey-10)">Returns:</b> periods under 1 year are absolute, periods over 1 year are annualized (CAGR).</p>
       </div>
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-          <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Performance &amp; drawdown</h2>
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Performance &amp; drawdown</h2>
           <div style="display:flex;gap:20px">
-            <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Lato',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#02422B;display:inline-block"></span>Scheme</span>
-            <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Lato',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#DABD38;display:inline-block"></span>Nifty 50</span>
-            <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Lato',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#B54B3A;display:inline-block"></span>Drawdown</span>
+            <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--forest);display:inline-block"></span>Scheme</span>
+            <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--gold);display:inline-block"></span>Nifty 50</span>
+            <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--loss);display:inline-block"></span>Drawdown</span>
           </div>
         </div>
         <svg viewBox="0 0 900 220" style="width:100%;height:220px" preserveAspectRatio="none">
-          <polyline points="{{ niftyPoints }}" fill="none" stroke="#DABD38" stroke-width="2"/>
-          <polyline points="{{ schemePoints }}" fill="none" stroke="#02422B" stroke-width="2.5"/>
+          <polyline points="{{ niftyPoints }}" fill="none" stroke="var(--gold)" stroke-width="2"/>
+          <polyline points="{{ schemePoints }}" fill="none" stroke="var(--forest)" stroke-width="2.5"/>
         </svg>
         <div style="display:flex;justify-content:space-between">
           <sc-for list="{{ axisLabels }}" as="a" hint-placeholder-count="5">
-            <span style="font:400 11px 'Lato',sans-serif;color:#9AA294">{{ a.label }}</span>
+            <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">{{ a.label }}</span>
           </sc-for>
         </div>
         <svg viewBox="0 0 900 100" style="width:100%;height:100px" preserveAspectRatio="none">
-          <polyline points="{{ ddPoints }}" fill="none" stroke="#B54B3A" stroke-width="2"/>
+          <polyline points="{{ ddPoints }}" fill="none" stroke="#E7000B" stroke-width="2"/>
         </svg>
       </div>
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
-        <div style="padding:18px 24px;border-bottom:1px solid #EDE9DA;display:flex;align-items:center;justify-content:space-between;gap:16px">
-          <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#33423A">Quarterly profit &amp; loss ({{ qUnit }})</h2>
-          <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:3px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Quarterly profit &amp; loss ({{ qUnit }})</h2>
+          <div style="display:flex;background:var(--grey-2);border-radius:10px;padding:3px">
             <button style="{{ qValStyle }}" onClick="{{ setQVal }}">&#8377;</button>
             <button style="{{ qPctStyle }}" onClick="{{ setQPct }}">%</button>
           </div>
         </div>
         <div style="overflow-x:auto">
           <div style="min-width:640px">
-            <div style="{{ qGrid }};padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+            <div style="{{ qGrid }};padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
               <sc-for list="{{ qHead }}" as="h" hint-placeholder-count="6">
                 <span style="{{ h.style }}">{{ h.t }}</span>
               </sc-for>
             </div>
-            <div style="{{ qGrid }};padding:14px 24px;border-bottom:1px solid #F1EEE2">
+            <div style="{{ qGrid }};padding:14px 24px;border-bottom:1px solid var(--grey-2)">
               <sc-for list="{{ qRow }}" as="c" hint-placeholder-count="6">
                 <span style="{{ c.style }}">{{ c.t }}</span>
               </sc-for>
@@ -199,22 +237,22 @@
         </div>
       </div>
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
-        <div style="padding:18px 24px;border-bottom:1px solid #EDE9DA;display:flex;align-items:center;justify-content:space-between;gap:16px">
-          <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#33423A">Monthly profit &amp; loss ({{ mUnit }})</h2>
-          <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:3px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Monthly profit &amp; loss ({{ mUnit }})</h2>
+          <div style="display:flex;background:var(--grey-2);border-radius:10px;padding:3px">
             <button style="{{ mValStyle }}" onClick="{{ setMVal }}">&#8377;</button>
             <button style="{{ mPctStyle }}" onClick="{{ setMPct }}">%</button>
           </div>
         </div>
         <div style="overflow-x:auto">
           <div style="min-width:1400px">
-            <div style="{{ mGrid }};padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+            <div style="{{ mGrid }};padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
               <sc-for list="{{ mHead }}" as="h" hint-placeholder-count="13">
                 <span style="{{ h.style }}">{{ h.t }}</span>
               </sc-for>
             </div>
-            <div style="{{ mGrid }};padding:14px 24px;border-bottom:1px solid #F1EEE2">
+            <div style="{{ mGrid }};padding:14px 24px;border-bottom:1px solid var(--grey-2)">
               <sc-for list="{{ mRow }}" as="c" hint-placeholder-count="13">
                 <span style="{{ c.style }}">{{ c.t }}</span>
               </sc-for>
@@ -223,24 +261,24 @@
         </div>
       </div>
 
-      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
-        <div style="padding:18px 24px;border-bottom:1px solid #EDE9DA">
-          <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#33423A">Cash in / out</h2>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div style="padding:18px 24px;border-bottom:1px solid var(--border)">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Cash in / out</h2>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+        <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:16px;padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
           <span style="{{ headStyle }}">Date</span>
           <span style="{{ headStyle }};text-align:right">Amount (&#8377;)</span>
         </div>
         <sc-for list="{{ cashRows }}" as="r" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:16px;align-items:center;padding:14px 24px;border-bottom:1px solid #F1EEE2">
+          <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:16px;align-items:center;padding:14px 24px;border-bottom:1px solid var(--grey-2)">
             <span style="{{ r.labelStyle }}">{{ r.label }}</span>
             <span style="{{ r.amountStyle }}">{{ r.amount }}</span>
           </div>
         </sc-for>
-        <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0;padding:14px 24px"><b style="color:#5B6A60">Note:</b> Cash in is funds added to the portfolio, cash out is withdrawals. Net flow is total in minus total out.</p>
+        <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0;padding:14px 24px"><b style="color:var(--grey-10)">Note:</b> Cash in is funds added to the portfolio, cash out is withdrawals. Net flow is total in minus total out.</p>
       </div>
 
-      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk. Past performance is not indicative of future results.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk. Past performance is not indicative of future results.</p>
     </div>
   </div>
 </div>
@@ -250,24 +288,32 @@
 class Component extends DCLogic {
   state = { panelOpen: true, retMode: "pct", qMode: "val", mMode: "val" };
 
+  componentDidMount() {
+    try {
+      const b = localStorage.getItem("qode_connected_broker");
+      if (b) this.setState({ connectedBroker: b });
+    } catch (e) {}
+  }
+
   renderVals() {
     const { panelOpen, retMode, qMode, mMode } = this.state;
-    const GAIN = "#0A7A4A", LOSS = "#B54B3A";
+    const connectedBrokerLabel = (this.state.connectedBroker || "Nuvama") + " connected";
+    const GAIN = "var(--gain)", LOSS = "var(--loss)";
     const INVESTED = 43536700.85;
 
     const inr = (n) => Math.abs(n).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const signed = (n) => (n < 0 ? "-" : "+") + inr(n);
     const signedPct = (n) => (n < 0 ? "-" : "+") + Math.abs(n).toFixed(2) + "%";
 
-    const headStyle = "font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
+    const headStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
     const toggleStyle = (on) =>
-      "padding:6px 14px;border-radius:7px;border:none;font:600 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;" +
-      (on ? "background:#02422B;color:#EFEDC3" : "background:transparent;color:#5B6A60");
+      "padding:6px 14px;border-radius:7px;border:none;font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;" +
+      (on ? "background:var(--forest);color:var(--cream)" : "background:transparent;color:var(--grey-10)");
 
     const headCell = (t, i) => ({ t, style: headStyle + (i === 0 ? "" : ";text-align:right") });
-    const nameCell = (t) => ({ t, style: "font:500 13.5px 'Lato',sans-serif;color:#0F1D16" });
-    const numCell = (t, color) => ({ t, style: "font:600 13.5px 'Lato',sans-serif;text-align:right;white-space:nowrap;color:" + (color || "#33423A") });
-    const colorOf = (t) => (t === "-" || /^[+-]?0(\.0+)?%?$/.test(t) ? "#9AA294" : t.charAt(0) === "-" ? LOSS : GAIN);
+    const nameCell = (t) => ({ t, style: "font:400 13.5px 'Lato',sans-serif;color:var(--ink)" });
+    const numCell = (t, color) => ({ t, style: "font:700 13.5px 'Lato',sans-serif;text-align:right;white-space:nowrap;color:" + (color || "var(--grey-12)") });
+    const colorOf = (t) => (t === "-" || /^[+-]?0(\.0+)?%?$/.test(t) ? "var(--grey-9)" : t.charAt(0) === "-" ? LOSS : GAIN);
 
     const trailHead = ["Name", "5D", "10D", "15D", "1M", "3M", "1Y", "2Y", "Since inception", "Current DD", "Max DD"].map((t, i) => headCell(t, i));
     const trailData = [
@@ -299,9 +345,9 @@ class Component extends DCLogic {
     const total = quarterly.reduce((a, b) => a + b, 0);
 
     const pnlCell = (v, mode) => {
-      if (v === null) return numCell("-", "#9AA294");
+      if (v === null) return numCell("-", "var(--grey-9)");
       const t = mode === "pct" ? signedPct((v / INVESTED) * 100) : signed(v);
-      return numCell(t, v > 0 ? GAIN : v < 0 ? LOSS : "#9AA294");
+      return numCell(t, v > 0 ? GAIN : v < 0 ? LOSS : "var(--grey-9)");
     };
 
     const qHead = ["Year", "Q1", "Q2", "Q3", "Q4", "Total"].map((t, i) => headCell(t, i));
@@ -309,25 +355,32 @@ class Component extends DCLogic {
     const mHead = ["Year"].concat(monthNames).map((t, i) => headCell(t, i));
     const mRow = [nameCell("2026")].concat(monthly.map((v) => pnlCell(v, mMode)));
 
-    const cashLabel = "font:400 13.5px 'Lato',sans-serif;color:#33423A";
-    const cashAmt = (c) => "font:600 13.5px 'Lato',sans-serif;text-align:right;white-space:nowrap;color:" + c;
+    const cashLabel = "font:400 13.5px 'Lato',sans-serif;color:var(--grey-12)";
+    const cashAmt = (c) => "font:700 13.5px 'Lato',sans-serif;text-align:right;white-space:nowrap;color:" + c;
     const cashRows = [
       { label: "16/01/2026", amount: "3,00,00,000.00", labelStyle: cashLabel, amountStyle: cashAmt(GAIN) },
       { label: "19/03/2026", amount: "1,35,36,700.85", labelStyle: cashLabel, amountStyle: cashAmt(GAIN) },
-      { label: "Total in", amount: "4,35,36,700.85", labelStyle: "font:600 13.5px 'Lato',sans-serif;color:#0F1D16", amountStyle: cashAmt("#0F1D16") },
-      { label: "Total out", amount: "0.00", labelStyle: "font:600 13.5px 'Lato',sans-serif;color:#0F1D16", amountStyle: cashAmt(LOSS) },
-      { label: "Net flow", amount: "4,35,36,700.85", labelStyle: "font:600 13.5px 'Lato',sans-serif;color:#0F1D16", amountStyle: cashAmt("#0F1D16") }
+      { label: "Total in", amount: "4,35,36,700.85", labelStyle: "font:700 13.5px 'Lato',sans-serif;color:var(--ink)", amountStyle: cashAmt("var(--ink)") },
+      { label: "Total out", amount: "0.00", labelStyle: "font:700 13.5px 'Lato',sans-serif;color:var(--ink)", amountStyle: cashAmt(LOSS) },
+      { label: "Net flow", amount: "4,35,36,700.85", labelStyle: "font:700 13.5px 'Lato',sans-serif;color:var(--ink)", amountStyle: cashAmt("var(--ink)") }
     ];
 
     return {
       panelOpen,
+      connectedBrokerLabel,
       chevronStyle: "transform:rotate(" + (panelOpen ? "90deg" : "-90deg") + ");transition:transform 0.15s",
       togglePanel: () => this.setState({ panelOpen: !panelOpen }),
+      notifOpen: this.state.notifOpen, toggleNotif: () => this.setState({ notifOpen: !this.state.notifOpen }),
+      notifications: [
+        { text: "Order rejected for Qode Yield Enhancer ++ \u2014 price outside circuit limit.", time: "10 min ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--loss);margin-top:5px;flex-shrink:0" },
+        { text: "Nuvama session expiring soon \u2014 re-authorise to keep algos running.", time: "1 hr ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0" },
+        { text: "Qode Yield Enhancer + deployed successfully.", time: "Yesterday", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gain);margin-top:5px;flex-shrink:0" }
+      ],
       headStyle,
 
       inceptionDate: "15/01/2026",
       dataAsOf: "18/09/2026",
-      algoTagStyle: "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px 'Lato',sans-serif;background:rgba(0,132,85,0.12);color:#008455;width:fit-content",
+      algoTagStyle: "display:inline-block;padding:5px 10px;border-radius:7px;font:700 12px 'Lato',sans-serif;background:var(--forest-tint);color:var(--forest);width:fit-content",
 
       invested: "₹" + inr(INVESTED),
       current: "₹5,09,63,531.20",

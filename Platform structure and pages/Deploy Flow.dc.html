@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3;
+    --page:#F7F5E9; --white:#FFFFFF; --ink:#1C2B26;
+    --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD;
+    --gain:#008455; --loss:#E7000B;
+    --gold-tint:rgba(218,189,56,0.16); --forest-tint:rgba(2,66,43,0.10);
+    --loss-tint:rgba(231,0,11,0.08); --scrim:rgba(0,32,23,0.55);
+  }
+  body{margin:0;background:#EDEAD9}
+  *{box-sizing:border-box}
+  a{color:var(--forest);text-decoration:none}
+  button:focus{outline:2px solid var(--gold);outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:36px;padding:40px;font-family:'Lato',system-ui,sans-serif;width:max-content;min-width:100%">
+
+  <h1 style="font:600 22px 'Playfair Display',serif;color:var(--forest);margin:0">Deploy an Algo — flow states</h1>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 1 — Legal</span>
+      <div style="{{ shell440 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress1 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Accept the legal documents</h2>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ legalDocs }}" as="d" hint-placeholder-count="4">
+            <label style="display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid var(--border)">
+              <input type="checkbox" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+              <span style="font:400 13.5px 'Lato',sans-serif;color:var(--ink);flex:1">{{ d.name }}</span>
+              <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Read</a>
+            </label>
+          </sc-for>
+        </div>
+        <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--forest-tint);border-radius:10px">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+          <span style="font:700 13px 'Lato',sans-serif;color:var(--forest)">I have read and accept all of the above</span>
+        </label>
+        <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9)">Your acceptance is recorded with date and time.</span>
+        <button style="{{ btnPrimaryDisabled }}">Continue</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 2 — Subscribe</span>
+      <div style="{{ shell440 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress2 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Subscribe to Qode Yield Enhancer ++</h2>
+        <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="{{ tagStyle }}">Options Selling</span>
+            <span style="font:700 12px 'Lato',sans-serif;color:var(--loss)">Risk: High</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ microLabel }}">CAGR</span><span style="{{ statVal }}">24.30%</span></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ microLabel }}">Sharpe</span><span style="{{ statVal }}">1.62</span></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ microLabel }}">Max DD</span><span style="{{ statValLoss }}">-38.40%</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="{{ microLabel }}">Capital to allocate (min. ₹5,00,000)</span>
+          <input type="text" placeholder="₹5,00,000" style="{{ inputStyle }}"/>
+        </div>
+        <button style="{{ btnPrimary }}">Subscribe and continue</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 3a — Configure + margin sufficient</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Broker</span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.style }}">
+                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Run on which weekdays?</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
+              <div style="{{ dayStyle }}">{{ w.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
+            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
+          </div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹7,40,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+        </div>
+        <button style="{{ btnPrimary }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 3b — Margin insufficient</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Broker</span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.style }}">
+                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Run on which weekdays?</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
+              <div style="{{ dayStyle }}">{{ w.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:var(--loss-tint);border:1px solid rgba(231,0,11,0.25);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--loss)"></div>
+            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--loss)">Insufficient margin. You need ₹1,20,000 more to start this algo.</span>
+          </div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹3,80,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+          <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Refresh margin</a>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="{{ btnPrimaryFlex }}">Add funds</button>
+          <button style="{{ btnSecondaryFlex }}">Pledge holdings</button>
+        </div>
+        <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
+        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 3c — Margin checking</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Broker</span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.style }}">
+                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Run on which weekdays?</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
+              <div style="{{ dayStyle }}">{{ w.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:10px;justify-content:center">
+          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">Checking margin with your broker…</span>
+        </div>
+        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4 — Authorise (default)</span>
+      <div style="{{ shell420 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Authorise Nuvama</h2>
+        <p style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">You&#39;ll be redirected to Nuvama to authorise Qode to place orders on your behalf.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Granted</span>
+          <span style="{{ permRow }}">✓ Place and modify orders</span>
+          <span style="{{ permRow }}">✓ Read positions and margin</span>
+          <span style="{{ microLabel }};margin-top:6px">Not granted</span>
+          <span style="{{ permRowNo }}">✕ No withdrawals</span>
+          <span style="{{ permRowNo }}">✕ No access to other accounts</span>
+        </div>
+        <button style="{{ btnPrimary }}">Authorise with Nuvama</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4 — Redirecting</span>
+      <div style="{{ shell420 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 0">
+          <span style="font:700 13.5px 'Lato',sans-serif;color:var(--grey-12)">Redirecting to Nuvama…</span>
+        </div>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4 — Success</span>
+      <div style="{{ shell420 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0">
+          <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">Broker connected</span>
+        </div>
+        <button style="{{ btnPrimary }}">Continue</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4 — Failed</span>
+      <div style="{{ shell420 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0;text-align:center">
+          <span style="width:46px;height:46px;border-radius:50%;background:var(--loss-tint);display:flex;align-items:center;justify-content:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--loss)" stroke-width="2.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </span>
+          <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">Authorisation failed</span>
+          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">Nuvama declined the request. This can happen if the session timed out.</span>
+        </div>
+        <button style="{{ btnPrimary }}">Try again</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 5 — Success</span>
+      <div style="{{ shell420 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress5 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 0 4px">
+          <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h2 style="{{ modalTitle }};text-align:center">Qode Yield Enhancer ++ is now active</h2>
+        </div>
+        <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Broker</span><span style="{{ statValSm }}">Nuvama</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Weekdays</span><span style="{{ statValSm }}">Mon–Fri</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Capital</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Start date</span><span style="{{ statValSm }}">23 Sep 2026</span></div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="{{ btnSecondaryFlex }}">Back to algo</button>
+          <button style="{{ btnPrimaryFlex }}">View in My Algos</button>
+        </div>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <span style="{{ labelStyle }}">Error notifications — top right, desktop</span>
+    <div style="position:relative;width:420px;height:220px;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+      <div style="position:absolute;top:14px;right:14px;display:flex;flex-direction:column;gap:8px;width:300px">
+        <sc-for list="{{ toasts }}" as="t" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid var(--border);border-left:3px solid var(--loss);border-radius:10px;box-shadow:0 8px 20px rgba(0,32,23,0.12);padding:11px 13px;display:flex;gap:9px">
+            <span style="font:700 13px 'Lato',sans-serif;color:var(--loss);flex-shrink:0">!</span>
+            <span style="font:400 12.5px/1.4 'Lato',sans-serif;color:var(--ink)">{{ t.msg }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Mobile 375px — Deploy 1</span>
+      <div style="width:375px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px 16px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:center;gap:5px;padding-bottom:4px">
+          <sc-for list="{{ progress1 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrapMobile }}">
+              <div style="{{ p.dot }}"></div>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="font:600 15px 'Playfair Display',serif;color:var(--forest);margin:0">Accept the legal documents</h2>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ legalDocs }}" as="d" hint-placeholder-count="4">
+            <label style="display:flex;align-items:center;gap:9px;padding:9px 2px;border-bottom:1px solid var(--border)">
+              <input type="checkbox" style="width:15px;height:15px;accent-color:var(--forest);flex-shrink:0"/>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--ink);flex:1">{{ d.name }}</span>
+              <a href="#" style="font:700 11px 'Lato',sans-serif;color:var(--forest)">Read</a>
+            </label>
+          </sc-for>
+        </div>
+        <button style="{{ btnPrimaryDisabled }}">Continue</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Mobile 375px — Deploy 3a</span>
+      <div style="width:375px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px 16px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:center;gap:5px;padding-bottom:4px">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrapMobile }}">
+              <div style="{{ p.dot }}"></div>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="font:600 15px 'Playfair Display',serif;color:var(--forest);margin:0">Configure and deploy</h2>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Broker</span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.styleFlex }}">
+                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
+                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="{{ microLabel }}">Run on which weekdays?</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
+              <div style="{{ dayStyle }}">{{ w.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;align-items:center;gap:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:var(--gain)"></div>
+            <span style="font:700 12px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
+          </div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available</span><span style="{{ statValSm }}">₹7,40,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+        </div>
+        <button style="{{ btnPrimary }}">Deploy Algo</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:1000}}">
+class Component extends DCLogic {
+  renderVals() {
+    const microLabel = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
+    const statVal = "font:700 18px 'Lato',sans-serif;color:var(--forest)";
+    const statValLoss = "font:700 18px 'Lato',sans-serif;color:var(--loss)";
+    const statValSm = "font:700 13px 'Lato',sans-serif;color:var(--ink)";
+    const inputStyle = "padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-strong);font:400 14px 'Lato',sans-serif;background:#fff;color:var(--ink)";
+    const btnPrimary = "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer";
+    const btnPrimaryFlex = "flex:1;padding:11px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer";
+    const btnPrimaryDisabled = "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed";
+    const btnSecondaryFlex = "flex:1;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer";
+    const tagStyle = "display:inline-block;padding:3px 9px;border-radius:6px;font:700 11px 'Lato',sans-serif;background:var(--gold-tint);color:#7A5E12;width:fit-content;white-space:nowrap";
+    const permRow = "font:400 12.5px 'Lato',sans-serif;color:var(--ink)";
+    const permRowNo = "font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)";
+    const modalTitle = "font:600 17px 'Playfair Display',serif;color:var(--forest);margin:0";
+    const labelStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);text-transform:uppercase;letter-spacing:0.04em";
+    const disclaimerStyle = "font:400 11px/1.5 'Lato',sans-serif;color:var(--grey-9);margin:0";
+    const shell440 = "width:440px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
+    const shell460 = "width:460px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
+    const shell420 = "width:420px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
+    const dayStyle = "padding:7px 12px;border-radius:8px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 11.5px 'Lato',sans-serif";
+
+    const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
+    const makeProgress = (activeStep) => stepLabels.map((label, i) => {
+      const n = i + 1;
+      const state = n < activeStep ? "done" : n === activeStep ? "active" : "upcoming";
+      const dotColor = state === "upcoming" ? "var(--border-strong)" : "var(--forest)";
+      const textColor = state === "upcoming" ? "var(--grey-9)" : "var(--forest)";
+      const weight = state === "active" ? "700" : "400";
+      return {
+        label,
+        wrap: "display:flex;align-items:center;gap:6px;" + (n < 5 ? "flex:1" : "flex:0 0 auto"),
+        wrapMobile: "display:flex;align-items:center;gap:4px;" + (n < 5 ? "flex:1" : "flex:0 0 auto"),
+        dot: "width:8px;height:8px;border-radius:50%;background:" + dotColor + ";flex-shrink:0",
+        text: "font:" + weight + " 10px 'Lato',sans-serif;color:" + textColor + ";white-space:nowrap",
+        showLine: n < 5
+      };
+    });
+
+    const legalDocs = [
+      { name: "Terms & Conditions" }, { name: "Privacy Policy" }, { name: "Risk Disclosures" }, { name: "Investor Charter" }
+    ];
+    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"].map((label) => ({ label }));
+    const brokerBase = "display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;";
+    const brokers = [
+      { name: "Nuvama", initial: "N", style: brokerBase + "border:1.5px solid var(--forest);background:var(--forest-tint)", styleFlex: brokerBase + "flex:1;border:1.5px solid var(--forest);background:var(--forest-tint)", iconStyle: "width:26px;height:26px;border-radius:7px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 11px 'Lato',sans-serif;flex-shrink:0" },
+      { name: "iRage", initial: "i", style: brokerBase + "border:1.5px solid var(--border-strong);background:#fff", styleFlex: brokerBase + "flex:1;border:1.5px solid var(--border-strong);background:#fff", iconStyle: "width:26px;height:26px;border-radius:7px;background:var(--grey-10);color:#fff;display:flex;align-items:center;justify-content:center;font:700 11px 'Lato',sans-serif;flex-shrink:0" }
+    ];
+
+    return {
+      microLabel, statVal, statValLoss, statValSm, inputStyle, btnPrimary, btnPrimaryFlex, btnPrimaryDisabled, btnSecondaryFlex,
+      tagStyle, permRow, permRowNo, modalTitle, labelStyle, disclaimerStyle, shell440, shell460, shell420, dayStyle,
+      progress1: makeProgress(1), progress2: makeProgress(2), progress3: makeProgress(3), progress4: makeProgress(4), progress5: makeProgress(5),
+      legalDocs, weekdays, brokers,
+      toasts: [
+        { msg: "Broker session expired — please re-authorise to keep this algo running." },
+        { msg: "Order rejected by exchange: price out of circuit limit." },
+        { msg: "Insufficient margin. Add funds to continue running this algo." }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

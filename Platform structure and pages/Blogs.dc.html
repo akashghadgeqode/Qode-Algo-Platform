@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3; --brand-green:#00AE5B;
+    --all-weather:#008455; --growth:#0A3452; --tactical:#550E0E;
+    --grad-brand:linear-gradient(160deg,#00AE5B 0%,#002017 100%); --grad-app:linear-gradient(160deg,#02422B 0%,#002017 100%);
+    --page:#F7F5E9; --white:#FFFFFF; --ink:#1C2B26;
+    --grey-1:#F8F9F9; --grey-2:#ECF0F1; --grey-3:#E5E7E9; --grey-4:#D7DBDD; --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD;
+    --gain:#008455; --gain-on-dark:#00AE5B; --loss:#E7000B;
+    --on-dark-tint:rgba(239,237,195,0.08); --on-dark-line:rgba(239,237,195,0.15); --on-dark-muted:rgba(239,237,195,0.6);
+    --gold-tint:rgba(218,189,56,0.16); --forest-tint:rgba(2,66,43,0.10); --growth-tint:rgba(10,52,82,0.10);
+    --gain-tint:rgba(0,132,85,0.12); --loss-tint:rgba(231,0,11,0.08); --loss-line:rgba(231,0,11,0.25); --scrim:rgba(0,32,23,0.55);
+  }
+  body{margin:0}
+  *{box-sizing:border-box}
+  a{color:var(--forest);text-decoration:none}
+  a:hover{color:var(--deep)}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:6px}
+  button:focus{outline:2px solid var(--gold);outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
+
+  <div style="flex:0 0 240px;background:var(--grad-app);display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:28px 0 24px;position:sticky;top:0;height:100vh;align-self:flex-start">
+    <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block;filter:brightness(0) saturate(100%) invert(80%) sepia(55%) saturate(750%) hue-rotate(2deg) brightness(101%) contrast(92%)"/>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="position:relative">
+          <button style="position:relative;width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ toggleNotif }}" aria-label="Notifications">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:var(--gold);color:var(--forest);font:700 9px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
+          </button>
+          <sc-if value="{{ notifOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:36px;left:0;width:280px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 32px rgba(0,32,23,0.22);z-index:50;overflow:hidden">
+              <div style="padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">Notifications</span>
+              </div>
+              <sc-for list="{{ notifications }}" as="n" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                  <span style="{{ n.dotStyle }}"></span>
+                  <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                    <span style="font:400 12.5px/1.4 'Lato',sans-serif;color:var(--ink)">{{ n.text }}</span>
+                    <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">{{ n.time }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          </div>
+        <button style="width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto;overflow-x:hidden">
+
+      <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:0 12px;display:flex;flex-direction:column;gap:4px">
+          <a href="Analytics.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            Portfolio
+          </a>
+          <a href="Positions.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            Positions
+          </a>
+          <a href="Orders.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            Orders
+          </a>
+          <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg>
+            Holdings
+          </a>
+          <a href="Reports.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+            Reports
+          </a>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
+      <div style="height:1px;background:var(--on-dark-line);margin-bottom:6px"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--gain-on-dark);flex-shrink:0"></div>
+        <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream)">Nuvama connected</span>
+      </div>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:var(--on-dark-muted);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+    </div>
+  </div>
+
+  <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+      <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Dashboard</a>
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Marketplace</a>
+      <a href="Blogs.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
+      </a>
+    </nav>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);gap:20px;flex-shrink:0">
+      <div>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:var(--forest);white-space:nowrap">Qode Perspective</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">How we think, written down — research, commentary and platform guides</p>
+      </div>
+    </div>
+
+    <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:36px">
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+          <button style="{{ c.style }}" style-hover="{{ c.hoverStyle }}" onClick="{{ c.select }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+
+      <a href="#" style="display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--forest);border-radius:18px;overflow:hidden;min-height:280px">
+        <div style="padding:36px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+          <span style="{{ heroTagStyle }}">QuickTake</span>
+          <h2 style="font:600 28px/1.3 'Playfair Display',serif;margin:0;color:#fff">What happens to your open positions when your broker's API drops mid-session</h2>
+          <p style="font:400 14px/1.6 'Lato',sans-serif;color:var(--on-dark-muted);margin:0">A walkthrough of failover handling, order reconciliation, and what you should check first.</p>
+          <span style="font:700 13px 'Lato',sans-serif;color:var(--cream);display:flex;align-items:center;gap:6px">Read more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <div style="background:var(--deep);display:flex;align-items:center;justify-content:center">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--on-dark-line)" stroke-width="1.4"><path d="M13 2 3 14h7l-1 8 11-14h-8z"/></svg>
+        </div>
+      </a>
+
+      <sc-for list="{{ sections }}" as="s" hint-placeholder-count="5">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between">
+            <div style="display:flex;flex-direction:column;gap:3px">
+              <h2 style="font:700 18px 'Lato',sans-serif;margin:0;color:var(--forest)">{{ s.name }}</h2>
+              <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10)">{{ s.desc }}</span>
+            </div>
+            <a href="#" style="font:700 12.5px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">View all</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+            <sc-for list="{{ s.articles }}" as="a" hint-placeholder-count="3">
+              <a href="#" style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+                <div style="height:120px;background:{{ a.bg }};display:flex;align-items:center;justify-content:center">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ a.iconColor }}" stroke-width="1.6" dangerouslySetInnerHTML="{{ a.iconInner }}"></svg>
+                </div>
+                <div style="padding:18px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+                  <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">{{ a.date }} &middot; {{ a.readTime }}</span>
+                  <span style="font:700 15.5px 'Lato',sans-serif;color:var(--ink);line-height:1.4">{{ a.title }}</span>
+                  <span style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);flex:1">{{ a.excerpt }}</span>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Subscribe to Qode Perspective</h2>
+          <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">Get new reads and platform guides delivered to your inbox.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex:1;max-width:380px;min-width:260px">
+          <input type="email" placeholder="Email address" style="flex:1;padding:11px 14px;border-radius:9px;border:1.5px solid var(--border-strong);font:400 13.5px 'Lato',sans-serif;background:#fff;color:var(--ink)"/>
+          <button style="padding:11px 20px;border-radius:9px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:var(--deep)" onClick="{{ noop }}">Subscribe</button>
+        </div>
+      </div>
+
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0">Content on this page is for educational purposes and does not constitute investment advice. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; algo trading is subject to market risk.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { activeCategory: "All", panelOpen: true };
+
+  renderVals() {
+    const active = this.state.activeCategory;
+    const panelOpen = this.state.panelOpen;
+    const catStyleHover = (name) => active === name ? "background:var(--deep)" : "background:var(--grey-2);border-color:var(--grey-9)";
+    const catStyle = (name) => "padding:8px 16px;border-radius:20px;border:1.5px solid " + (active === name ? "var(--forest)" : "var(--border-strong)") + ";background:" + (active === name ? "var(--forest)" : "#fff") + ";color:" + (active === name ? "var(--cream)" : "var(--grey-12)") + ";font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
+    const tagStyle = (label) => "display:inline-block;padding:4px 11px;border-radius:6px;font:700 11px 'Lato',sans-serif;background:rgba(239,237,195,0.16);color:var(--gold);width:fit-content;text-transform:uppercase;letter-spacing:0.03em";
+
+    const names = ["All", "QuickTakes", "The Breakdown", "The Quotient", "Guides", "Market Lens"];
+    const categories = names.map((n) => ({ label: n, style: catStyle(n), hoverStyle: catStyleHover(n), select: () => this.setState({ activeCategory: n }) }));
+
+    const bgA = "var(--forest-tint)", bgB = "var(--gold-tint)", bgC = "var(--growth-tint)";
+    const ic = (svg) => ({ __html: svg });
+    const iconDoc = ic('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/>');
+    const iconChart = ic('<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>');
+    const iconGauge = ic('<circle cx="12" cy="12" r="9"/><path d="M12 12l4-4M8 12a4 4 0 1 1 8 0"/>');
+    const iconRoute = ic('<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 6h6a4 4 0 0 1 4 4v2"/>');
+    const iconAlert = ic('<path d="M12 2 2 20h20z"/><path d="M12 9v5M12 17h.01"/>');
+    const iconCompass = ic('<circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-4 2 2-6z"/>');
+
+    return {
+      categories,
+      tagStyle,
+      heroTagStyle: tagStyle("QuickTake"),
+      noop: () => {},
+      panelOpen,
+      chevronStyle: "transform:rotate(" + (panelOpen ? "90deg" : "-90deg") + ");transition:transform 0.15s",
+      togglePanel: () => this.setState({ panelOpen: !panelOpen }),
+      notifOpen: this.state.notifOpen, toggleNotif: () => this.setState({ notifOpen: !this.state.notifOpen }),
+      notifications: [
+        { text: "Order rejected for Qode Yield Enhancer ++ \u2014 price outside circuit limit.", time: "10 min ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--loss);margin-top:5px;flex-shrink:0" },
+        { text: "Nuvama session expiring soon \u2014 re-authorise to keep algos running.", time: "1 hr ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0" },
+        { text: "Qode Yield Enhancer + deployed successfully.", time: "Yesterday", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gain);margin-top:5px;flex-shrink:0" }
+      ],
+      sections: [
+        {
+          name: "QuickTakes", desc: "Short reads on what's moving markets now",
+          articles: [
+            { date: "18 Sep 2026", readTime: "3 min", title: "Why weekly Nifty premium spiked into expiry", excerpt: "A quick look at what drove implied vols higher this week.", bg: bgA, iconColor: "var(--forest)", iconInner: iconChart },
+            { date: "12 Sep 2026", readTime: "2 min", title: "RBI policy day: what algo traders should watch", excerpt: "The three data points that tend to move option pricing on policy days.", bg: bgB, iconColor: "#B9880F", iconInner: iconGauge },
+            { date: "05 Sep 2026", readTime: "3 min", title: "Reading the VIX before you deploy capital", excerpt: "A short primer on using India VIX as a pre-deployment check.", bg: bgC, iconColor: "var(--growth)", iconInner: iconCompass }
+          ]
+        },
+        {
+          name: "The Breakdown", desc: "One idea, taken apart in depth",
+          articles: [
+            { date: "28 Aug 2026", readTime: "9 min", title: "What is an RA algo, and how does it actually work?", excerpt: "How a SEBI-registered Research Analyst can offer algo strategies without touching your capital.", bg: bgA, iconColor: "var(--forest)", iconInner: iconDoc },
+            { date: "14 Aug 2026", readTime: "7 min", title: "Inside Qode Yield Enhancer: the mechanics of premium selling", excerpt: "A full breakdown of entry rules, hedges, and stop-loss logic.", bg: bgB, iconColor: "#B9880F", iconInner: iconRoute },
+            { date: "02 Aug 2026", readTime: "8 min", title: "Drawdowns explained: depth, duration and recovery", excerpt: "Why max drawdown alone doesn't tell you what you need to know.", bg: bgC, iconColor: "var(--growth)", iconInner: iconChart }
+          ]
+        },
+        {
+          name: "The Quotient", desc: "The numbers behind our thinking",
+          articles: [
+            { date: "20 Jul 2026", readTime: "5 min", title: "CAGR vs Sharpe vs Calmar: which ratio matters when", excerpt: "A practical guide to reading our research dashboard metrics.", bg: bgA, iconColor: "var(--forest)", iconInner: iconGauge },
+            { date: "09 Jul 2026", readTime: "4 min", title: "How we calculate rolling returns", excerpt: "The windowing methodology behind every rolling chart you see.", bg: bgB, iconColor: "#B9880F", iconInner: iconChart },
+            { date: "30 Jun 2026", readTime: "6 min", title: "Regime analysis: sorting returns by market condition", excerpt: "Why performance in low-vol and high-vol regimes needs separate scrutiny.", bg: bgC, iconColor: "var(--growth)", iconInner: iconCompass }
+          ]
+        },
+        {
+          name: "Guides", desc: "Step-by-step help using the platform",
+          articles: [
+            { date: "22 Jun 2026", readTime: "6 min", title: "How to start an algo, step by step", excerpt: "From connecting your broker to your first deployed order.", bg: bgA, iconColor: "var(--forest)", iconInner: iconRoute },
+            { date: "15 Jun 2026", readTime: "5 min", title: "Different types of errors and how to handle them", excerpt: "A field guide to order rejections, margin shortfalls and API errors.", bg: bgB, iconColor: "#B9880F", iconInner: iconAlert },
+            { date: "08 Jun 2026", readTime: "4 min", title: "Understanding margin requirements before you deploy", excerpt: "SPAN, exposure and how much headroom to keep with your broker.", bg: bgC, iconColor: "var(--growth)", iconInner: iconDoc }
+          ]
+        },
+        {
+          name: "Market Lens", desc: "Our read on the current market",
+          articles: [
+            { date: "01 Jun 2026", readTime: "4 min", title: "Market Lens — September 2026", excerpt: "Positioning, volatility and what we're watching into the next expiry.", bg: bgA, iconColor: "var(--forest)", iconInner: iconCompass },
+            { date: "01 May 2026", readTime: "4 min", title: "Market Lens — August 2026", excerpt: "A recap of the month's biggest moves and how our algos responded.", bg: bgB, iconColor: "#B9880F", iconInner: iconChart },
+            { date: "01 Apr 2026", readTime: "4 min", title: "Market Lens — July 2026", excerpt: "Sector rotation, FII flows and implied volatility trends.", bg: bgC, iconColor: "var(--growth)", iconInner: iconGauge }
+          ]
+        }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

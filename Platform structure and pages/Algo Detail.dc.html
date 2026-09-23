@@ -11,32 +11,43 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3; --brand-green:#00AE5B;
+    --all-weather:#008455; --growth:#0A3452; --tactical:#550E0E;
+    --grad-brand:linear-gradient(160deg,#00AE5B 0%,#002017 100%); --grad-app:linear-gradient(160deg,#02422B 0%,#002017 100%);
+    --page:#F7F5E9; --white:#FFFFFF; --ink:#1C2B26;
+    --grey-1:#F8F9F9; --grey-2:#ECF0F1; --grey-3:#E5E7E9; --grey-4:#D7DBDD; --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD;
+    --gain:#008455; --gain-on-dark:#00AE5B; --loss:#E7000B;
+    --on-dark-tint:rgba(239,237,195,0.08); --on-dark-line:rgba(239,237,195,0.15); --on-dark-muted:rgba(239,237,195,0.6);
+    --gold-tint:rgba(218,189,56,0.16); --forest-tint:rgba(2,66,43,0.10); --growth-tint:rgba(10,52,82,0.10);
+    --gain-tint:rgba(0,132,85,0.12); --loss-tint:rgba(231,0,11,0.08); --loss-line:rgba(231,0,11,0.25); --scrim:rgba(0,32,23,0.55);
+  }
   body{margin:0}
   *{box-sizing:border-box}
-  a{color:#02422B;text-decoration:none}
-  a:hover{color:#0A5C3B}
+  a{color:var(--forest);text-decoration:none}
+  a:hover{color:var(--deep)}
   ::-webkit-scrollbar{width:10px;height:10px}
-  ::-webkit-scrollbar-thumb{background:#DDE3D8;border-radius:6px}
-  button:focus{outline:2px solid #DABD38;outline-offset:1px}
+  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:6px}
+  button:focus{outline:2px solid var(--gold);outline-offset:1px}
 </style>
 </helmet>
 
-<div style="display:flex;flex-direction:column;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+<div style="display:flex;flex-direction:column;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
 
-  <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:56px;border-bottom:1px solid #E9E5D6;flex-shrink:0;position:relative;z-index:30;background:#fff">
-    <a href="Marketplace.dc.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font:600 13px 'Lato',sans-serif;color:#02422B;white-space:nowrap;margin-right:12px">
+  <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:56px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30;background:#fff">
+    <a href="Marketplace.dc.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font:700 13px 'Lato',sans-serif;color:var(--forest);white-space:nowrap;margin-right:12px">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
       Back
     </a>
-    <div style="width:1px;height:22px;background:#E9E5D6;margin-right:12px"></div>
-    <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap;background:transparent;">Dashboard</a>
-    <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">My Algos</a>
-    <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:600 12.5px 'Lato',sans-serif;color:#02422B;background:rgba(218,189,56,0.16);white-space:nowrap">Marketplace</a>
-    <a href="Reports.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Reports</a>
-    <a href="#" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Blogs</a>
-    <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:500 12.5px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">Help &amp; Support</a>
-    <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid #E9E5D6;text-decoration:none" aria-label="View profile">
-      <div style="width:32px;height:32px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 12px 'Lato',sans-serif">AM</div>
+    <div style="width:1px;height:22px;background:var(--border);margin-right:12px"></div>
+    <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap;background:transparent;">Dashboard</a>
+    <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
+    <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Marketplace</a>
+    <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
+    <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
+    <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif">AM</div>
     </a>
   </nav>
 
@@ -46,16 +57,16 @@
 
       <div style="display:flex;flex-direction:column;gap:20px;flex:1 1 480px;min-width:0">
 
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
           <div style="display:flex;align-items:center;gap:14px;min-width:0;flex:1 1 auto">
-            <span style="width:48px;height:48px;border-radius:11px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 15px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
+            <span style="width:48px;height:48px;border-radius:11px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 15px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
             <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
-              <span style="font:600 20px 'Playfair Display',serif;color:#0F1D16;white-space:nowrap">{{ algo.name }}</span>
+              <span style="font:600 20px 'Playfair Display',serif;color:var(--ink);white-space:nowrap">{{ algo.name }}</span>
               <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
             </div>
           </div>
-          <span style="display:flex;align-items:center;gap:6px;font:500 12.5px 'Lato',sans-serif;color:#8A9089;white-space:nowrap">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DABD38" stroke-width="2.4"><path d="M12 2v6M12 2 8 6M12 2l4 4"/><circle cx="12" cy="15" r="7"/></svg>
+          <span style="display:flex;align-items:center;gap:6px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.4"><path d="M12 2v6M12 2 8 6M12 2l4 4"/><circle cx="12" cy="15" r="7"/></svg>
             {{ algo.subscribers }} traders subscribed
           </span>
         </div>
@@ -70,54 +81,54 @@
         <sc-if value="{{ showPerf }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;gap:20px">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap">CAGR</span>
-                <span style="font:600 22px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ algo.cagr }}</span>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">CAGR</span>
+                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.cagr }}</span>
               </div>
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap">Sharpe</span>
-                <span style="font:600 22px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ algo.sharpe }}</span>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">Sharpe</span>
+                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.sharpe }}</span>
               </div>
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap">Calmar</span>
-                <span style="font:600 22px 'Playfair Display',serif;color:#02422B;white-space:nowrap">{{ algo.calmar }}</span>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">Calmar</span>
+                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.calmar }}</span>
               </div>
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em">Max Drawdown</span>
-                <span style="font:600 22px 'Playfair Display',serif;color:#B54B3A;white-space:nowrap">{{ algo.maxDD }}</span>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Max Drawdown</span>
+                <span style="font:700 24px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ algo.maxDD }}</span>
               </div>
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:500 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em">Current Drawdown</span>
-                <span style="font:600 22px 'Playfair Display',serif;color:#B54B3A;white-space:nowrap">{{ algo.currentDD }}</span>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Current Drawdown</span>
+                <span style="font:700 24px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ algo.currentDD }}</span>
               </div>
             </div>
 
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Equity &amp; drawdown curve</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Equity &amp; drawdown curve</h2>
               <svg viewBox="0 0 600 200" style="width:100%;height:200px" preserveAspectRatio="none">
-                <polyline points="0,150 60,140 120,155 180,120 240,100 300,60 360,80 420,50 480,65 540,40 600,45" fill="none" stroke="#02422B" stroke-width="2.5"/>
-                <polyline points="0,175 60,178 120,180 180,172 240,176 300,182 360,178 420,185 480,180 540,188 600,186" fill="none" stroke="#B54B3A" stroke-width="2"/>
+                <polyline points="0,150 60,140 120,155 180,120 240,100 300,60 360,80 420,50 480,65 540,40 600,45" fill="none" stroke="var(--forest)" stroke-width="2.5"/>
+                <polyline points="0,175 60,178 120,180 180,172 240,176 300,182 360,178 420,185 480,180 540,188 600,186" fill="none" stroke="#E7000B" stroke-width="2"/>
               </svg>
               <div style="display:flex;gap:20px">
-                <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Lato',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#02422B;display:inline-block"></span>Equity curve</span>
-                <span style="display:flex;align-items:center;gap:7px;font:500 12px 'Lato',sans-serif;color:#5B6A60"><span style="width:14px;height:2.5px;background:#B54B3A;display:inline-block"></span>Drawdown</span>
+                <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--forest);display:inline-block"></span>Equity curve</span>
+                <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--loss);display:inline-block"></span>Drawdown</span>
               </div>
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-                <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Rolling returns &amp; drawdown</h2>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+                <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Rolling returns &amp; drawdown</h2>
                 <svg viewBox="0 0 280 140" style="width:100%;height:140px" preserveAspectRatio="none">
-                  <polyline points="0,90 30,70 60,85 90,55 120,60 150,40 180,50 210,30 240,45 270,25" fill="none" stroke="#008455" stroke-width="2.2"/>
+                  <polyline points="0,90 30,70 60,85 90,55 120,60 150,40 180,50 210,30 240,45 270,25" fill="none" stroke="var(--forest)" stroke-width="2.2"/>
                 </svg>
               </div>
-              <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-                <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Trailing returns &amp; drawdown</h2>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+                <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Trailing returns &amp; drawdown</h2>
                 <div style="display:flex;flex-direction:column;gap:10px">
                   <sc-for list="{{ trailing }}" as="t" hint-placeholder-count="4">
                     <div style="display:flex;align-items:center;justify-content:space-between">
-                      <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">{{ t.label }}</span>
-                      <span style="font:600 13.5px 'Lato',sans-serif;color:{{ t.color }};white-space:nowrap">{{ t.value }}</span>
+                      <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ t.label }}</span>
+                      <span style="font:700 13.5px 'Lato',sans-serif;color:{{ t.color }};white-space:nowrap">{{ t.value }}</span>
                     </div>
                   </sc-for>
                 </div>
@@ -128,36 +139,36 @@
 
         <sc-if value="{{ showBest }}" hint-placeholder-val="{{ false }}">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Top 5 best periods</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 best periods</h2>
               <sc-for list="{{ bestPeriods }}" as="p" hint-placeholder-count="5">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EEE2">
-                  <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">{{ p.period }}</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0A7A4A;white-space:nowrap">{{ p.value }}</span>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--grey-2)">
+                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ p.period }}</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">{{ p.value }}</span>
                 </div>
               </sc-for>
             </div>
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Top 5 worst periods</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 worst periods</h2>
               <sc-for list="{{ worstPeriods }}" as="p" hint-placeholder-count="5">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EEE2">
-                  <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">{{ p.period }}</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#B54B3A;white-space:nowrap">{{ p.value }}</span>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--grey-2)">
+                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ p.period }}</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ p.value }}</span>
                 </div>
               </sc-for>
             </div>
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;grid-column:1 / -1">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Top 5 drawdowns</h2>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding-bottom:8px;border-bottom:1px solid #EDE9DA">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;grid-column:1 / -1">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 drawdowns</h2>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
                 <span style="{{ headStyle }}">Period</span>
                 <span style="{{ headStyle }};text-align:right">Depth</span>
                 <span style="{{ headStyle }};text-align:right">Recovery</span>
               </div>
               <sc-for list="{{ drawdowns }}" as="d" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding:9px 0;border-bottom:1px solid #F1EEE2">
-                  <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60;white-space:nowrap">{{ d.period }}</span>
-                  <span style="font:600 13px 'Lato',sans-serif;color:#B54B3A;text-align:right;white-space:nowrap">{{ d.depth }}</span>
-                  <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60;text-align:right;white-space:nowrap">{{ d.recovery }}</span>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding:9px 0;border-bottom:1px solid var(--grey-2)">
+                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ d.period }}</span>
+                  <span style="font:700 13px 'Lato',sans-serif;color:var(--loss);text-align:right;white-space:nowrap">{{ d.depth }}</span>
+                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);text-align:right;white-space:nowrap">{{ d.recovery }}</span>
                 </div>
               </sc-for>
             </div>
@@ -166,26 +177,26 @@
 
         <sc-if value="{{ showMonthly }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:16px">
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Monthly performance</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Monthly performance</h2>
               <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px">
                 <sc-for list="{{ monthly }}" as="m" hint-placeholder-count="12">
                   <div style="{{ m.cellStyle }}">
-                    <span style="font:500 10.5px 'Lato',sans-serif;opacity:0.75">{{ m.label }}</span>
+                    <span style="font:400 10.5px 'Lato',sans-serif;opacity:0.75">{{ m.label }}</span>
                     <span style="font:700 13px 'Lato',sans-serif">{{ m.value }}</span>
                   </div>
                 </sc-for>
               </div>
             </div>
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Regime analysis</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Regime analysis</h2>
               <sc-for list="{{ regimes }}" as="r" hint-placeholder-count="3">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F1EEE2">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--grey-2)">
                   <span style="display:flex;flex-direction:column;gap:2px">
-                    <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ r.regime }}</span>
-                    <span style="font:400 12px 'Lato',sans-serif;color:#8A9089">{{ r.desc }}</span>
+                    <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ r.regime }}</span>
+                    <span style="font:400 12px 'Lato',sans-serif;color:var(--grey-9)">{{ r.desc }}</span>
                   </span>
-                  <span style="font:600 14px 'Lato',sans-serif;color:{{ r.color }};white-space:nowrap">{{ r.value }}</span>
+                  <span style="font:700 14px 'Lato',sans-serif;color:{{ r.color }};white-space:nowrap">{{ r.value }}</span>
                 </div>
               </sc-for>
             </div>
@@ -194,91 +205,91 @@
 
         <sc-if value="{{ showAbout }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:16px">
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">About this algo</h2>
-              <p style="font:400 13.5px/1.7 'Lato',sans-serif;color:#5B6A60;margin:0">{{ algo.about }}</p>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">About this algo</h2>
+              <p style="font:400 13.5px/1.7 'Lato',sans-serif;color:var(--grey-10);margin:0">{{ algo.about }}</p>
               <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:8px">
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Built on</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">Nifty</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Built on</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">Nifty</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Segment</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">F&amp;O</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Segment</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">F&amp;O</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Frequency</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">2-3/week</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Frequency</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">2-3/week</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Style</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">{{ algo.category }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Style</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.category }}</span>
                 </div>
               </div>
             </div>
 
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:18px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Strategy details</h2>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:18px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Strategy details</h2>
               <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Portfolio type</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.portfolioType }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Portfolio type</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.portfolioType }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Market</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.market }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Market</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.market }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Instruments</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.instruments }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Instruments</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.instruments }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Leverage</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.leverage }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Leverage</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.leverage }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Active UIDs</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.activeUids }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Active UIDs</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.activeUids }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Current deployment</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.currentDeployment }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Current deployment</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.currentDeployment }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:3px">
-                  <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Inception date</span>
-                  <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ algo.inceptionDate }}</span>
+                  <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Inception date</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ algo.inceptionDate }}</span>
                 </div>
               </div>
 
               <div style="display:flex;flex-direction:column;gap:7px">
-                <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Strategies used</span>
+                <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Strategies used</span>
                 <div style="display:flex;flex-wrap:wrap;gap:8px">
                   <sc-for list="{{ algo.strategyTags }}" as="s" hint-placeholder-count="4">
-                    <span style="display:inline-block;padding:5px 11px;border-radius:7px;font:600 12px 'Lato',sans-serif;background:#F0EEE2;color:#33423A;white-space:nowrap">{{ s }}</span>
+                    <span style="display:inline-block;padding:5px 11px;border-radius:7px;font:700 12px 'Lato',sans-serif;background:var(--grey-2);color:var(--grey-12);white-space:nowrap">{{ s }}</span>
                   </sc-for>
                 </div>
               </div>
 
               <div style="display:flex;flex-direction:column;gap:5px">
-                <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Objective</span>
-                <p style="font:400 13.5px/1.6 'Lato',sans-serif;color:#5B6A60;margin:0">{{ algo.objective }}</p>
+                <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Objective</span>
+                <p style="font:400 13.5px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">{{ algo.objective }}</p>
               </div>
 
               <div style="display:flex;flex-direction:column;gap:5px">
-                <span style="font:500 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;white-space:nowrap">Risk controls</span>
-                <p style="font:400 13.5px/1.6 'Lato',sans-serif;color:#5B6A60;margin:0">{{ algo.riskControls }}</p>
+                <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;white-space:nowrap">Risk controls</span>
+                <p style="font:400 13.5px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">{{ algo.riskControls }}</p>
               </div>
             </div>
 
-            <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:#02422B">Disclosures</h2>
-              <p style="font:400 12.5px/1.7 'Lato',sans-serif;color:#5B6A60;margin:0">Trading in algorithmic strategies is subject to market risk. Past performance shown above is back-tested and/or live-tracked and is not indicative of future returns. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst (Reg. No. INHXXXXXXXXX) and does not guarantee returns. Please read the full risk disclosure document and terms of the RAASB before subscribing.</p>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Disclosures</h2>
+              <p style="font:400 12.5px/1.7 'Lato',sans-serif;color:var(--grey-10);margin:0">Trading in algorithmic strategies is subject to market risk. Past performance shown above is back-tested and/or live-tracked and is not indicative of future returns. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst (Reg. No. INHXXXXXXXXX) and does not guarantee returns. Please read the full risk disclosure document and terms of the RAASB before subscribing.</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:4px">
-                <a href="#" style="display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A">
+                <a href="#" style="display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>
                   Download Certificate (PDF)
                 </a>
-                <a href="#" style="display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A">Risk Disclosure Document</a>
+                <a href="#" style="display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">Risk Disclosure Document</a>
               </div>
             </div>
           </div>
@@ -286,44 +297,44 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:16px;flex:0 0 380px;position:sticky;top:20px">
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
           <div style="display:flex;align-items:center;gap:12px">
-            <span style="width:40px;height:40px;border-radius:10px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 13px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
+            <span style="width:40px;height:40px;border-radius:10px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 13px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
             <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
-              <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">{{ algo.name }}</span>
+              <span style="font:700 15px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.name }}</span>
               <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
             </div>
           </div>
 
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div style="display:flex;flex-direction:column;gap:2px">
-              <span style="font:400 11.5px 'Lato',sans-serif;color:#8A9089;white-space:nowrap">Min. allocation</span>
-              <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">{{ algo.minAlloc }}</span>
+              <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Min. allocation</span>
+              <span style="font:700 15px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.minAlloc }}</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end">
-              <span style="font:400 11.5px 'Lato',sans-serif;color:#8A9089;white-space:nowrap">Starts at</span>
-              <span style="font:600 15px 'Lato',sans-serif;color:#0F1D16;white-space:nowrap">{{ algo.startPrice }}</span>
+              <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Starts at</span>
+              <span style="font:700 15px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.startPrice }}</span>
             </div>
           </div>
 
-          <button style="width:100%;padding:13px 0;border-radius:10px;border:none;background:#02422B;color:#EFEDC3;font:600 14px 'Lato',sans-serif;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ openDeploy }}">Deploy Algo</button>
-<a href="Marketplace.dc.html" style="width:100%;padding:11px 0;border-radius:10px;border:1.5px solid #DDE3D8;background:#fff;color:#33423A;font:600 13px 'Lato',sans-serif;cursor:pointer;text-align:center">Back to Marketplace</a>
+          <button style="width:100%;padding:13px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 14px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ openDeploy }}">Deploy Algo</button>
+<a href="Marketplace.dc.html" style="width:100%;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center">Back to Marketplace</a>
 
-          <div style="display:flex;flex-direction:column;gap:9px;padding-top:6px;border-top:1px solid #F1EEE2">
-            <span style="display:flex;align-items:center;gap:9px;font:400 12.5px 'Lato',sans-serif;color:#5B6A60">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B54B3A" stroke-width="2"><path d="M12 2 2 20h20z"/><path d="M12 9v5M12 17h.01"/></svg>
+          <div style="display:flex;flex-direction:column;gap:9px;padding-top:6px;border-top:1px solid var(--grey-2)">
+            <span style="display:flex;align-items:center;gap:9px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E7000B" stroke-width="2"><path d="M12 2 2 20h20z"/><path d="M12 9v5M12 17h.01"/></svg>
               Risk: <strong style="color:{{ algo.riskColor }}">{{ algo.risk }}</strong>
             </span>
-            <span style="display:flex;align-items:center;gap:9px;font:400 12.5px 'Lato',sans-serif;color:#5B6A60">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A9089" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span style="display:flex;align-items:center;gap:9px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#797D7F" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
               Intraday &amp; positional
             </span>
           </div>
 
-          <div style="display:flex;align-items:center;gap:10px;padding-top:6px;border-top:1px solid #F1EEE2">
-            <span style="font:500 12px 'Lato',sans-serif;color:#8A9089;white-space:nowrap">Share:</span>
-            <button style="width:30px;height:30px;border-radius:8px;border:1px solid #DDE3D8;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5B6A60" onClick="{{ noop }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4M12 2v14"/></svg></button>
-            <button style="width:30px;height:30px;border-radius:8px;border:1px solid #DDE3D8;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5B6A60" onClick="{{ noop }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></button>
+          <div style="display:flex;align-items:center;gap:10px;padding-top:6px;border-top:1px solid var(--grey-2)">
+            <span style="font:400 12px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Share:</span>
+            <button style="width:30px;height:30px;border-radius:8px;border:1px solid var(--border-strong);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--grey-10)" onClick="{{ noop }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4M12 2v14"/></svg></button>
+            <button style="width:30px;height:30px;border-radius:8px;border:1px solid var(--border-strong);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--grey-10)" onClick="{{ noop }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></button>
           </div>
         </div>
       </div>
@@ -332,42 +343,162 @@
   </div>
 
   <sc-if value="{{ deployOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;background:rgba(0,32,23,0.55);display:flex;align-items:center;justify-content:center;z-index:50" onClick="{{ closeDeploy }}">
-      <div style="background:#fff;border-radius:18px;width:420px;max-width:90vw;padding:30px;display:flex;flex-direction:column;gap:20px" onClick="{{ stopClick }}">
+    <div style="position:fixed;inset:0;background:var(--scrim);display:flex;align-items:center;justify-content:center;z-index:50" onClick="{{ closeDeploy }}">
+      <div style="background:#fff;border-radius:18px;width:460px;max-width:90vw;max-height:88vh;overflow-y:auto;padding:28px 28px 26px;display:flex;flex-direction:column;gap:18px" onClick="{{ stopClick }}">
         <div style="display:flex;align-items:center;justify-content:space-between">
-          <h2 style="font:600 19px 'Playfair Display',serif;margin:0;color:#02422B">Deploy {{ algo.name }}</h2>
-          <button style="width:28px;height:28px;border-radius:50%;border:none;background:#F0EEE2;color:#5B6A60;cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ closeDeploy }}">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Deploy {{ algo.name }}</h2>
+          <button style="width:28px;height:28px;border-radius:50%;border:none;background:var(--grey-2);color:var(--grey-10);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ closeDeploy }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:600 13px 'Lato',sans-serif;color:#33423A">Connect a broker</span>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="3">
-              <button style="{{ b.style }}" onClick="{{ b.select }}">
-                <span style="width:30px;height:30px;border-radius:8px;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
-                <span style="font:600 13.5px 'Lato',sans-serif;color:#0F1D16">{{ b.name }}</span>
-                <sc-if value="{{ b.selected }}" hint-placeholder-val="{{ false }}">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A7A4A" stroke-width="3" style="margin-left:auto"><path d="M20 6 9 17l-5-5"/></svg>
-                </sc-if>
-              </button>
+
+        <div style="display:flex;align-items:center;gap:6px">
+          <sc-for list="{{ progress }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ legalDocs }}" as="d" hint-placeholder-count="4">
+              <label style="display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid var(--border)">
+                <input type="checkbox" checked="{{ d.checked }}" onChange="{{ d.toggle }}" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+                <span style="font:400 13.5px 'Lato',sans-serif;color:var(--ink);flex:1">{{ d.name }}</span>
+                <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Read</a>
+              </label>
             </sc-for>
+            <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--forest-tint);border-radius:10px;margin-top:8px">
+              <input type="checkbox" checked="{{ allLegalChecked }}" onChange="{{ toggleAllLegal }}" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+              <span style="font:700 13px 'Lato',sans-serif;color:var(--forest)">I have read and accept all of the above</span>
+            </label>
+            <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);margin-top:4px">Your acceptance is recorded with date and time.</span>
           </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:600 13px 'Lato',sans-serif;color:#33423A">Run this algo on which weekdays?</span>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="5">
-              <button style="{{ d.style }}" onClick="{{ d.toggle }}">{{ d.label }}</button>
-            </sc-for>
+          <button style="{{ legalContinueStyle }}" onClick="{{ goStep2 }}">Continue</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
+              <span style="font:700 12px 'Lato',sans-serif;color:{{ algo.riskColor }}">Risk: {{ algo.risk }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">CAGR</span><span style="{{ subscribeStatStyle }}">{{ algo.cagr }}</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">Sharpe</span><span style="{{ subscribeStatStyle }}">{{ algo.sharpe }}</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">Max DD</span><span style="{{ subscribeStatLossStyle }}">{{ algo.maxDD }}</span></div>
+            </div>
           </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <span style="font:500 12.5px 'Lato',sans-serif;color:#33423A">Capital to allocate</span>
-          <input type="text" placeholder="{{ algo.minAlloc }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid #DDE3D8;font:400 14px 'Lato',sans-serif;background:#fff;color:#0F1D16"/>
-        </div>
-        <p style="font:400 12px/1.5 'Lato',sans-serif;color:#9AA294;margin:0">You&#39;ll be redirected to your connected broker to confirm the mandate. Trading algos are subject to market risk.</p>
-        <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:#02422B;color:#EFEDC3;font:600 13.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">Confirm &amp; Deploy</button>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="{{ headStyle }}">Capital to allocate (min. {{ algo.minAlloc }})</span>
+            <input type="text" value="{{ capitalInput }}" onChange="{{ setCapital }}" placeholder="{{ algo.minAlloc }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-strong);font:400 14px 'Lato',sans-serif;background:#fff;color:var(--ink)"/>
+          </div>
+          <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ goStep3 }}">Subscribe and continue</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="{{ headStyle }}">Broker</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+                <button style="{{ b.style }}" onClick="{{ b.select }}">
+                  <span style="width:30px;height:30px;border-radius:8px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+                  <sc-if value="{{ b.selected }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="3" style="margin-left:auto"><path d="M20 6 9 17l-5-5"/></svg>
+                  </sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="{{ headStyle }}">Run this algo on which weekdays?</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="5">
+                <button style="{{ d.style }}" onClick="{{ d.toggle }}">{{ d.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <sc-if value="{{ marginSufficient }}" hint-placeholder-val="{{ true }}">
+            <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
+                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
+              </div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Available margin</span><span style="{{ marginValStyle }}">{{ availableMarginText }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Required</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ marginInsufficient }}" hint-placeholder-val="{{ false }}">
+            <div style="background:var(--loss-tint);border:1px solid var(--loss-line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--loss)"></div>
+                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--loss)">Insufficient margin. You need {{ marginShortfallText }} more to start this algo.</span>
+              </div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Available margin</span><span style="{{ marginValStyle }}">{{ availableMarginText }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Required</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+              <a href="#" onClick="{{ refreshMargin }}" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Refresh margin</a>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button style="flex:1;padding:11px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer" onClick="{{ addFunds }}">Add funds</button>
+              <a href="Connect%20Broker.dc.html" style="flex:1;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center;text-decoration:none">Pledge holdings</a>
+            </div>
+            <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
+          </sc-if>
+
+          <button style="{{ deployBtnStyle }}" onClick="{{ goStep4 }}">Deploy Algo</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ authIdle }}" hint-placeholder-val="{{ true }}">
+            <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Authorise {{ selectedBroker }}</h2>
+            <p style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">You&#39;ll be redirected to {{ selectedBroker }} to authorise Qode to place orders on your behalf.</p>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="{{ headStyle }}">Granted</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--ink)">&#10003; Place and modify orders</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--ink)">&#10003; Read positions and margin</span>
+              <span style="{{ headStyle }};margin-top:6px">Not granted</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">&#10007; No withdrawals</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">&#10007; No access to other accounts</span>
+            </div>
+            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ authorise }}">Authorise with {{ selectedBroker }}</button>
+          </sc-if>
+          <sc-if value="{{ authRedirecting }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:26px 0">
+              <span style="font:700 13.5px 'Lato',sans-serif;color:var(--grey-12)">Redirecting to {{ selectedBroker }}&hellip;</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ authSuccess }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0">
+              <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">Broker connected</span>
+            </div>
+            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ goStep5 }}">Continue</button>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isStep5 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0">
+            <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest);text-align:center">{{ algo.name }} is now active</h2>
+          </div>
+          <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Broker</span><span style="{{ marginValStyle }}">{{ selectedBroker }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Weekdays</span><span style="{{ marginValStyle }}">{{ selectedDaysText }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Capital</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Start date</span><span style="{{ marginValStyle }}">{{ startDate }}</span></div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button style="flex:1;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer" onClick="{{ closeDeploy }}">Back to algo</button>
+            <a href="My%20Algos.dc.html" style="flex:1;padding:11px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center">View in My Algos</a>
+          </div>
+        </sc-if>
+
+        <p style="font:400 11px/1.5 'Lato',sans-serif;color:var(--grey-9);margin:0">Trading algos are subject to market risk.</p>
       </div>
     </div>
   </sc-if>
@@ -376,16 +507,21 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
-  state = { portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama", days: { Mon: true, Tue: true, Wed: true, Thu: true, Fri: true } };
+  state = {
+    portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama",
+    days: { Mon: true, Tue: true, Wed: true, Thu: true, Fri: true },
+    step: 1, legal: { tc: false, pp: false, rd: false, ic: false },
+    capitalInput: "", availableMargin: 380000, authStatus: "idle"
+  };
 
   renderVals() {
     const tab = this.state.tab;
-    const tabBase = "padding:9px 18px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;color:#5B6A60;font:600 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
-    const tabActive = "padding:9px 18px;border-radius:9px;border:1.5px solid #02422B;background:#02422B;color:#EFEDC3;font:600 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
-    const headStyle = "font:600 11px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.03em";
-    const tagStyle = "display:inline-block;padding:3px 9px;border-radius:6px;font:600 11px 'Lato',sans-serif;background:rgba(0,132,85,0.12);color:#008455;width:fit-content;white-space:nowrap";
+    const tabBase = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-10);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
+    const tabActive = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
+    const headStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
+    const tagStyle = "display:inline-block;padding:3px 9px;border-radius:6px;font:700 11px 'Lato',sans-serif;background:var(--forest-tint);color:var(--forest);width:fit-content;white-space:nowrap";
 
-    const dayStyle = (on) => "padding:8px 14px;border-radius:8px;border:1.5px solid " + (on ? "#02422B" : "#DDE3D8") + ";background:" + (on ? "#02422B" : "#fff") + ";color:" + (on ? "#EFEDC3" : "#5B6A60") + ";font:600 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
+    const dayStyle = (on) => "padding:8px 14px;border-radius:8px;border:1.5px solid " + (on ? "var(--forest)" : "var(--border-strong)") + ";background:" + (on ? "var(--forest)" : "#fff") + ";color:" + (on ? "var(--cream)" : "var(--grey-10)") + ";font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
 
     const days = this.state.days;
     const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"].map((d) => ({
@@ -393,6 +529,38 @@ class Component extends DCLogic {
       style: dayStyle(days[d]),
       toggle: () => this.setState({ days: { ...days, [d]: !days[d] } })
     }));
+
+    const step = this.state.step;
+    const stepLabels = ["Legal", "Subscribe", "Configure", "Authorise", "Active"];
+    const progress = stepLabels.map((label, i) => {
+      const n = i + 1;
+      const state2 = n < step ? "done" : n === step ? "active" : "upcoming";
+      const dotColor = state2 === "upcoming" ? "var(--border-strong)" : "var(--forest)";
+      const textColor = state2 === "upcoming" ? "var(--grey-9)" : "var(--forest)";
+      const weight = state2 === "active" ? "700" : "400";
+      return {
+        label,
+        wrap: "display:flex;align-items:center;gap:6px;" + (n < 5 ? "flex:1" : "flex:0 0 auto"),
+        dot: "width:8px;height:8px;border-radius:50%;background:" + dotColor + ";flex-shrink:0",
+        text: "font:" + weight + " 10px 'Lato',sans-serif;color:" + textColor + ";white-space:nowrap",
+        showLine: n < 5
+      };
+    });
+
+    const legal = this.state.legal;
+    const legalDocs = [
+      { key: "tc", name: "Terms & Conditions" }, { key: "pp", name: "Privacy Policy" },
+      { key: "rd", name: "Risk Disclosures" }, { key: "ic", name: "Investor Charter" }
+    ].map((d) => ({ ...d, checked: legal[d.key], toggle: () => this.setState({ legal: { ...legal, [d.key]: !legal[d.key] } }) }));
+    const allLegalChecked = legal.tc && legal.pp && legal.rd && legal.ic;
+
+    const subscribeStatStyle = "font:700 17px 'Lato',sans-serif;color:var(--forest)";
+    const subscribeStatLossStyle = "font:700 17px 'Lato',sans-serif;color:var(--loss)";
+    const marginValStyle = "font:700 13px 'Lato',sans-serif;color:var(--ink)";
+
+    const requiredMargin = parseInt(this.state.capitalInput, 10) || 500000;
+    const marginSufficient = this.state.availableMargin >= requiredMargin;
+    const marginInsufficient = !marginSufficient;
 
     return {
       portfolioOpen: this.state.portfolioOpen,
@@ -415,7 +583,7 @@ class Component extends DCLogic {
       showAbout: tab === "about",
 
       deployOpen: this.state.deployOpen,
-      openDeploy: () => this.setState({ deployOpen: true }),
+      openDeploy: () => this.setState({ deployOpen: true, step: 1 }),
       closeDeploy: () => this.setState({ deployOpen: false }),
       stopClick: (e) => e.stopPropagation(),
       weekdays,
@@ -423,15 +591,53 @@ class Component extends DCLogic {
         const selected = this.state.selectedBroker === name;
         return {
           name, initial: name[0], selected,
-          style: "display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;border:1.5px solid " + (selected ? "#02422B" : "#DDE3D8") + ";background:" + (selected ? "#F0F5F1" : "#fff") + ";cursor:pointer;text-align:left",
+          style: "display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;border:1.5px solid " + (selected ? "var(--forest)" : "var(--border-strong)") + ";background:" + (selected ? "var(--grey-2)" : "#fff") + ";cursor:pointer;text-align:left",
           select: () => this.setState({ selectedBroker: name })
         };
       }),
+      selectedBroker: this.state.selectedBroker,
+
+      progress,
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3, isStep4: step === 4, isStep5: step === 5,
+      legalDocs, allLegalChecked, toggleAllLegal: () => {
+        const v = !allLegalChecked;
+        this.setState({ legal: { tc: v, pp: v, rd: v, ic: v } });
+      },
+      legalContinueStyle: allLegalChecked
+        ? "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer"
+        : "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed",
+      goStep2: () => { if (allLegalChecked) this.setState({ step: 2 }); },
+      goStep3: () => this.setState({ step: 3 }),
+      goStep4: () => { if (marginSufficient) this.setState({ step: 4, authStatus: "idle" }); },
+      goStep5: () => this.setState({ step: 5 }),
+
+      headStyle, subscribeStatStyle, subscribeStatLossStyle, marginValStyle,
+      capitalInput: this.state.capitalInput,
+      setCapital: (e) => this.setState({ capitalInput: e.target.value.replace(/[^0-9]/g, "") }),
+
+      marginSufficient, marginInsufficient,
+      availableMarginText: "\u20b9" + this.state.availableMargin.toLocaleString("en-IN"),
+      requiredMarginText: "\u20b9" + requiredMargin.toLocaleString("en-IN"),
+      marginShortfallText: "\u20b9" + Math.max(0, requiredMargin - this.state.availableMargin).toLocaleString("en-IN"),
+      deployBtnStyle: marginSufficient
+        ? "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer"
+        : "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed",
+      addFunds: () => this.setState({ availableMargin: this.state.availableMargin + 200000 }),
+      refreshMargin: (e) => { e.preventDefault(); this.forceUpdate(); },
+
+      authIdle: this.state.authStatus === "idle", authRedirecting: this.state.authStatus === "redirecting", authSuccess: this.state.authStatus === "success",
+      authorise: () => {
+        this.setState({ authStatus: "redirecting" });
+        setTimeout(() => this.setState({ authStatus: "success" }), 1000);
+      },
+
+      selectedDaysText: Object.keys(days).filter((d) => days[d]).join(", ") || "None",
+      startDate: "24 Sep 2026",
 
       algo: {
         initial: "YE+", name: "Qode Yield Enhancer +", category: "Options Selling", tagStyle,
         subscribers: "312", cagr: "18.6%", sharpe: "1.54", calmar: "2.93", maxDD: "-31.95%", currentDD: "-6.20%",
-        minAlloc: "\u20b93,00,000", startPrice: "\u20b91,499/mo", risk: "Moderate", riskColor: "#B9880F",
+        minAlloc: "\u20b93,00,000", startPrice: "\u20b91,499/mo", risk: "Moderate", riskColor: "var(--ink)",
         externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus",
         about: "Qode Yield Enhancer+ consists of a systematic derivatives overlay applied to an investor's existing holdings. The strategy uses index-based derivatives to generate additional yield and enhance portfolio returns across market conditions, while maintaining strict exposure limits, disciplined hedging, and disciplined risk management. Through an additional 1x overlay exposure, QYE+ seeks to improve long-term portfolio returns without increasing risk beyond the underlying equity portfolio.",
         portfolioType: "Derivatives Overlay on Existing Holdings",
@@ -447,10 +653,10 @@ class Component extends DCLogic {
       },
 
       trailing: [
-        { label: "1 Month", value: "+1.8%", color: "#0A7A4A" },
-        { label: "3 Months", value: "+5.4%", color: "#0A7A4A" },
-        { label: "6 Months", value: "+11.2%", color: "#0A7A4A" },
-        { label: "1 Year", value: "+18.6%", color: "#0A7A4A" }
+        { label: "1 Month", value: "+1.8%", color: "var(--gain)" },
+        { label: "3 Months", value: "+5.4%", color: "var(--gain)" },
+        { label: "6 Months", value: "+11.2%", color: "var(--gain)" },
+        { label: "1 Year", value: "+18.6%", color: "var(--gain)" }
       ],
 
       bestPeriods: [
@@ -480,13 +686,13 @@ class Component extends DCLogic {
       ].map((m, i) => {
         const vals = ["+3.1%", "+2.4%", "-1.8%", "+4.0%", "+1.2%", "+2.9%"];
         const up = !vals[i].startsWith("-");
-        return { label: m, value: vals[i], cellStyle: "display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:9px;background:" + (up ? "rgba(10,122,74,0.10)" : "rgba(181,75,58,0.10)") + ";color:" + (up ? "#0A7A4A" : "#B54B3A") };
+        return { label: m, value: vals[i], cellStyle: "display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:9px;background:" + (up ? "var(--gain-tint)" : "var(--loss-tint)") + ";color:" + (up ? "var(--gain)" : "var(--loss)") };
       }),
 
       regimes: [
-        { regime: "Low volatility", desc: "VIX below 13 \u2014 range-bound markets", value: "+22.4% CAGR", color: "#0A7A4A" },
-        { regime: "High volatility", desc: "VIX above 20 \u2014 trending/event-driven", value: "+9.1% CAGR", color: "#B9880F" },
-        { regime: "Trending markets", desc: "Strong directional moves over 2+ weeks", value: "+14.8% CAGR", color: "#0A7A4A" }
+        { regime: "Low volatility", desc: "VIX below 13 \u2014 range-bound markets", value: "+22.4% CAGR", color: "var(--gain)" },
+        { regime: "High volatility", desc: "VIX above 20 \u2014 trending/event-driven", value: "+9.1% CAGR", color: "var(--ink)" },
+        { regime: "Trending markets", desc: "Strong directional moves over 2+ weeks", value: "+14.8% CAGR", color: "var(--gain)" }
       ],
       noop: () => {}
     };
