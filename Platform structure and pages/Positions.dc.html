@@ -78,7 +78,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
         <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Positions</h1>
-        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Live view across your connected brokers</p>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Live view of your open and closed positions</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#33423A;flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
@@ -120,25 +120,15 @@
             <button style="{{ closedTabStyle }}" onClick="{{ selectClosed }}">Closed</button>
           </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-            <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
-              All brokers
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
-              All algos
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
             <label style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;border:1.5px solid #DDE3D8;background:#FCFBF6">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA294" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-              <input type="text" placeholder="Search symbol or algo" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:180px;color:#0F1D16"/>
+              <input type="text" placeholder="Search symbol" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:180px;color:#0F1D16"/>
             </label>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1.4fr 1fr 0.9fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
-          <span style="{{ headStyle }}">Algo</span>
+        <div style="display:grid;grid-template-columns:1.6fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
           <span style="{{ headStyle }}">Symbol</span>
-          <span style="{{ headStyle }}">Broker</span>
           <span style="{{ headStyle }};text-align:right">Qty</span>
           <span style="{{ headStyle }};text-align:right">Avg. price</span>
           <span style="{{ headStyle }};text-align:right">{{ priceColLabel }}</span>
@@ -147,10 +137,8 @@
         </div>
 
         <sc-for list="{{ rows }}" as="row" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:1.4fr 1fr 0.9fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
-            <span style="{{ row.algoTagStyle }}">{{ row.algo }}</span>
+          <div style="display:grid;grid-template-columns:1.6fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
             <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">{{ row.symbol }}</span>
-            <span style="font:400 13.5px 'Lato',sans-serif;color:#5B6A60">{{ row.broker }}</span>
             <span style="font:400 14px 'Lato',sans-serif;color:#33423A;text-align:right">{{ row.qty }}</span>
             <span style="font:400 14px 'Lato',sans-serif;color:#33423A;text-align:right">{{ row.avg }}</span>
             <span style="text-align:right;display:flex;flex-direction:column;line-height:1.3">
@@ -192,25 +180,22 @@ class Component extends DCLogic {
     const tabBase = "padding:9px 22px;border-radius:8px;border:none;font:600 13.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;";
     const headStyle = "font:600 11.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
 
-    const tagStyle = (bg, color) =>
-      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px 'Lato',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
-
     const openRows = [
-      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "NIFTYBEES", broker: "Nuvama", qty: "500", avg: "₹245.30", price: "₹251.80", pnl: "+₹3,250", pnlPct: "+2.65%", up: true },
-      { algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "RELIANCE", broker: "Dhan", qty: "40", avg: "₹2,840.00", price: "₹2,795.50", pnl: "-₹1,780", pnlPct: "-1.57%", up: false },
-      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "HDFCBANK", broker: "iRage", qty: "120", avg: "₹1,605.75", price: "₹1,634.20", pnl: "+₹3,414", pnlPct: "+1.77%", up: true },
-      { algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TATASTEEL", broker: "Nuvama", qty: "800", avg: "₹148.90", price: "₹146.10", pnl: "-₹2,240", pnlPct: "-1.88%", up: false },
-      { algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "INFY", broker: "Dhan", qty: "90", avg: "₹1,489.00", price: "₹1,522.40", pnl: "+₹3,006", pnlPct: "+2.24%", up: true }
+      { symbol: "NIFTYBEES", qty: "500", avg: "₹245.30", price: "₹251.80", pnl: "+₹3,250", pnlPct: "+2.65%", up: true },
+      { symbol: "RELIANCE", qty: "40", avg: "₹2,840.00", price: "₹2,795.50", pnl: "-₹1,780", pnlPct: "-1.57%", up: false },
+      { symbol: "HDFCBANK", qty: "120", avg: "₹1,605.75", price: "₹1,634.20", pnl: "+₹3,414", pnlPct: "+1.77%", up: true },
+      { symbol: "TATASTEEL", qty: "800", avg: "₹148.90", price: "₹146.10", pnl: "-₹2,240", pnlPct: "-1.88%", up: false },
+      { symbol: "INFY", qty: "90", avg: "₹1,489.00", price: "₹1,522.40", pnl: "+₹3,006", pnlPct: "+2.24%", up: true }
     ].map((r) => ({
-      ...r, algoTagStyle: r.tag, isOpen: true, isClosed: false, showDate: false, dateNote: "",
+      ...r, isOpen: true, isClosed: false, showDate: false, dateNote: "",
       pnlColor: r.up ? "#0A7A4A" : "#B54B3A"
     }));
 
     const closedRows = [
-      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "ICICIBANK", broker: "Nuvama", qty: "150", avg: "₹1,082.00", price: "₹1,104.60", pnl: "+₹3,390", pnlPct: "+2.09%", up: true, date: "Exited 18 Sep" },
-      { algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TCS", broker: "iRage", qty: "25", avg: "₹4,120.00", price: "₹4,048.00", pnl: "-₹1,800", pnlPct: "-1.75%", up: false, date: "Exited 12 Sep" }
+      { symbol: "ICICIBANK", qty: "150", avg: "₹1,082.00", price: "₹1,104.60", pnl: "+₹3,390", pnlPct: "+2.09%", up: true, date: "Exited 18 Sep" },
+      { symbol: "TCS", qty: "25", avg: "₹4,120.00", price: "₹4,048.00", pnl: "-₹1,800", pnlPct: "-1.75%", up: false, date: "Exited 12 Sep" }
     ].map((r) => ({
-      ...r, algoTagStyle: r.tag, isOpen: false, isClosed: true, showDate: true, dateNote: r.date,
+      ...r, isOpen: false, isClosed: true, showDate: true, dateNote: r.date,
       pnlColor: r.up ? "#0A7A4A" : "#B54B3A"
     }));
 
@@ -230,8 +215,6 @@ class Component extends DCLogic {
       closePortfolio: () => this.setState({ portfolioOpen: false }),
       togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
       summaryLabel: "Quick summary",
-      brokerFilters: [{ name: "Nuvama" }, { name: "iRage" }, { name: "Dhan" }],
-      algoFilters: [{ name: "All Weather" }, { name: "Growth Fund" }, { name: "Momentum Edge" }, { name: "Yield Enhancer" }],
       watchlist: [
         { symbol: "NIFTYBEES", initial: "NB", change: "0.85%", color: "#7FD9A8", arrowStyle: "" },
         { symbol: "RELIANCE", initial: "RE", change: "0.40%", color: "#E8A9A0", arrowStyle: "transform:rotate(180deg)" },

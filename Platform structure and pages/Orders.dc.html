@@ -78,7 +78,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
         <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Orders</h1>
-        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Pending, executed and cancelled orders across your brokers</p>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Pending, executed and cancelled orders</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#33423A;flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
@@ -121,37 +121,26 @@
             <button style="{{ cancelledTabStyle }}" onClick="{{ selectCancelled }}">Cancelled</button>
           </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-            <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
-              All brokers
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
-              All algos
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
             <input type="date" style="padding:8px 10px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:400 13px 'Lato',sans-serif;color:#33423A"/>
             <label style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;border:1.5px solid #DDE3D8;background:#FCFBF6">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA294" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-              <input type="text" placeholder="Search symbol or algo" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:170px;color:#0F1D16"/>
+              <input type="text" placeholder="Search symbol" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:170px;color:#0F1D16"/>
             </label>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:0.9fr 1.2fr 1fr 0.7fr 0.6fr 1.1fr 0.9fr 0.9fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+        <div style="display:grid;grid-template-columns:1fr 1.4fr 0.8fr 0.7fr 1.1fr 1fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
           <span style="{{ headStyle }}">Time</span>
-          <span style="{{ headStyle }}">Algo</span>
           <span style="{{ headStyle }}">Symbol</span>
           <span style="{{ headStyle }}">Side</span>
           <span style="{{ headStyle }};text-align:right">Qty</span>
           <span style="{{ headStyle }};text-align:right">Price</span>
-          <span style="{{ headStyle }}">Broker</span>
           <span style="{{ headStyle }};text-align:right">{{ actionColLabel }}</span>
         </div>
 
         <sc-for list="{{ rows }}" as="row" hint-placeholder-count="3">
-          <div style="display:grid;grid-template-columns:0.9fr 1.2fr 1fr 0.7fr 0.6fr 1.1fr 0.9fr 0.9fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
+          <div style="display:grid;grid-template-columns:1fr 1.4fr 0.8fr 0.7fr 1.1fr 1fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
             <span style="font:400 13px 'Lato',sans-serif;color:#5B6A60">{{ row.time }}</span>
-            <span style="{{ row.algoTagStyle }}">{{ row.algo }}</span>
             <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">{{ row.symbol }}</span>
             <span style="font:700 12.5px 'Lato',sans-serif;color:{{ row.sideColor }}">{{ row.side }}</span>
             <span style="font:400 14px 'Lato',sans-serif;color:#33423A;text-align:right">{{ row.qty }}</span>
@@ -159,7 +148,6 @@
               <span style="font:500 14px 'Lato',sans-serif;color:#0F1D16">{{ row.price }}</span>
               <span style="font:400 11.5px 'Lato',sans-serif;color:#9AA294">{{ row.orderType }}</span>
             </span>
-            <span style="font:400 13.5px 'Lato',sans-serif;color:#5B6A60">{{ row.broker }}</span>
             <span style="text-align:right">
               <sc-if value="{{ row.isPending }}" hint-placeholder-val="{{ true }}">
                 <button style="padding:7px 16px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:#FBF3D9" onClick="{{ noop }}">Cancel</button>
@@ -176,7 +164,7 @@
 
       </div>
 
-      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Order status reflects your broker&#39;s last reported state and may be delayed. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Order status reflects the last reported state and may be delayed. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
     </div>
   </div>
 </div>
@@ -194,27 +182,23 @@ class Component extends DCLogic {
     const activeStyle = "background:#02422B;color:#EFEDC3";
     const inactiveStyle = "background:transparent;color:#5B6A60";
 
-    const tagStyle = (bg, color) =>
-      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px 'Lato',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
-
     const pendingRows = [
-      { time: "09:32:14", algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "NIFTYBEES", side: "BUY", qty: "200", price: "₹252.00", orderType: "Limit", broker: "Nuvama" },
-      { time: "10:05:41", algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "INFY", side: "SELL", qty: "40", price: "₹1,525.00", orderType: "Limit", broker: "Dhan" },
-      { time: "11:12:03", algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TATASTEEL", side: "BUY", qty: "300", price: "Market", orderType: "Market", broker: "iRage" }
+      { time: "09:32:14", symbol: "NIFTYBEES", side: "BUY", qty: "200", price: "₹252.00", orderType: "Limit" },
+      { time: "10:05:41", symbol: "INFY", side: "SELL", qty: "40", price: "₹1,525.00", orderType: "Limit" },
+      { time: "11:12:03", symbol: "TATASTEEL", side: "BUY", qty: "300", price: "Market", orderType: "Market" }
     ];
     const executedRows = [
-      { time: "09:15:22", algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "HDFCBANK", side: "BUY", qty: "120", price: "₹1,605.75", orderType: "Filled", broker: "Nuvama" },
-      { time: "09:47:09", algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "RELIANCE", side: "SELL", qty: "15", price: "₹2,838.20", orderType: "Filled", broker: "Dhan" },
-      { time: "13:02:55", algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "NIFTYBEES", side: "BUY", qty: "500", price: "₹245.30", orderType: "Filled", broker: "Nuvama" }
+      { time: "09:15:22", symbol: "HDFCBANK", side: "BUY", qty: "120", price: "₹1,605.75", orderType: "Filled" },
+      { time: "09:47:09", symbol: "RELIANCE", side: "SELL", qty: "15", price: "₹2,838.20", orderType: "Filled" },
+      { time: "13:02:55", symbol: "NIFTYBEES", side: "BUY", qty: "500", price: "₹245.30", orderType: "Filled" }
     ];
     const cancelledRows = [
-      { time: "08:58:10", algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TCS", side: "SELL", qty: "25", price: "₹4,120.00", orderType: "Limit", broker: "iRage" },
-      { time: "12:20:33", algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "ICICIBANK", side: "BUY", qty: "60", price: "₹1,082.00", orderType: "Limit", broker: "Nuvama" }
+      { time: "08:58:10", symbol: "TCS", side: "SELL", qty: "25", price: "₹4,120.00", orderType: "Limit" },
+      { time: "12:20:33", symbol: "ICICIBANK", side: "BUY", qty: "60", price: "₹1,082.00", orderType: "Limit" }
     ];
 
     const decorate = (list, kind) => list.map((r) => ({
       ...r,
-      algoTagStyle: r.tag,
       sideColor: r.side === "BUY" ? "#0A7A4A" : "#B54B3A",
       isPending: kind === "pending",
       isExecuted: kind === "executed",
@@ -244,8 +228,6 @@ class Component extends DCLogic {
       openPortfolio: () => this.setState({ portfolioOpen: true }),
       closePortfolio: () => this.setState({ portfolioOpen: false }),
       togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
-      brokerFilters: [{ name: "Nuvama" }, { name: "iRage" }, { name: "Dhan" }],
-      algoFilters: [{ name: "All Weather" }, { name: "Growth Fund" }, { name: "Momentum Edge" }, { name: "Yield Enhancer" }],
       watchlist: [
         { symbol: "NIFTYBEES", change: "+0.85%", color: "#7FD9A8" },
         { symbol: "RELIANCE", change: "-0.40%", color: "#E8A9A0" },

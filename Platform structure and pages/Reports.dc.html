@@ -86,7 +86,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid #E9E5D6;gap:20px;flex-shrink:0">
       <div>
         <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:#02422B;white-space:nowrap">Reports</h1>
-        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Download statements, contract notes and tax reports</p>
+        <p style="font:400 13px 'Lato',sans-serif;color:#5B6A60;margin:0">Download your P&amp;L statement, holdings statement and trade book</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         <button style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13px 'Lato',sans-serif;color:#33423A;cursor:pointer;white-space:nowrap" onClick="{{ noop }}">
@@ -108,10 +108,6 @@
           <span style="font:600 24px 'Playfair Display',serif;color:#0A7A4A;white-space:nowrap">+₹1,84,320</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Charges &amp; taxes</span>
-          <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">₹12,640</span>
-        </div>
-        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <span style="font:500 12.5px 'Lato',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Total turnover</span>
           <span style="font:600 24px 'Playfair Display',serif;color:#02422B;white-space:nowrap">₹42.6L</span>
         </div>
@@ -128,33 +124,9 @@
           <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:12px">
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(2,66,43,0.10);color:#02422B;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></span>
-              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Tax P&amp;L Statement</span>
+              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">P&amp;L Statement</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Realized gains and losses for filing your income tax return.</p>
-            <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
-            </div>
-          </div>
-
-          <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,132,85,0.10);color:#008455;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Contract Notes</span>
-            </div>
-            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Trade-wise confirmation with brokerage and taxes for each order.</p>
-            <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
-            </div>
-          </div>
-
-          <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="width:38px;height:38px;border-radius:10px;background:rgba(10,52,82,0.10);color:#0A3452;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h4"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
-              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Ledger Statement</span>
-            </div>
-            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Complete record of funds credited, debited and settled.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Realized gains and losses for the selected period.</p>
             <div style="display:flex;gap:8px">
               <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
               <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
@@ -178,19 +150,7 @@
               <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,132,85,0.10);color:#008455;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
               <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Trade Book</span>
             </div>
-            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Every executed order across brokers for the selected period.</p>
-            <div style="display:flex;gap:8px">
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
-              <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
-            </div>
-          </div>
-
-          <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="width:38px;height:38px;border-radius:10px;background:rgba(10,52,82,0.10);color:#0A3452;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-              <span style="font:600 14.5px 'Lato',sans-serif;color:#0F1D16">Algo Performance</span>
-            </div>
-            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Strategy-wise returns, drawdown and win rate for your algos.</p>
+            <p style="font:400 12.5px/1.5 'Lato',sans-serif;color:#5B6A60;margin:0;flex:1">Every executed order for the selected period.</p>
             <div style="display:flex;gap:8px">
               <button style="flex:1;padding:9px 0;border-radius:8px;border:1.5px solid #DDE3D8;background:#fff;font:600 12.5px 'Lato',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">PDF</button>
               <button style="flex:1;padding:9px 0;border-radius:8px;border:none;background:#02422B;font:600 12.5px 'Lato',sans-serif;color:#EFEDC3;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">CSV</button>
@@ -226,7 +186,7 @@
         </sc-for>
       </div>
 
-      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Reports are generated from your connected brokers and may take a few minutes to reflect same-day trades.</p>
+      <p style="font:400 12px/1.6 'Lato',sans-serif;color:#9AA294;margin:0">Reports may take a few minutes to reflect same-day trades.</p>
 
       <div style="margin:8px -40px -48px;padding:32px 40px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;gap:24px">
         <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:24px">
@@ -283,16 +243,12 @@ class Component extends DCLogic {
       closePortfolio: () => this.setState({ portfolioOpen: false }),
       togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
       recentDownloads: [
-        { name: "Tax P&L Statement", date: "18 Sep 2026" },
-        { name: "Contract Note", date: "17 Sep 2026" },
-        { name: "Ledger Statement", date: "12 Sep 2026" },
+        { name: "P&L Statement", date: "18 Sep 2026" },
         { name: "Holdings Statement", date: "05 Sep 2026" },
         { name: "Trade Book", date: "01 Sep 2026" }
       ],
       history: [
-        { name: "Tax P&L Statement", period: "FY 2025-26", format: "PDF", date: "18 Sep 2026" },
-        { name: "Contract Note", period: "17 Sep 2026", format: "PDF", date: "17 Sep 2026" },
-        { name: "Ledger Statement", period: "Apr - Sep 2026", format: "CSV", date: "12 Sep 2026" },
+        { name: "P&L Statement", period: "FY 2025-26", format: "PDF", date: "18 Sep 2026" },
         { name: "Holdings Statement", period: "As of 05 Sep", format: "PDF", date: "05 Sep 2026" },
         { name: "Trade Book", period: "Aug 2026", format: "CSV", date: "01 Sep 2026" }
       ],
