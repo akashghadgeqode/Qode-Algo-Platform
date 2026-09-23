@@ -1,8 +1,8 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8">
-<title>Holdings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -22,7 +22,6 @@
 
 <div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
 
-  <!-- Sidebar -->
   <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
     <div style="display:flex;flex-direction:column;gap:36px">
       <div style="padding:0 24px">
@@ -79,10 +78,8 @@
     </div>
   </div>
 
-  <!-- Main -->
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
-    <!-- Topbar -->
     <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 40px;border-bottom:1px solid #E9E5D6">
       <div>
         <h1 style="font:600 26px/1.2 'Fraunces',serif;margin:0 0 4px;color:#02422B">Holdings</h1>
@@ -103,30 +100,27 @@
       </div>
     </div>
 
-    <!-- Body -->
     <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px">
 
-      <!-- Summary cards -->
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(170px,1fr));gap:16px">
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Current value</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#02422B">₹16,08,630</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">₹16,08,630</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Total P&amp;L</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A">+₹76,950 <span style="font:500 14px 'Inter',sans-serif;color:#0A7A4A">(+5.02%)</span></span>
+          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A;white-space:nowrap">+₹76,950 <span style="font:500 14px 'Inter',sans-serif;color:#0A7A4A;white-space:nowrap">(+5.02%)</span></span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Day&#39;s change</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A">+₹9,120</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A;white-space:nowrap">+₹9,120</span>
         </div>
         <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
           <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Holdings</span>
-          <span style="font:600 24px 'Fraunces',serif;color:#02422B">5</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B;white-space:nowrap">5</span>
         </div>
       </div>
 
-      <!-- Table card -->
       <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
 
         <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #EDE9DA">
@@ -137,7 +131,7 @@
           </label>
         </div>
 
-        <div style="display:grid;grid-template-columns:1.3fr 1fr 0.8fr 0.6fr 1fr 1fr 1.3fr 0.7fr 0.8fr;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+        <div style="display:grid;grid-template-columns:1.3fr 1fr 0.8fr 0.6fr 1fr 1fr 1.3fr 0.7fr 0.8fr;column-gap:16px;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
           <span style="{{ headStyle }}">Algo</span>
           <span style="{{ headStyle }}">Symbol</span>
           <span style="{{ headStyle }}">Broker</span>
@@ -150,7 +144,7 @@
         </div>
 
         <sc-for list="{{ rows }}" as="row" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:1.3fr 1fr 0.8fr 0.6fr 1fr 1fr 1.3fr 0.7fr 0.8fr;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
+          <div style="display:grid;grid-template-columns:1.3fr 1fr 0.8fr 0.6fr 1fr 1fr 1.3fr 0.7fr 0.8fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
             <span style="{{ row.algoTagStyle }}">{{ row.algo }}</span>
             <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">{{ row.symbol }}</span>
             <span style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60">{{ row.broker }}</span>
@@ -162,8 +156,8 @@
             </span>
             <span style="font:500 14px 'Inter',sans-serif;color:#0F1D16;text-align:right">{{ row.currentValue }}</span>
             <span style="text-align:right;display:flex;flex-direction:column;line-height:1.3">
-              <span style="font:600 14.5px 'Inter',sans-serif;color:{{ row.pnlColor }}">{{ row.pnl }}</span>
-              <span style="font:500 12px 'Inter',sans-serif;color:{{ row.pnlColor }}">{{ row.pnlPct }}</span>
+              <span style="font:600 14.5px 'Inter',sans-serif;color:{{ row.pnlColor }};white-space:nowrap">{{ row.pnl }}</span>
+              <span style="font:500 12px 'Inter',sans-serif;color:{{ row.pnlColor }};white-space:nowrap">{{ row.pnlPct }}</span>
             </span>
             <span style="text-align:right">
               <button style="padding:7px 16px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:#FBF3D9" onClick="{{ noop }}">Sell</button>
@@ -179,13 +173,13 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
   renderVals() {
-    const headStyle = "font:600 11.5px \'Inter\',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
+    const headStyle = "font:600 11.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
 
     const tagStyle = (bg, color) =>
-      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px \'Inter\',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
+      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px 'Inter',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
 
     const holdings = [
       { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "NIFTYBEES", broker: "Nuvama", qty: "1,200", avgCost: "₹238.10", ltp: "₹251.80", currentValue: "₹3,02,160", pnl: "+₹16,440", pnlPct: "+6.90%", up: true, dayChangePct: "+0.85%", dayUp: true },
@@ -207,6 +201,7 @@ class Component extends DCLogic {
     };
   }
 }
+
 </script>
 </body>
 </html>

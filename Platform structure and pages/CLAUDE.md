@@ -20,19 +20,19 @@ Email+password, phone OTP, and Google OAuth, backed by Supabase.
 |---|---|---|
 | Sign Up | `Sign Up.dc.html` | Split layout: brand/trust panel (dark gradient) + form (email/phone tabs, Google OAuth, T&C checkbox) |
 | Login | `Login.dc.html` | Same shell as Sign Up; email/phone tabs, forgot-password link, no name/T&C fields |
-| Positions | `Positions.dc.html` | Dashboard shell (sidebar nav + topbar) introduced here; summary cards, Open/Closed tabs, positions table |
-| Orders | `Orders.dc.html` | Same dashboard shell; Pending/Executed/Cancelled tabs, buy/sell side coloring, Cancel action |
-| Holdings | `Holdings.dc.html` | Same dashboard shell; summary cards, per-symbol day change + total P&L, Sell action |
+| Positions | `Positions.dc.html` | Sidebar-shell app page; Open/Closed tabs, summary cards, per-broker/algo position table |
+| Orders | `Orders.dc.html` | Sidebar-shell app page; Pending/Executed/Cancelled tabs, order table |
+| Holdings | `Holdings.dc.html` | Sidebar-shell app page; holdings table with P&L, day change |
+| Profile | `Profile.dc.html` | Sidebar-shell app page; Personal details, Broker details, Funds cards; tweaks for name/phone/email/verification/broker/balance |
+| Profile (broker connected) | `Profile - Broker Connected.dc.html` | Same as Profile, defaults to connected state with real broker row; includes "Connect a broker" modal (Nuvama/iRage/Dhan picker) |
+| My Algos | `My Algos.dc.html` | Sidebar-shell app page; market ticker, summary stats (Today/Overall toggle), status tabs (Active/Subscribed/Paused/Expired), algo table, empty state; tweak for hasAlgos |
 
-## Dashboard shell (Positions/Orders/Holdings)
-- Sidebar: logo, nav (Dashboard, Positions, Orders, Holdings, My Algos, Marketplace, Reports, Blogs, Help & Support), broker-connection status footer.
-- Topbar: page title + subtitle, broker filter, refresh, account avatar.
-- Algo tags reuse strategy accent colors (All Weather green, Growth Fund navy); P&L uses `#0A7A4A` (gain) / `#B54B3A` (loss), not pure red/green.
-- Sidebar nav items link between the three `.dc.html` files directly (`href="Positions.dc.html"` etc.) for Play-mode navigation.
+## App shell (sidebar pages)
+Positions/Orders/Holdings/Dashboard etc. share a fixed 240px dark-gradient sidebar (logo, nav links, broker-connected status, SEBI reg footer) + topbar (page title, broker filter, refresh, user avatar) + body (summary cards row + white table card). Reuse this shell for remaining app pages (Dashboard, My Algos, Marketplace, Reports, Blogs, Help & Support).
 
 ## Full page list still to design (from platform spec)
 Home (algo catalog + compliance disclosures), Investor login/connect-broker, Main dashboard, My Algos, Algo Marketplace + algo detail (metrics, deploy), Reports, Blogs, Help & Support.
 
 ## Conventions
-- Each page is a standalone Design Component (`.dc.html`), split-panel shell reused for auth pages.
+- Each page is a standalone Design Component (`.dc.html`), split-panel shell reused for auth pages, sidebar shell reused for app pages.
 - Compliance/risk-disclosure microcopy appears in the form footer on every auth screen — keep it.
