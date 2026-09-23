@@ -29,7 +29,8 @@ Email+password, phone OTP, and Google OAuth, backed by Supabase.
 | Reports | `Reports.dc.html` | Sidebar-shell app page; generate-report cards, recently generated table, footer |
 | Help & Support | `Help & Support.dc.html` | Sidebar-shell app page; help articles, support ticket form, FAQ, footer |
 | Marketplace | `Marketplace.dc.html` | Sidebar-shell app page; sidebar filters (risk/strategy/underlying/quick), featured algo cards (Qode Yield Enhancer +/++) with 1M/3M/CAGR + Setup, compact all-algos table below |
-| Algo Detail | `Algo Detail.dc.html` | Individual algo page; tabs (Performance/Best & Worst/Monthly & Regime/About & Disclosures), sticky deploy card, weekday-picker Deploy modal, Share, Certificate PDF link |
+| Algo Detail | `Algo Detail.dc.html` | Individual algo page for Qode Yield Enhancer +; tabs (Performance/Best & Worst/Monthly & Regime/About & Disclosures incl. Strategy details: portfolio type, market, instruments, leverage, strategies used, objective, risk controls, active UIDs, current deployment, inception date), sticky deploy card, weekday-picker Deploy modal, Share, Certificate PDF link |
+| Algo Detail (YE++) | `Algo Detail - YE++.dc.html` | Same layout as Algo Detail, populated for Qode Yield Enhancer ++ (2x overlay, higher risk/return profile) |
 
 ## App shell (sidebar pages)
 Positions/Orders/Holdings/Dashboard etc. share a fixed 240px dark-gradient sidebar (logo, nav links, broker-connected status, SEBI reg footer) + topbar (page title, broker filter, refresh, user avatar) + body (summary cards row + white table card). Reuse this shell for remaining app pages (Dashboard, My Algos, Marketplace, Reports, Blogs, Help & Support).

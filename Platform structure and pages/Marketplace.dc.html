@@ -182,7 +182,7 @@
               </div>
 
               <div style="display:flex;gap:10px">
-                <a href="Algo%20Detail.dc.html" style="flex:1;padding:10px 0;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13px 'Inter',sans-serif;color:#33423A;cursor:pointer;text-align:center;text-decoration:none">View</a>
+                <a href="{{ algo.detailUrl }}" style="flex:1;padding:10px 0;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:600 13px 'Inter',sans-serif;color:#33423A;cursor:pointer;text-align:center;text-decoration:none">View</a>
                 <button style="flex:1;padding:10px 0;border-radius:9px;border:none;background:#02422B;color:#EFEDC3;font:600 13px 'Inter',sans-serif;cursor:pointer" style-hover="background:#0A5C3B" onClick="{{ noop }}">Deploy Algo</button>
               </div>
             </div>
@@ -214,7 +214,7 @@
               <span style="font:600 13.5px 'Inter',sans-serif;color:#02422B;text-align:right;white-space:nowrap">{{ algo.cagr }}</span>
               <span style="font:600 12.5px 'Inter',sans-serif;color:{{ algo.riskColor }};white-space:nowrap">{{ algo.risk }}</span>
               <span style="text-align:right">
-                <a href="Algo%20Detail.dc.html" style="padding:7px 12px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12px 'Inter',sans-serif;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block">Deploy</a>
+                <a href="{{ algo.detailUrl }}" style="padding:7px 12px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12px 'Inter',sans-serif;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block">Deploy</a>
               </span>
             </div>
           </sc-for>
@@ -257,14 +257,16 @@ class Component extends DCLogic {
           tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"),
           subscribers: "312", r1m: "+1.8%", r3m: "+5.4%", r6m: "+11.2%", cagr: "18.6%",
           minAlloc: "\u20b93,00,000", startPrice: "\u20b91,499/mo", risk: "Moderate", riskColor: "#B9880F",
-          externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus"
+          externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus",
+          detailUrl: "Algo%20Detail.dc.html"
         },
         {
           initial: "YE++", name: "Qode Yield Enhancer ++", category: "Options Selling",
           tagStyle: tagStyle("rgba(0,132,85,0.12)", "#008455"),
           subscribers: "187", r1m: "+2.4%", r3m: "+7.1%", r6m: "+14.9%", cagr: "24.3%",
           minAlloc: "\u20b95,00,000", startPrice: "\u20b92,499/mo", risk: "High", riskColor: "#B54B3A",
-          externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus-plus"
+          externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus-plus",
+          detailUrl: "Algo%20Detail%20-%20YE%2B%2B.dc.html"
         }
       ],
       noop: () => {}
