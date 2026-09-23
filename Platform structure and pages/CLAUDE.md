@@ -20,9 +20,18 @@ Email+password, phone OTP, and Google OAuth, backed by Supabase.
 |---|---|---|
 | Sign Up | `Sign Up.dc.html` | Split layout: brand/trust panel (dark gradient) + form (email/phone tabs, Google OAuth, T&C checkbox) |
 | Login | `Login.dc.html` | Same shell as Sign Up; email/phone tabs, forgot-password link, no name/T&C fields |
+| Positions | `Positions.dc.html` | Dashboard shell (sidebar nav + topbar) introduced here; summary cards, Open/Closed tabs, positions table |
+| Orders | `Orders.dc.html` | Same dashboard shell; Pending/Executed/Cancelled tabs, buy/sell side coloring, Cancel action |
+| Holdings | `Holdings.dc.html` | Same dashboard shell; summary cards, per-symbol day change + total P&L, Sell action |
+
+## Dashboard shell (Positions/Orders/Holdings)
+- Sidebar: logo, nav (Dashboard, Positions, Orders, Holdings, My Algos, Marketplace, Reports, Blogs, Help & Support), broker-connection status footer.
+- Topbar: page title + subtitle, broker filter, refresh, account avatar.
+- Algo tags reuse strategy accent colors (All Weather green, Growth Fund navy); P&L uses `#0A7A4A` (gain) / `#B54B3A` (loss), not pure red/green.
+- Sidebar nav items link between the three `.dc.html` files directly (`href="Positions.dc.html"` etc.) for Play-mode navigation.
 
 ## Full page list still to design (from platform spec)
-Home (algo catalog + compliance disclosures), Investor login/connect-broker, Main dashboard, Positions, Orders, Holdings, My Algos, Algo Marketplace + algo detail (metrics, deploy), Reports, Blogs, Help & Support.
+Home (algo catalog + compliance disclosures), Investor login/connect-broker, Main dashboard, My Algos, Algo Marketplace + algo detail (metrics, deploy), Reports, Blogs, Help & Support.
 
 ## Conventions
 - Each page is a standalone Design Component (`.dc.html`), split-panel shell reused for auth pages.

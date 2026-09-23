@@ -14,3 +14,6 @@ commit: a05ee680bc1f
 |---|---|---|
 | Sign Up | `Sign Up.dc.html` | `qode-logo-white-rgb.svg` |
 | Login | `Login.dc.html` | `qode-logo-white-rgb.svg` |
+| Positions | `Positions.dc.html` | `qode-logo-white.svg` |
+| Orders | `Orders.dc.html` | `qode-logo-white.svg` |
+| Holdings | `Holdings.dc.html` | `qode-logo-white.svg` |

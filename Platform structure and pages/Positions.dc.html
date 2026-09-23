@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Positions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0}
+  a{color:#02422B;text-decoration:none}
+  a:hover{color:#0A5C3B}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#DDE3D8;border-radius:6px}
+  button:focus{outline:2px solid #DABD38;outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#FAF7EC;color:#0F1D16">
+
+  <!-- Sidebar -->
+  <div style="flex:0 0 240px;background:linear-gradient(160deg,#02422B 0%,#002017 100%);display:flex;flex-direction:column;justify-content:space-between;padding:28px 0 24px">
+    <div style="display:flex;flex-direction:column;gap:36px">
+      <div style="padding:0 24px">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block"/>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" aria-current="page" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:600 14px 'Inter',sans-serif;color:#EFEDC3;background:rgba(218,189,56,0.14);border-left:3px solid #DABD38">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#DABD38"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+          <span>Positions</span>
+        </a>
+        <a href="Orders.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+          <span>Orders</span>
+        </a>
+        <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></span>
+          <span>Holdings</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M5.5 18.5l2-2M16.5 7.5l2-2"/></svg></span>
+          <span>My Algos</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8l1.5-4h13L20 8"/><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8Z"/><path d="M9 12a3 3 0 0 0 6 0"/></svg></span>
+          <span>Marketplace</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></span>
+          <span>Reports</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h9l3 3v13H6z"/><path d="M9 9h6M9 13h6"/></svg></span>
+          <span>Blogs</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 24px;font:500 14px 'Inter',sans-serif;color:#B9C7BC;background:transparent;border-left:3px solid transparent">
+          <span style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8FA69A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg></span>
+          <span>Help &amp; Support</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="height:1px;background:rgba(239,237,195,0.15);margin-bottom:6px"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:8px;height:8px;border-radius:50%;background:#4CAF7D;flex-shrink:0"></div>
+        <span style="font:500 12.5px 'Inter',sans-serif;color:#CFE0D6">Nuvama connected</span>
+      </div>
+      <p style="font:400 11px/1.5 'Inter',sans-serif;color:rgba(239,237,195,0.5);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+
+    <!-- Topbar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 40px;border-bottom:1px solid #E9E5D6">
+      <div>
+        <h1 style="font:600 26px/1.2 'Fraunces',serif;margin:0 0 4px;color:#02422B">Positions</h1>
+        <p style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60;margin:0">Live view across your connected brokers</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <button style="display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;font:500 13.5px 'Inter',sans-serif;color:#33423A;cursor:pointer" onClick="{{ noop }}">
+          All brokers
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid #DDE3D8;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#33423A" aria-label="Refresh" onClick="{{ noop }}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v6h-6"/></svg>
+        </button>
+        <div style="display:flex;align-items:center;gap:10px;padding-left:8px;border-left:1px solid #E9E5D6">
+          <div style="width:36px;height:36px;border-radius:50%;background:#02422B;color:#EFEDC3;display:flex;align-items:center;justify-content:center;font:600 13px 'Inter',sans-serif">AM</div>
+          <span style="font:500 13.5px 'Inter',sans-serif;color:#33423A">Aditya Mehta</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px">
+
+      <!-- Summary cards -->
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Invested value</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B">₹18,42,600</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Total P&amp;L</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A">+₹5,650 <span style="font:500 14px 'Inter',sans-serif;color:#0A7A4A">(+1.24%)</span></span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Day&#39;s P&amp;L</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#0A7A4A">+₹1,240</span>
+        </div>
+        <div style="background:#fff;border:1px solid #E9E5D6;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:500 12.5px 'Inter',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em">Open positions</span>
+          <span style="font:600 24px 'Fraunces',serif;color:#02422B">5</span>
+        </div>
+      </div>
+
+      <!-- Table card -->
+      <div style="background:#fff;border:1px solid #E9E5D6;border-radius:16px;overflow:hidden">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #EDE9DA">
+          <div style="display:flex;background:#F0EEE2;border-radius:10px;padding:4px">
+            <button style="{{ openTabStyle }}" onClick="{{ selectOpen }}">Open</button>
+            <button style="{{ closedTabStyle }}" onClick="{{ selectClosed }}">Closed</button>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;border:1.5px solid #DDE3D8;background:#FCFBF6">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA294" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="text" placeholder="Search symbol or algo" style="border:none;outline:none;font:400 13.5px 'Inter',sans-serif;background:transparent;width:200px;color:#0F1D16"/>
+          </label>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 0.9fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;padding:12px 24px;background:#FAF9F3;border-bottom:1px solid #EDE9DA">
+          <span style="{{ headStyle }}">Algo</span>
+          <span style="{{ headStyle }}">Symbol</span>
+          <span style="{{ headStyle }}">Broker</span>
+          <span style="{{ headStyle }};text-align:right">Qty</span>
+          <span style="{{ headStyle }};text-align:right">Avg. price</span>
+          <span style="{{ headStyle }};text-align:right">{{ priceColLabel }}</span>
+          <span style="{{ headStyle }};text-align:right">P&amp;L</span>
+          <span style="{{ headStyle }};text-align:right">Action</span>
+        </div>
+
+        <sc-for list="{{ rows }}" as="row" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 0.9fr 0.7fr 1fr 1.1fr 1.2fr 0.9fr;align-items:center;padding:16px 24px;border-bottom:1px solid #F1EEE2">
+            <span style="{{ row.algoTagStyle }}">{{ row.algo }}</span>
+            <span style="font:600 14.5px 'Inter',sans-serif;color:#0F1D16">{{ row.symbol }}</span>
+            <span style="font:400 13.5px 'Inter',sans-serif;color:#5B6A60">{{ row.broker }}</span>
+            <span style="font:400 14px 'Inter',sans-serif;color:#33423A;text-align:right">{{ row.qty }}</span>
+            <span style="font:400 14px 'Inter',sans-serif;color:#33423A;text-align:right">{{ row.avg }}</span>
+            <span style="text-align:right;display:flex;flex-direction:column;line-height:1.3">
+              <span style="font:500 14px 'Inter',sans-serif;color:#0F1D16">{{ row.price }}</span>
+              <sc-if value="{{ row.showDate }}" hint-placeholder-val="{{ false }}">
+                <span style="font:400 11.5px 'Inter',sans-serif;color:#9AA294">{{ row.dateNote }}</span>
+              </sc-if>
+            </span>
+            <span style="text-align:right;display:flex;flex-direction:column;line-height:1.3">
+              <span style="font:600 14.5px 'Inter',sans-serif;color:{{ row.pnlColor }}">{{ row.pnl }}</span>
+              <span style="font:500 12px 'Inter',sans-serif;color:{{ row.pnlColor }}">{{ row.pnlPct }}</span>
+            </span>
+            <span style="text-align:right">
+              <sc-if value="{{ row.isOpen }}" hint-placeholder-val="{{ true }}">
+                <button style="padding:7px 16px;border-radius:8px;border:1.5px solid #DABD38;background:transparent;color:#7A5E12;font:600 12.5px 'Inter',sans-serif;cursor:pointer" style-hover="background:#FBF3D9" onClick="{{ noop }}">Exit</button>
+              </sc-if>
+              <sc-if value="{{ row.isClosed }}" hint-placeholder-val="{{ false }}">
+                <span style="display:inline-block;padding:6px 14px;border-radius:20px;background:#F0EEE2;color:#5B6A60;font:600 12px 'Inter',sans-serif">Closed</span>
+              </sc-if>
+            </span>
+          </div>
+        </sc-for>
+
+      </div>
+
+      <p style="font:400 12px/1.6 'Inter',sans-serif;color:#9AA294;margin:0">Prices are indicative and may be delayed. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  state = { tab: "open" };
+
+  renderVals() {
+    const isOpen = this.state.tab !== "closed";
+    const tabBase = "padding:9px 22px;border-radius:8px;border:none;font:600 13.5px \'Inter\',sans-serif;cursor:pointer;";
+    const headStyle = "font:600 11.5px \'Inter\',sans-serif;color:#8A9089;text-transform:uppercase;letter-spacing:0.04em";
+
+    const tagStyle = (bg, color) =>
+      "display:inline-block;padding:5px 10px;border-radius:7px;font:600 12px \'Inter\',sans-serif;background:" + bg + ";color:" + color + ";width:fit-content";
+
+    const openRows = [
+      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "NIFTYBEES", broker: "Nuvama", qty: "500", avg: "₹245.30", price: "₹251.80", pnl: "+₹3,250", pnlPct: "+2.65%", up: true },
+      { algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "RELIANCE", broker: "Dhan", qty: "40", avg: "₹2,840.00", price: "₹2,795.50", pnl: "-₹1,780", pnlPct: "-1.57%", up: false },
+      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "HDFCBANK", broker: "iRage", qty: "120", avg: "₹1,605.75", price: "₹1,634.20", pnl: "+₹3,414", pnlPct: "+1.77%", up: true },
+      { algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TATASTEEL", broker: "Nuvama", qty: "800", avg: "₹148.90", price: "₹146.10", pnl: "-₹2,240", pnlPct: "-1.88%", up: false },
+      { algo: "Growth Fund", tag: tagStyle("rgba(10,52,82,0.12)", "#0A3452"), symbol: "INFY", broker: "Dhan", qty: "90", avg: "₹1,489.00", price: "₹1,522.40", pnl: "+₹3,006", pnlPct: "+2.24%", up: true }
+    ].map((r) => ({
+      ...r, algoTagStyle: r.tag, isOpen: true, isClosed: false, showDate: false, dateNote: "",
+      pnlColor: r.up ? "#0A7A4A" : "#B54B3A"
+    }));
+
+    const closedRows = [
+      { algo: "All Weather", tag: tagStyle("rgba(0,132,85,0.12)", "#008455"), symbol: "ICICIBANK", broker: "Nuvama", qty: "150", avg: "₹1,082.00", price: "₹1,104.60", pnl: "+₹3,390", pnlPct: "+2.09%", up: true, date: "Exited 18 Sep" },
+      { algo: "Momentum Edge", tag: tagStyle("rgba(2,66,43,0.10)", "#02422B"), symbol: "TCS", broker: "iRage", qty: "25", avg: "₹4,120.00", price: "₹4,048.00", pnl: "-₹1,800", pnlPct: "-1.75%", up: false, date: "Exited 12 Sep" }
+    ].map((r) => ({
+      ...r, algoTagStyle: r.tag, isOpen: false, isClosed: true, showDate: true, dateNote: r.date,
+      pnlColor: r.up ? "#0A7A4A" : "#B54B3A"
+    }));
+
+    return {
+      headStyle,
+      rows: isOpen ? openRows : closedRows,
+      priceColLabel: isOpen ? "LTP" : "Exit price",
+      openTabStyle: tabBase + (isOpen ? "background:#02422B;color:#EFEDC3" : "background:transparent;color:#5B6A60"),
+      closedTabStyle: tabBase + (!isOpen ? "background:#02422B;color:#EFEDC3" : "background:transparent;color:#5B6A60"),
+      selectOpen: () => this.setState({ tab: "open" }),
+      selectClosed: () => this.setState({ tab: "closed" }),
+      noop: () => {}
+    };
+  }
+}
+</script>
+</body>
+</html>
