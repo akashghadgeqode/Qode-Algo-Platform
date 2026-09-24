@@ -45,7 +45,7 @@ Positions/Orders/Holdings/My Algos/Blogs share a fixed 240px dark-gradient sideb
 Home (algo catalog + compliance disclosures), Investor login/connect-broker, Blogs.
 
 ## Charts
-The Strategy vs Benchmark equity-curve and drawdown charts, and the Rolling Returns / Rolling Drawdowns grouped-column charts (Chart/Table toggle), on both Algo Detail pages are real Highcharts charts (copied visually from the live-run dashboard) drawn by `live-charts.js` into `<div data-live-chart="equity|drawdown|roll-ret|roll-dd">` with sample data. Highcharts loads from jsDelivr at runtime and `live-charts.js` is loaded from each page's `componentDidMount`. Benchmark line uses `#2563eb` to match the dashboard (the one colour outside the token set). Highcharts needs a commercial licence for commercial use.
+The Strategy vs Benchmark two-pane chart (performance + drawdown, portfolio.qodeinvest style), and the Rolling Returns / Rolling Drawdowns grouped-column charts (Chart/Table toggle), on both Algo Detail pages are real Highcharts charts (copied visually from the live-run dashboard) drawn by `live-charts.js` into `<div data-live-chart="portfolio|roll-ret|roll-dd">` with sample data. Highcharts loads from jsDelivr at runtime and `live-charts.js` is loaded from each page's `componentDidMount`. Benchmark line uses `#2563eb` to match the dashboard (the one colour outside the token set). Highcharts needs a commercial licence for commercial use.
 
 ## Conventions
 - Each page is a standalone Design Component (`.dc.html`), split-panel shell reused for auth pages, sidebar shell reused for app pages.

@@ -77,24 +77,24 @@
         <sc-if value="{{ showPerf }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;gap:20px">
             <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
-              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">CAGR</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.cagr }}</span></div>
-              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Sharpe Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sharpe }}</span></div>
-              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Sortino Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sortino }}</span></div>
-              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Calmar Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.calmar }}</span></div>
-              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Max Drawdown</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:#b3403a;white-space:nowrap">{{ algo.maxDD }}</span></div>
+              <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:400 12px 'Lato',sans-serif;color:var(--deep);white-space:nowrap">CAGR</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.cagr }}</span></div>
+              <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:400 12px 'Lato',sans-serif;color:var(--deep);white-space:nowrap">Sharpe Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sharpe }}</span></div>
+              <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:400 12px 'Lato',sans-serif;color:var(--deep);white-space:nowrap">Sortino Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sortino }}</span></div>
+              <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:400 12px 'Lato',sans-serif;color:var(--deep);white-space:nowrap">Calmar Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.calmar }}</span></div>
+              <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:400 12px 'Lato',sans-serif;color:var(--deep);white-space:nowrap">Max Drawdown</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:#b3403a;white-space:nowrap">{{ algo.maxDD }}</span></div>
             </div>
 
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:var(--forest)">Trailing Returns &amp; Drawdown</h2>
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">Trailing Returns &amp; Drawdown</h2>
               <div style="overflow-x:auto"><div style="min-width:560px">
-                <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;padding-bottom:8px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                  <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Name</span>
+                <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;padding:8px 12px;background:rgba(0,0,0,0.05);border-bottom:0">
+                  <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Name</span>
                   <sc-for list="{{ trailingCols }}" as="c" hint-placeholder-count="9">
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">{{ c }}</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">{{ c }}</span>
                   </sc-for>
                 </div>
                 <sc-for list="{{ trailingRows }}" as="row" hint-placeholder-count="2">
-                  <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(2,66,43,0.06)">
+                  <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                     <span style="{{ row.nameStyle }};font-size:12.5px">{{ row.name }}</span>
                     <sc-for list="{{ row.values }}" as="v" hint-placeholder-count="9">
                       <span style="font:700 12px 'Lato',sans-serif;color:{{ v.color }};text-align:right;white-space:nowrap">{{ v.value }}</span>
@@ -105,14 +105,14 @@
               <p style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);margin:0">*Returns: Periods under 1 year are absolute; 1 year and above are annualized (CAGR)</p>
             </div>
 
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:var(--forest)">Monthly Performance</h2>
-              <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:860px">
-                <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                  <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Year</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jan</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Feb</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Mar</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Apr</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">May</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jun</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jul</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Aug</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Sep</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Oct</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Nov</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Dec</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right;border-left:1px solid rgba(2,66,43,0.1);padding-left:6px">Year</span>
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">Monthly Performance</h2>
+              <div style="border:0;border-radius:6px;overflow-x:auto"><div style="min-width:860px">
+                <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;padding:8px 12px;background:rgba(0,0,0,0.05);border-bottom:0">
+                  <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Year</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Jan</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Feb</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Mar</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Apr</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">May</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Jun</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Jul</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Aug</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Sep</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Oct</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Nov</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Dec</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right;border-left:1px solid rgba(2,66,43,0.1);padding-left:6px">Year</span>
                 </div>
                 <sc-for list="{{ monthlyRows }}" as="y" hint-placeholder-count="7">
-                  <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                     <span style="font:700 12px 'Lato',sans-serif;color:var(--forest)">{{ y.year }}</span>
                     <sc-for list="{{ y.cells }}" as="c" hint-placeholder-count="12">
                       <span style="font:400 12px 'Lato',sans-serif;color:{{ c.color }};text-align:center;white-space:nowrap">{{ c.value }}</span>
@@ -123,33 +123,20 @@
               </div></div>
             </div>
 
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:18px">
               <div>
-                <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Strategy vs Benchmark</h2>
+                <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Strategy vs Benchmark</h2>
                 <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Equity curve and drawdown comparison</p>
               </div>
               <div style="display:grid;grid-template-columns:1fr;gap:28px">
-                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-                  <div style="display:flex;align-items:center;justify-content:space-between">
-                    <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Equity Curve</h3>
-                    <button data-live-reset="equity" disabled style="padding:6px 12px;border-radius:8px;border:1.5px solid var(--border-strong);background:#fff;font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);cursor:not-allowed;opacity:.35;white-space:nowrap">Reset Zoom</button>
-                  </div>
-                  <div data-live-chart="equity" style="min-height:340px"></div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-                  <div style="display:flex;align-items:center;justify-content:space-between">
-                    <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Drawdown</h3>
-                    <button data-live-reset="drawdown" disabled style="padding:6px 12px;border-radius:8px;border:1.5px solid var(--border-strong);background:#fff;font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);cursor:not-allowed;opacity:.35;white-space:nowrap">Reset Zoom</button>
-                  </div>
-                  <div data-live-chart="drawdown" style="min-height:340px"></div>
-                </div>
+                <div data-live-chart="portfolio" style="min-height:600px"></div>
               </div>
             </div>
 
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:18px">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
                 <div>
-                  <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Rolling Returns &amp; Drawdowns</h2>
+                  <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Rolling Returns &amp; Drawdowns</h2>
                   <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">1Y / 3Y / 5Y</p>
                 </div>
                 <div style="display:flex;background:var(--grey-2);border-radius:9px;padding:3px">
@@ -163,33 +150,33 @@
                   <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
                     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
                       <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Rolling Returns</h3>
-                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);background:var(--grey-1);border:1px solid var(--border);border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingReturns.2.bars.0.value }} &middot; WORST {{ rollingReturns.2.bars.2.value }}</span>
+                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--deep);background:rgba(0,0,0,0.05);border:0;border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingReturns.2.bars.0.value }} &middot; WORST {{ rollingReturns.2.bars.2.value }}</span>
                     </div>
                     <div data-live-chart="roll-ret" data-vals="{{ rollRetJson }}" style="min-height:360px"></div>
                   </div>
                   <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
                     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
                       <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Rolling Drawdowns</h3>
-                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);background:var(--grey-1);border:1px solid var(--border);border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingDrawdowns.2.bars.0.value }} &middot; DEEPEST {{ rollingDrawdowns.2.bars.2.value }}</span>
+                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--deep);background:rgba(0,0,0,0.05);border:0;border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingDrawdowns.2.bars.0.value }} &middot; DEEPEST {{ rollingDrawdowns.2.bars.2.value }}</span>
                     </div>
                     <div data-live-chart="roll-dd" data-vals="{{ rollDDJson }}" style="min-height:360px"></div>
                   </div>
                 </div>
               </sc-if>
               <sc-if value="{{ showRollTable }}" hint-placeholder-val="{{ false }}">
-                <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:620px">
-                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:10px 16px 4px">
+                <div style="border:0;border-radius:6px;overflow-x:auto"><div style="min-width:620px">
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:8px 16px 0;background:rgba(0,0,0,0.05)">
                     <span></span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);grid-column:span 3;text-align:center;color:var(--forest)">Return (%)</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);grid-column:span 3;text-align:center;color:#b3403a;border-left:1px solid rgba(2,66,43,0.12)">Drawdown (%)</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;grid-column:span 3;text-align:center;color:var(--forest)">Return (%)</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;grid-column:span 3;text-align:center;color:#b3403a;border-left:1px solid rgba(2,66,43,0.12)">Drawdown (%)</span>
                   </div>
-                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:4px 16px 10px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Period</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Avg</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Best</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Worst</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Avg</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Mildest</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Deepest</span>
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:4px 16px 8px;background:rgba(0,0,0,0.05);border-bottom:0">
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Period</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Avg</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Best</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Worst</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Avg</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Mildest</span><span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Deepest</span>
                   </div>
                   <sc-for list="{{ rollRows }}" as="r" hint-placeholder-count="3">
-                    <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:13px 16px;border-bottom:1px solid rgba(2,66,43,0.06);align-items:center">
+                    <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:13px 16px;border-bottom:1px solid rgba(0,0,0,0.08);align-items:center">
                       <span style="font:700 11px 'Lato',sans-serif;color:var(--forest);background:rgba(2,66,43,0.06);border:1px solid rgba(2,66,43,0.1);border-radius:6px;padding:3px 10px;width:fit-content;text-transform:uppercase;letter-spacing:0.04em">{{ r.period }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right">{{ r.ra }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right">{{ r.rb }}</span>
@@ -207,10 +194,10 @@
 
         <sc-if value="{{ showBest }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:16px">
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:18px">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
                 <div>
-                  <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Top 5 Best &amp; Worst Periods</h2>
+                  <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Top 5 Best &amp; Worst Periods</h2>
                   <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Compare strategy extremes against benchmark and vice versa</p>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
@@ -229,16 +216,16 @@
               <div style="display:grid;grid-template-columns:1fr;gap:24px">
                 <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
                   <span style="display:flex;align-items:center;gap:8px;font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.06em;color:var(--forest)"><span style="width:8px;height:8px;border-radius:50%;background:var(--forest);flex-shrink:0"></span>TOP 5 BEST {{ periodNounPlural }} <span style="font:400 11px 'Lato',sans-serif;text-transform:none;letter-spacing:0;color:rgba(2,66,43,0.45)">by {{ viewLabel }}</span></span>
-                  <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto">
-                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Date</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Strategy</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Nifty 50</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Alpha</span>
+                  <div style="border:0;border-radius:6px;overflow-x:auto">
+                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;background:rgba(0,0,0,0.05);border-bottom:0">
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Rank</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Date</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Strategy</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Nifty 50</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Alpha</span>
                   </div>
                   <sc-for list="{{ bestDays }}" as="d" hint-placeholder-count="5">
-                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                       <span style="width:24px;height:24px;border-radius:6px;background:rgba(2,66,43,0.06);color:var(--forest);font:700 12px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">{{ d.rank }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.date }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right;white-space:nowrap">{{ d.strategy }}</span>
@@ -250,16 +237,16 @@
                 </div>
                 <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
                   <span style="display:flex;align-items:center;gap:8px;font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.06em;color:#b3403a"><span style="width:8px;height:8px;border-radius:50%;background:#b3403a;flex-shrink:0"></span>TOP 5 WORST {{ periodNounPlural }} <span style="font:400 11px 'Lato',sans-serif;text-transform:none;letter-spacing:0;color:rgba(2,66,43,0.45)">by {{ viewLabel }}</span></span>
-                  <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto">
-                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Date</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Strategy</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Nifty 50</span>
-                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Alpha</span>
+                  <div style="border:0;border-radius:6px;overflow-x:auto">
+                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;background:rgba(0,0,0,0.05);border-bottom:0">
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Rank</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Date</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Strategy</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Nifty 50</span>
+                    <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Alpha</span>
                   </div>
                   <sc-for list="{{ worstDays }}" as="d" hint-placeholder-count="5">
-                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                       <span style="width:24px;height:24px;border-radius:6px;background:rgba(2,66,43,0.06);color:var(--forest);font:700 12px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">{{ d.rank }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.date }}</span>
                       <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;text-align:right;white-space:nowrap">{{ d.strategy }}</span>
@@ -272,23 +259,23 @@
               </div>
             </div>
 
-            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px">
+            <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px">
               <div>
-                <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Top 5 Drawdowns</h2>
+                <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Top 5 Drawdowns</h2>
                 <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Ranked from worst to least severe</p>
               </div>
-              <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:760px">
-<div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Drawdown %</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Peak Date</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Trough Date</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Recovery Date</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Total Duration</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Status</span>
+              <div style="border:0;border-radius:6px;overflow-x:auto"><div style="min-width:760px">
+<div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;padding:8px 12px;background:rgba(0,0,0,0.05);border-bottom:0">
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Rank</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Drawdown %</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Peak Date</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Trough Date</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Recovery Date</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Total Duration</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Status</span>
               </div>
               <sc-for list="{{ drawdowns }}" as="d" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                <div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                   <span style="font:700 12px 'Lato',sans-serif;color:rgba(2,66,43,0.55)">{{ d.rank }}</span>
                   <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;white-space:nowrap">{{ d.depth }}</span>
                   <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.peakDate }}</span>
@@ -305,29 +292,29 @@
         </sc-if>
 
         <sc-if value="{{ showMonthly }}" hint-placeholder-val="{{ false }}">
-          <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px;overflow-x:auto">
+          <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px;overflow-x:auto">
             <div>
-              <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Regime Analysis</h2>
+              <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Regime Analysis</h2>
               <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">{{ algo.name }} vs benchmarks through major market events</p>
             </div>
-            <div style="min-width:920px;border:1px solid rgba(2,66,43,0.06);border-radius:6px">
+            <div style="min-width:920px;border:0;border-radius:6px">
               <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.9fr 0.9fr 0.9fr 0.9fr;column-gap:14px;padding:8px 12px 2px">
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Regime</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Days</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Strategy</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:#3B6FE0">Nifty 50</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:var(--gold)">Gold</span>
-                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:#b3403a">Nifty 50 (60%) + Gold (40%)</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000">Regime</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Days</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center">Strategy</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center;color:#3B6FE0">Nifty 50</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center;color:var(--gold)">Gold</span>
+                <span style="font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:center;color:#b3403a">Nifty 50 (60%) + Gold (40%)</span>
               </div>
-              <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;padding:2px 12px 8px;border-bottom:1px solid rgba(2,66,43,0.1)">
+              <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;padding:2px 12px 8px;background:rgba(0,0,0,0.05);border-bottom:0">
                 <span></span><span></span>
-                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
-                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
-                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
-                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Return</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">MDD</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Return</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">MDD</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Return</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">MDD</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">Return</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:#000;text-align:right">MDD</span>
               </div>
               <sc-for list="{{ regimes }}" as="r" hint-placeholder-count="9">
-                <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.08)">
                   <span style="display:flex;flex-direction:column;gap:2px">
                     <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ r.name }}</span>
                     <span style="font:400 11px 'Lato',sans-serif;color:rgba(2,66,43,0.45);white-space:nowrap">{{ r.dates }}</span>
