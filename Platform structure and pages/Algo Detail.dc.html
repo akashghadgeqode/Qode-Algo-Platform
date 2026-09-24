@@ -41,12 +41,12 @@
       Back
     </a>
     <div style="width:1px;height:22px;background:var(--border);margin-right:12px"></div>
-    <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap;background:transparent;">Dashboard</a>
     <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
     <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Marketplace</a>
     <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
     <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
-    <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;background:var(--gain-tint);flex-shrink:0;margin-left:auto"><span style="width:7px;height:7px;border-radius:50%;background:var(--gain);flex-shrink:0"></span><span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">Nuvama connected</span></div>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
       <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif">AM</div>
     </a>
   </nav>
@@ -65,141 +65,286 @@
               <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
             </div>
           </div>
-          <span style="display:flex;align-items:center;gap:6px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.4"><path d="M12 2v6M12 2 8 6M12 2l4 4"/><circle cx="12" cy="15" r="7"/></svg>
-            {{ algo.subscribers }} traders subscribed
-          </span>
-        </div>
+                  </div>
 
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button style="{{ tabStyle_perf }}" onClick="{{ selectPerf }}">Performance</button>
           <button style="{{ tabStyle_best }}" onClick="{{ selectBest }}">Best &amp; Worst</button>
-          <button style="{{ tabStyle_monthly }}" onClick="{{ selectMonthly }}">Monthly &amp; Regime</button>
+          <button style="{{ tabStyle_monthly }}" onClick="{{ selectMonthly }}">Regime</button>
           <button style="{{ tabStyle_about }}" onClick="{{ selectAbout }}">About &amp; Disclosures</button>
         </div>
 
         <sc-if value="{{ showPerf }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;gap:20px">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
-              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">CAGR</span>
-                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.cagr }}</span>
-              </div>
-              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">Sharpe</span>
-                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.sharpe }}</span>
-              </div>
-              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap">Calmar</span>
-                <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ algo.calmar }}</span>
-              </div>
-              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Max Drawdown</span>
-                <span style="font:700 24px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ algo.maxDD }}</span>
-              </div>
-              <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Current Drawdown</span>
-                <span style="font:700 24px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ algo.currentDD }}</span>
-              </div>
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">CAGR</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.cagr }}</span></div>
+              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Sharpe Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sharpe }}</span></div>
+              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Sortino Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.sortino }}</span></div>
+              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Calmar Ratio</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:var(--forest);white-space:nowrap">{{ algo.calmar }}</span></div>
+              <div style="background:#fffdf7;border:1px solid rgba(2,66,43,0.1);border-radius:10px;box-shadow:0 1px 2px rgba(2,66,43,0.04);padding:11px 14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px 'Lato',sans-serif;color:rgba(2,66,43,0.55);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap">Max Drawdown</span><span style="font:700 20.8px 'Lato',sans-serif;letter-spacing:-0.5px;color:#b3403a;white-space:nowrap">{{ algo.maxDD }}</span></div>
             </div>
 
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Equity &amp; drawdown curve</h2>
-              <svg viewBox="0 0 600 200" style="width:100%;height:200px" preserveAspectRatio="none">
-                <polyline points="0,150 60,140 120,155 180,120 240,100 300,60 360,80 420,50 480,65 540,40 600,45" fill="none" stroke="var(--forest)" stroke-width="2.5"/>
-                <polyline points="0,175 60,178 120,180 180,172 240,176 300,182 360,178 420,185 480,180 540,188 600,186" fill="none" stroke="#E7000B" stroke-width="2"/>
-              </svg>
-              <div style="display:flex;gap:20px">
-                <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--forest);display:inline-block"></span>Equity curve</span>
-                <span style="display:flex;align-items:center;gap:7px;font:400 12px 'Lato',sans-serif;color:var(--grey-10)"><span style="width:14px;height:2.5px;background:var(--loss);display:inline-block"></span>Drawdown</span>
-              </div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-              <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-                <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Rolling returns &amp; drawdown</h2>
-                <svg viewBox="0 0 280 140" style="width:100%;height:140px" preserveAspectRatio="none">
-                  <polyline points="0,90 30,70 60,85 90,55 120,60 150,40 180,50 210,30 240,45 270,25" fill="none" stroke="var(--forest)" stroke-width="2.2"/>
-                </svg>
-              </div>
-              <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-                <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Trailing returns &amp; drawdown</h2>
-                <div style="display:flex;flex-direction:column;gap:10px">
-                  <sc-for list="{{ trailing }}" as="t" hint-placeholder-count="4">
-                    <div style="display:flex;align-items:center;justify-content:space-between">
-                      <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ t.label }}</span>
-                      <span style="font:700 13.5px 'Lato',sans-serif;color:{{ t.color }};white-space:nowrap">{{ t.value }}</span>
-                    </div>
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:var(--forest)">Trailing Returns &amp; Drawdown</h2>
+              <div style="overflow-x:auto"><div style="min-width:560px">
+                <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;padding-bottom:8px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                  <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Name</span>
+                  <sc-for list="{{ trailingCols }}" as="c" hint-placeholder-count="9">
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">{{ c }}</span>
                   </sc-for>
                 </div>
+                <sc-for list="{{ trailingRows }}" as="row" hint-placeholder-count="2">
+                  <div style="display:grid;grid-template-columns:1.3fr repeat(10,1fr);column-gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(2,66,43,0.06)">
+                    <span style="{{ row.nameStyle }};font-size:12.5px">{{ row.name }}</span>
+                    <sc-for list="{{ row.values }}" as="v" hint-placeholder-count="9">
+                      <span style="font:700 12px 'Lato',sans-serif;color:{{ v.color }};text-align:right;white-space:nowrap">{{ v.value }}</span>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div></div>
+              <p style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);margin:0">*Returns: Periods under 1 year are absolute; 1 year and above are annualized (CAGR)</p>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font:600 15px 'Playfair Display',serif;margin:0;color:var(--forest)">Monthly Performance</h2>
+              <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:860px">
+                <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                  <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Year</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jan</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Feb</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Mar</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Apr</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">May</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jun</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Jul</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Aug</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Sep</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Oct</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Nov</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Dec</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right;border-left:1px solid rgba(2,66,43,0.1);padding-left:6px">Year</span>
+                </div>
+                <sc-for list="{{ monthlyRows }}" as="y" hint-placeholder-count="7">
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(12,1fr) 1.1fr;column-gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                    <span style="font:700 12px 'Lato',sans-serif;color:var(--forest)">{{ y.year }}</span>
+                    <sc-for list="{{ y.cells }}" as="c" hint-placeholder-count="12">
+                      <span style="font:400 12px 'Lato',sans-serif;color:{{ c.color }};text-align:center;white-space:nowrap">{{ c.value }}</span>
+                    </sc-for>
+                    <span style="font:700 12px 'Lato',sans-serif;color:{{ y.totalColor }};text-align:right;white-space:nowrap;border-left:1px solid rgba(2,66,43,0.1);background:rgba(2,66,43,0.03);padding:2px 0 2px 6px">{{ y.total }}</span>
+                  </div>
+                </sc-for>
+              </div></div>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+              <div>
+                <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Strategy vs Benchmark</h2>
+                <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Equity curve and drawdown comparison</p>
               </div>
+              <div style="display:grid;grid-template-columns:1fr;gap:28px">
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <div style="display:flex;align-items:center;justify-content:space-between">
+                    <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Equity Curve</h3>
+                    <button data-live-reset="equity" disabled style="padding:6px 12px;border-radius:8px;border:1.5px solid var(--border-strong);background:#fff;font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);cursor:not-allowed;opacity:.35;white-space:nowrap">Reset Zoom</button>
+                  </div>
+                  <div data-live-chart="equity" style="min-height:340px"></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <div style="display:flex;align-items:center;justify-content:space-between">
+                    <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Drawdown</h3>
+                    <button data-live-reset="drawdown" disabled style="padding:6px 12px;border-radius:8px;border:1.5px solid var(--border-strong);background:#fff;font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);cursor:not-allowed;opacity:.35;white-space:nowrap">Reset Zoom</button>
+                  </div>
+                  <div data-live-chart="drawdown" style="min-height:340px"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+                <div>
+                  <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Rolling Returns &amp; Drawdowns</h2>
+                  <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">1Y / 3Y / 5Y</p>
+                </div>
+                <div style="display:flex;background:var(--grey-2);border-radius:9px;padding:3px">
+                  <button style="{{ chartTableStyle_chart }}" onClick="{{ selectChartView }}">Chart</button>
+                  <button style="{{ chartTableStyle_table }}" onClick="{{ selectTableView }}">Table</button>
+                </div>
+              </div>
+
+              <sc-if value="{{ showRollChart }}" hint-placeholder-val="{{ true }}">
+                <div style="display:grid;grid-template-columns:1fr;gap:28px">
+                  <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+                    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+                      <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Rolling Returns</h3>
+                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);background:var(--grey-1);border:1px solid var(--border);border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingReturns.2.bars.0.value }} &middot; WORST {{ rollingReturns.2.bars.2.value }}</span>
+                    </div>
+                    <div data-live-chart="roll-ret" data-vals="{{ rollRetJson }}" style="min-height:360px"></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+                    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+                      <h3 style="font:700 14px 'Lato',sans-serif;margin:0;color:var(--ink)">Rolling Drawdowns</h3>
+                      <span style="font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);background:var(--grey-1);border:1px solid var(--border);border-radius:7px;padding:5px 10px;white-space:nowrap">5Y AVG {{ rollingDrawdowns.2.bars.0.value }} &middot; DEEPEST {{ rollingDrawdowns.2.bars.2.value }}</span>
+                    </div>
+                    <div data-live-chart="roll-dd" data-vals="{{ rollDDJson }}" style="min-height:360px"></div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ showRollTable }}" hint-placeholder-val="{{ false }}">
+                <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:620px">
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:10px 16px 4px">
+                    <span></span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);grid-column:span 3;text-align:center;color:var(--forest)">Return (%)</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);grid-column:span 3;text-align:center;color:#b3403a;border-left:1px solid rgba(2,66,43,0.12)">Drawdown (%)</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:4px 16px 10px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Period</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Avg</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Best</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Worst</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Avg</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Mildest</span><span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Deepest</span>
+                  </div>
+                  <sc-for list="{{ rollRows }}" as="r" hint-placeholder-count="3">
+                    <div style="display:grid;grid-template-columns:0.8fr repeat(6,1fr);column-gap:10px;padding:13px 16px;border-bottom:1px solid rgba(2,66,43,0.06);align-items:center">
+                      <span style="font:700 11px 'Lato',sans-serif;color:var(--forest);background:rgba(2,66,43,0.06);border:1px solid rgba(2,66,43,0.1);border-radius:6px;padding:3px 10px;width:fit-content;text-transform:uppercase;letter-spacing:0.04em">{{ r.period }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right">{{ r.ra }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right">{{ r.rb }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right">{{ r.rw }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;text-align:right">{{ r.da }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;text-align:right">{{ r.dm }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;text-align:right">{{ r.dd }}</span>
+                    </div>
+                  </sc-for>
+                </div></div>
+              </sc-if>
             </div>
           </div>
         </sc-if>
 
         <sc-if value="{{ showBest }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 best periods</h2>
-              <sc-for list="{{ bestPeriods }}" as="p" hint-placeholder-count="5">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--grey-2)">
-                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ p.period }}</span>
-                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">{{ p.value }}</span>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+                <div>
+                  <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Top 5 Best &amp; Worst Periods</h2>
+                  <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Compare strategy extremes against benchmark and vice versa</p>
                 </div>
-              </sc-for>
-            </div>
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 worst periods</h2>
-              <sc-for list="{{ worstPeriods }}" as="p" hint-placeholder-count="5">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--grey-2)">
-                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ p.period }}</span>
-                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--loss);white-space:nowrap">{{ p.value }}</span>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <div style="display:inline-flex;gap:2px;padding:2px;border:1px solid rgba(2,66,43,0.12);border-radius:6px;background:rgba(2,66,43,0.04)">
+                    <button style="{{ viewStyle_strategy }}" onClick="{{ selectViewStrategy }}">Strategy</button>
+                    <button style="{{ viewStyle_benchmark }}" onClick="{{ selectViewBenchmark }}">Benchmark</button>
+                  </div>
+                  <div style="display:inline-flex;gap:2px;padding:2px;border:1px solid rgba(2,66,43,0.12);border-radius:6px;background:rgba(2,66,43,0.04)">
+                    <button style="{{ periodStyle_day }}" onClick="{{ selectPeriodDay }}">Day</button>
+                    <button style="{{ periodStyle_week }}" onClick="{{ selectPeriodWeek }}">Week</button>
+                    <button style="{{ periodStyle_month }}" onClick="{{ selectPeriodMonth }}">Month</button>
+                  </div>
                 </div>
-              </sc-for>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr;gap:24px">
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px;font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.06em;color:var(--forest)"><span style="width:8px;height:8px;border-radius:50%;background:var(--forest);flex-shrink:0"></span>TOP 5 BEST {{ periodNounPlural }} <span style="font:400 11px 'Lato',sans-serif;text-transform:none;letter-spacing:0;color:rgba(2,66,43,0.45)">by {{ viewLabel }}</span></span>
+                  <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto">
+                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Date</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Strategy</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Nifty 50</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Alpha</span>
+                  </div>
+                  <sc-for list="{{ bestDays }}" as="d" hint-placeholder-count="5">
+                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                      <span style="width:24px;height:24px;border-radius:6px;background:rgba(2,66,43,0.06);color:var(--forest);font:700 12px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">{{ d.rank }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.date }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right;white-space:nowrap">{{ d.strategy }}</span>
+                      <span style="font:400 12px 'Lato',sans-serif;color:{{ d.niftyColor }};text-align:right;white-space:nowrap">{{ d.nifty }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:{{ d.alphaColor }};text-align:right;white-space:nowrap">{{ d.alpha }}</span>
+                    </div>
+                  </sc-for>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px;font:700 12px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.06em;color:#b3403a"><span style="width:8px;height:8px;border-radius:50%;background:#b3403a;flex-shrink:0"></span>TOP 5 WORST {{ periodNounPlural }} <span style="font:400 11px 'Lato',sans-serif;text-transform:none;letter-spacing:0;color:rgba(2,66,43,0.45)">by {{ viewLabel }}</span></span>
+                  <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto">
+                  <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Date</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Strategy</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Nifty 50</span>
+                    <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Alpha</span>
+                  </div>
+                  <sc-for list="{{ worstDays }}" as="d" hint-placeholder-count="5">
+                    <div style="display:grid;grid-template-columns:0.5fr 1.3fr 1fr 1fr 1fr;column-gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                      <span style="width:24px;height:24px;border-radius:6px;background:rgba(2,66,43,0.06);color:var(--forest);font:700 12px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">{{ d.rank }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.date }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;text-align:right;white-space:nowrap">{{ d.strategy }}</span>
+                      <span style="font:400 12px 'Lato',sans-serif;color:{{ d.niftyColor }};text-align:right;white-space:nowrap">{{ d.nifty }}</span>
+                      <span style="font:700 12px 'Lato',sans-serif;color:{{ d.alphaColor }};text-align:right;white-space:nowrap">{{ d.alpha }}</span>
+                    </div>
+                  </sc-for>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;grid-column:1 / -1">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Top 5 drawdowns</h2>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-                <span style="{{ headStyle }}">Period</span>
-                <span style="{{ headStyle }};text-align:right">Depth</span>
-                <span style="{{ headStyle }};text-align:right">Recovery</span>
+
+            <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px">
+              <div>
+                <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Top 5 Drawdowns</h2>
+                <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Ranked from worst to least severe</p>
+              </div>
+              <div style="border:1px solid rgba(2,66,43,0.06);border-radius:6px;overflow-x:auto"><div style="min-width:760px">
+<div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Rank</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Drawdown %</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Peak Date</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Trough Date</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Recovery Date</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Total Duration</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Status</span>
               </div>
               <sc-for list="{{ drawdowns }}" as="d" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:16px;padding:9px 0;border-bottom:1px solid var(--grey-2)">
-                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ d.period }}</span>
-                  <span style="font:700 13px 'Lato',sans-serif;color:var(--loss);text-align:right;white-space:nowrap">{{ d.depth }}</span>
-                  <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);text-align:right;white-space:nowrap">{{ d.recovery }}</span>
+                <div style="display:grid;grid-template-columns:0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;column-gap:14px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
+                  <span style="font:700 12px 'Lato',sans-serif;color:rgba(2,66,43,0.55)">{{ d.rank }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:#b3403a;white-space:nowrap">{{ d.depth }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.peakDate }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.troughDate }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ d.recoveryDate }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right;white-space:nowrap">{{ d.duration }}</span>
+                  <span style="text-align:right"><span style="{{ d.statusStyle }}">{{ d.status }}</span></span>
                 </div>
               </sc-for>
+</div></div>
+              <p style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Total Duration = total calendar days capital was underwater</p>
             </div>
           </div>
         </sc-if>
 
         <sc-if value="{{ showMonthly }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;flex-direction:column;gap:16px">
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Monthly performance</h2>
-              <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px">
-                <sc-for list="{{ monthly }}" as="m" hint-placeholder-count="12">
-                  <div style="{{ m.cellStyle }}">
-                    <span style="font:400 10.5px 'Lato',sans-serif;opacity:0.75">{{ m.label }}</span>
-                    <span style="font:700 13px 'Lato',sans-serif">{{ m.value }}</span>
-                  </div>
-                </sc-for>
-              </div>
+          <div style="background:rgba(255,255,255,0.5);border:1px solid rgba(2,66,43,0.12);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px;overflow-x:auto">
+            <div>
+              <h2 style="font:600 15px 'Playfair Display',serif;margin:0 0 4px;color:var(--forest)">Regime Analysis</h2>
+              <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">{{ algo.name }} vs benchmarks through major market events</p>
             </div>
-            <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
-              <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Regime analysis</h2>
-              <sc-for list="{{ regimes }}" as="r" hint-placeholder-count="3">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--grey-2)">
+            <div style="min-width:920px;border:1px solid rgba(2,66,43,0.06);border-radius:6px">
+              <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.9fr 0.9fr 0.9fr 0.9fr;column-gap:14px;padding:8px 12px 2px">
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55)">Regime</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Days</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center">Strategy</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:#3B6FE0">Nifty 50</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:var(--gold)">Gold</span>
+                <span style="font:700 11px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:center;color:#b3403a">Nifty 50 (60%) + Gold (40%)</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;padding:2px 12px 8px;border-bottom:1px solid rgba(2,66,43,0.1)">
+                <span></span><span></span>
+                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
+                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
+                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
+                <span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">Return</span><span style="font:700 10px 'Lato',sans-serif;text-transform:uppercase;letter-spacing:0.07em;color:rgba(2,66,43,0.55);text-align:right">MDD</span>
+              </div>
+              <sc-for list="{{ regimes }}" as="r" hint-placeholder-count="9">
+                <div style="display:grid;grid-template-columns:1.6fr 0.5fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr 0.45fr;column-gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(2,66,43,0.06)">
                   <span style="display:flex;flex-direction:column;gap:2px">
-                    <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ r.regime }}</span>
-                    <span style="font:400 12px 'Lato',sans-serif;color:var(--grey-9)">{{ r.desc }}</span>
+                    <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ r.name }}</span>
+                    <span style="font:400 11px 'Lato',sans-serif;color:rgba(2,66,43,0.45);white-space:nowrap">{{ r.dates }}</span>
                   </span>
-                  <span style="font:700 14px 'Lato',sans-serif;color:{{ r.color }};white-space:nowrap">{{ r.value }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-align:right;white-space:nowrap">{{ r.days }}</span>
+                  <span style="font:700 12px 'Lato',sans-serif;color:{{ r.stratRetColor }};text-align:right;white-space:nowrap">{{ r.stratRet }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.stratMddColor }};text-align:right;white-space:nowrap">{{ r.stratMdd }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.niftyRetColor }};text-align:right;white-space:nowrap">{{ r.niftyRet }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.niftyMddColor }};text-align:right;white-space:nowrap">{{ r.niftyMdd }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.goldRetColor }};text-align:right;white-space:nowrap">{{ r.goldRet }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.goldMddColor }};text-align:right;white-space:nowrap">{{ r.goldMdd }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.blendRetColor }};text-align:right;white-space:nowrap">{{ r.blendRet }}</span>
+                  <span style="font:400 12px 'Lato',sans-serif;color:{{ r.blendMddColor }};text-align:right;white-space:nowrap">{{ r.blendMdd }}</span>
                 </div>
               </sc-for>
             </div>
+            <p style="font:400 11px 'Lato',sans-serif;color:var(--grey-9);margin:0">QAW is the strategy; Nifty 50 and Gold benchmarks; MDD is drawdown in the period</p>
           </div>
         </sc-if>
 
@@ -310,10 +455,6 @@
             <div style="display:flex;flex-direction:column;gap:2px">
               <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Min. allocation</span>
               <span style="font:700 15px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.minAlloc }}</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end">
-              <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap">Starts at</span>
-              <span style="font:700 15px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.startPrice }}</span>
             </div>
           </div>
 
@@ -506,6 +647,13 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
+  componentDidMount() {
+    const s = document.createElement('script');
+    s.src = 'live-charts.js';
+    s.onload = () => window.QodeLiveCharts && window.QodeLiveCharts.init();
+    document.head.appendChild(s);
+  }
+
   state = {
     portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama",
     step: 1, legal: { tc: false, pp: false, rd: false, ic: false },
@@ -519,6 +667,49 @@ class Component extends DCLogic {
     const tabActive = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
     const headStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
     const tagStyle = "display:inline-block;padding:3px 9px;border-radius:6px;font:700 11px 'Lato',sans-serif;background:var(--forest-tint);color:var(--forest);width:fit-content;white-space:nowrap";
+
+    const seg = this.state.seg;
+    const segBase = "padding:7px 16px;border-radius:8px;border:none;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;";
+    const segStyle = (v) => segBase + (seg === v ? "background:#fff;color:var(--forest);box-shadow:0 1px 3px rgba(0,32,23,0.12)" : "background:transparent;color:var(--grey-10)");
+    const chartView = this.state.chartView || "chart";
+    const ctBase = "padding:6px 14px;border-radius:6px;border:0;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;";
+    const ctStyle = (v) => ctBase + (chartView === v ? "background:var(--forest);color:#fff" : "background:transparent;color:rgba(2,66,43,0.6)");
+
+    const trailingCols = ["5D", "10D", "15D", "1M", "3M", "1Y", "2Y", "Since Inception", "Current DD", "Max DD"];
+    const gain = "var(--forest)", loss = "#b3403a";
+    const trailingRows = [
+      {
+        name: "Scheme", nameStyle: "font:700 13.5px 'Lato',sans-serif;color:var(--ink);border-left:3px solid var(--gold);padding-left:8px",
+        values: [
+          { value: "-0.71%", color: loss }, { value: "+0.95%", color: gain }, { value: "-1.21%", color: loss },
+          { value: "+0.03%", color: gain }, { value: "-3.29%", color: loss }, { value: "+18.60%", color: gain },
+          { value: "+21.40%", color: gain }, { value: "+18.60%", color: gain }, { value: "-3.80%", color: loss }, { value: "-31.95%", color: loss }
+        ]
+      },
+      {
+        name: "NIFTY (%)", nameStyle: "font:700 13.5px 'Lato',sans-serif;color:var(--grey-10);padding-left:8px",
+        values: [
+          { value: "-0.69%", color: loss }, { value: "-2.69%", color: loss }, { value: "-3.87%", color: loss },
+          { value: "-4.19%", color: loss }, { value: "-3.38%", color: loss }, { value: "-8.13%", color: loss },
+          { value: "-4.32%", color: loss }, { value: "+10.62%", color: gain }, { value: "-11.61%", color: loss }, { value: "-38.44%", color: loss }
+        ]
+      }
+    ];
+
+    const barVal = (label, v, color) => ({ label, value: v + "%", color, heightPct: 0 });
+    const scaleBars = (bars, max) => bars.map((b) => ({ ...b, heightPct: Math.max(6, Math.round((Math.abs(parseFloat(b.value)) / max) * 100)) }));
+    const rollingReturns = [
+      { period: "1 Year", bars: scaleBars([barVal("Avg", "12.4"), barVal("Best", "28.90", "var(--brand-green)"), barVal("Worst", "3.10", "var(--grey-9)")].map((b, i) => ({ ...b, color: i === 0 ? "var(--forest)" : b.color })), 28.9) },
+      { period: "3 Year", bars: scaleBars([barVal("Avg", "16.80"), barVal("Best", "24.50", "var(--brand-green)"), barVal("Worst", "9.20", "var(--grey-9)")].map((b, i) => ({ ...b, color: i === 0 ? "var(--forest)" : b.color })), 28.9) },
+      { period: "5 Year", bars: scaleBars([barVal("Avg", "18.60"), barVal("Best", "21.30", "var(--brand-green)"), barVal("Worst", "14.10", "var(--grey-9)")].map((b, i) => ({ ...b, color: i === 0 ? "var(--forest)" : b.color })), 28.9) }
+    ];
+    const ddVal = (label, v, color) => ({ label, value: v + "%", color, heightPct: 0 });
+    const scaleDD = (bars, max) => bars.map((b) => ({ ...b, heightPct: Math.max(6, Math.round((Math.abs(parseFloat(b.value)) / max) * 100)) }));
+    const rollingDrawdowns = [
+      { period: "1 Year", bars: scaleDD([ddVal("Avg", "-14.20", "var(--loss)"), ddVal("Mildest", "-6.80", "#E8A0A0"), ddVal("Deepest", "-31.95", "#7A1414")], 31.95) },
+      { period: "3 Year", bars: scaleDD([ddVal("Avg", "-16.10", "var(--loss)"), ddVal("Mildest", "-9.40", "#E8A0A0"), ddVal("Deepest", "-31.95", "#7A1414")], 31.95) },
+      { period: "5 Year", bars: scaleDD([ddVal("Avg", "-17.30", "var(--loss)"), ddVal("Mildest", "-11.90", "#E8A0A0"), ddVal("Deepest", "-31.95", "#7A1414")], 31.95) }
+    ];
 
     const step = this.state.step;
     const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
@@ -559,6 +750,37 @@ class Component extends DCLogic {
       togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
 
       headStyle,
+      segTabStyle_all: segStyle("all"), segTabStyle_nifty: segStyle("nifty"), segTabStyle_sensex: segStyle("sensex"),
+      selectSegAll: () => this.setState({ seg: "all" }), selectSegNifty: () => this.setState({ seg: "nifty" }), selectSegSensex: () => this.setState({ seg: "sensex" }),
+      chartTableStyle_chart: ctStyle("chart"), chartTableStyle_table: ctStyle("table"),
+      selectChartView: () => this.setState({ chartView: "chart" }), selectTableView: () => this.setState({ chartView: "table" }),
+      showRollChart: chartView === "chart", showRollTable: chartView === "table",
+      rollRetJson: JSON.stringify(rollingReturns.map((p) => p.bars.map((b) => parseFloat(b.value)))),
+      rollDDJson: JSON.stringify(rollingDrawdowns.map((p) => p.bars.map((b) => parseFloat(b.value)))),
+      rollRows: rollingReturns.map((p, i) => { const d = rollingDrawdowns[i].bars; return { period: p.period.replace(" Year", "Y"), ra: p.bars[0].value, rb: p.bars[1].value, rw: p.bars[2].value, da: d[0].value, dm: d[1].value, dd: d[2].value }; }),
+      monthlyRows: (() => {
+        let seed = 11;
+        const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+        const scale = parseFloat(rollingReturns[0].bars[0].value) / 12;
+        const fmt = (v) => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+        const col = (v) => (v >= 0 ? "var(--forest)" : "#b3403a");
+        const rows = [];
+        for (let yr = 2020; yr <= 2026; yr++) {
+          const n = yr === 2026 ? 9 : 12;
+          let comp = 1;
+          const cells = [];
+          for (let m = 0; m < 12; m++) {
+            if (m >= n) { cells.push({ value: "—", color: "rgba(2,66,43,0.4)" }); continue; }
+            const v = scale * 0.9 + (rnd() - 0.32) * scale * 3.4;
+            comp *= 1 + v / 100;
+            cells.push({ value: fmt(v), color: col(v) });
+          }
+          const t = (comp - 1) * 100;
+          rows.push({ year: yr, cells, total: fmt(t), totalColor: col(t) });
+        }
+        return rows;
+      })(),
+      rollingReturns, rollingDrawdowns, trailingCols, trailingRows,
       tabStyle_perf: tab === "perf" ? tabActive : tabBase,
       tabStyle_best: tab === "best" ? tabActive : tabBase,
       tabStyle_monthly: tab === "monthly" ? tabActive : tabBase,
@@ -626,6 +848,7 @@ class Component extends DCLogic {
         initial: "YE+", name: "Qode Yield Enhancer +", category: "Options Selling", tagStyle,
         subscribers: "312", cagr: "18.6%", sharpe: "1.54", calmar: "2.93", maxDD: "-31.95%", currentDD: "-6.20%",
         minAlloc: "\u20b93,00,000", startPrice: "\u20b91,499/mo", risk: "Moderate", riskColor: "var(--ink)",
+        sortino: "1.98", profitFactor: "1.35", avgDD: "4.20%", avgRecovery: "9.4 days", maxRecovery: "52 days", avgDDDuration: "14.2 days",
         externalUrl: "https://qodeinvest.com/algos/qode-yield-enhancer-plus",
         about: "Qode Yield Enhancer+ consists of a systematic derivatives overlay applied to an investor's existing holdings. The strategy uses index-based derivatives to generate additional yield and enhance portfolio returns across market conditions, while maintaining strict exposure limits, disciplined hedging, and disciplined risk management. Through an additional 1x overlay exposure, QYE+ seeks to improve long-term portfolio returns without increasing risk beyond the underlying equity portfolio.",
         portfolioType: "Derivatives Overlay on Existing Holdings",
@@ -647,42 +870,59 @@ class Component extends DCLogic {
         { label: "1 Year", value: "+18.6%", color: "var(--gain)" }
       ],
 
-      bestPeriods: [
-        { period: "Mar 2025", value: "+9.4%" },
-        { period: "Jul 2025", value: "+7.8%" },
-        { period: "Jan 2026", value: "+6.9%" },
-        { period: "Nov 2024", value: "+6.1%" },
-        { period: "May 2025", value: "+5.7%" }
+      bestDays: [
+        { rank: 1, date: "03 Feb 2026", strategy: "+6.20%", nifty: "+2.55%", niftyColor: "var(--forest)", alpha: "+3.65%", alphaColor: "var(--forest)" },
+        { rank: 2, date: "24 Feb 2022", strategy: "+5.93%", nifty: "-4.78%", niftyColor: "#b3403a", alpha: "+10.71%", alphaColor: "var(--forest)" },
+        { rank: 3, date: "08 Apr 2026", strategy: "+4.94%", nifty: "+3.78%", niftyColor: "var(--forest)", alpha: "+1.16%", alphaColor: "var(--forest)" },
+        { rank: 4, date: "07 Apr 2025", strategy: "+4.76%", nifty: "-3.24%", niftyColor: "#b3403a", alpha: "+8.00%", alphaColor: "var(--forest)" },
+        { rank: 5, date: "02 Mar 2026", strategy: "+3.60%", nifty: "-1.24%", niftyColor: "#b3403a", alpha: "+4.84%", alphaColor: "var(--forest)" }
       ],
-      worstPeriods: [
-        { period: "Jun 2025", value: "-8.2%" },
-        { period: "Sep 2024", value: "-6.5%" },
-        { period: "Feb 2026", value: "-5.9%" },
-        { period: "Dec 2024", value: "-4.8%" },
-        { period: "Apr 2025", value: "-4.1%" }
+      worstDays: [
+        { rank: 1, date: "30 Jan 2026", strategy: "-4.79%", nifty: "-0.39%", niftyColor: "#b3403a", alpha: "-4.40%", alphaColor: "#b3403a" },
+        { rank: 2, date: "04 Jun 2024", strategy: "-4.39%", nifty: "-5.93%", niftyColor: "#b3403a", alpha: "+1.54%", alphaColor: "var(--forest)" },
+        { rank: 3, date: "25 Feb 2021", strategy: "-3.37%", nifty: "+0.77%", niftyColor: "var(--forest)", alpha: "-4.14%", alphaColor: "#b3403a" },
+        { rank: 4, date: "04 May 2020", strategy: "-3.27%", nifty: "-5.74%", niftyColor: "#b3403a", alpha: "+2.47%", alphaColor: "var(--forest)" },
+        { rank: 5, date: "22 Jan 2026", strategy: "-2.88%", nifty: "+0.53%", niftyColor: "var(--forest)", alpha: "-3.41%", alphaColor: "#b3403a" }
       ],
       drawdowns: [
-        { period: "18 Jun - 12 Aug 2025", depth: "-31.95%", recovery: "56 days" },
-        { period: "03 Sep - 22 Oct 2024", depth: "-24.10%", recovery: "49 days" },
-        { period: "11 Feb - 30 Mar 2026", depth: "-19.80%", recovery: "38 days" },
-        { period: "27 Dec - 15 Jan 2025", depth: "-15.30%", recovery: "20 days" },
-        { period: "05 May - 19 May 2025", depth: "-11.85%", recovery: "14 days" }
+        { rank: 1, depth: "-9.18%", peakDate: "22 Feb 21", troughDate: "09 Mar 21", recoveryDate: "10 May 21", duration: "77 days", status: "RECOVERED", statusStyle: "padding:4px 10px;border-radius:6px;background:var(--gain-tint);color:var(--gain);font:700 10.5px 'Lato',sans-serif;white-space:nowrap" },
+        { rank: 2, depth: "-7.96%", peakDate: "19 Apr 22", troughDate: "26 May 22", recoveryDate: "29 Jul 22", duration: "101 days", status: "RECOVERED", statusStyle: "padding:4px 10px;border-radius:6px;background:var(--gain-tint);color:var(--gain);font:700 10.5px 'Lato',sans-serif;white-space:nowrap" },
+        { rank: 3, depth: "-7.64%", peakDate: "29 Jan 26", troughDate: "02 Feb 26", recoveryDate: "23 Feb 26", duration: "25 days", status: "RECOVERED", statusStyle: "padding:4px 10px;border-radius:6px;background:var(--gain-tint);color:var(--gain);font:700 10.5px 'Lato',sans-serif;white-space:nowrap" },
+        { rank: 4, depth: "-7.34%", peakDate: "03 May 20", troughDate: "26 May 20", recoveryDate: "02 Jun 20", duration: "30 days", status: "RECOVERED", statusStyle: "padding:4px 10px;border-radius:6px;background:var(--gain-tint);color:var(--gain);font:700 10.5px 'Lato',sans-serif;white-space:nowrap" },
+        { rank: 5, depth: "-7.33%", peakDate: "02 Jun 26", troughDate: "20 Jul 26", recoveryDate: "—", duration: "107 days", status: "ONGOING", statusStyle: "padding:4px 10px;border-radius:6px;background:var(--loss-tint);color:var(--loss);font:700 10.5px 'Lato',sans-serif;white-space:nowrap" }
       ],
-
-      monthly: [
-        "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-      ].map((m, i) => {
-        const vals = ["+3.1%", "+2.4%", "-1.8%", "+4.0%", "+1.2%", "+2.9%"];
-        const up = !vals[i].startsWith("-");
-        return { label: m, value: vals[i], cellStyle: "display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:9px;background:" + (up ? "var(--gain-tint)" : "var(--loss-tint)") + ";color:" + (up ? "var(--gain)" : "var(--loss)") };
-      }),
 
       regimes: [
-        { regime: "Low volatility", desc: "VIX below 13 \u2014 range-bound markets", value: "+22.4% CAGR", color: "var(--gain)" },
-        { regime: "High volatility", desc: "VIX above 20 \u2014 trending/event-driven", value: "+9.1% CAGR", color: "var(--ink)" },
-        { regime: "Trending markets", desc: "Strong directional moves over 2+ weeks", value: "+14.8% CAGR", color: "var(--gain)" }
-      ],
-      noop: () => {}
+        { name: "COVID Crash", dates: "01 Jan 2020 - 31 Mar 2020", days: "91", stratRet: "+15.07%", stratMdd: "-3.68%", niftyRet: "-29.34%", niftyMdd: "-38.44%", goldRet: "+10.91%", goldMdd: "-10.81%", blendRet: "-12.69%", blendMdd: "-23.82%" },
+        { name: "COVID Recovery", dates: "01 Mar 2020 - 31 Jan 2021", days: "337", stratRet: "+69.93%", stratMdd: "-7.34%", niftyRet: "+21.72%", niftyMdd: "-32.67%", goldRet: "+14.13%", goldMdd: "-13.99%", blendRet: "+18.27%", blendMdd: "-21.26%" },
+        { name: "Gold Crash", dates: "01 Aug 2020 - 30 Sep 2020", days: "61", stratRet: "+4.94%", stratMdd: "-3.37%", niftyRet: "+1.57%", niftyMdd: "-7.23%", goldRet: "-6.28%", goldMdd: "-11.92%", blendRet: "-2.47%", blendMdd: "-7.91%" },
+        { name: "FII Selloff & Global Tightening", dates: "01 Oct 2021 - 30 Jun 2022", days: "273", stratRet: "+24.91%", stratMdd: "-7.96%", niftyRet: "-10.43%", niftyMdd: "-17.23%", goldRet: "+10.17%", goldMdd: "-6.60%", blendRet: "-3.02%", blendMdd: "-9.69%" },
+        { name: "2023 Domestic Bull Run", dates: "01 Mar 2023 - 31 Dec 2023", days: "306", stratRet: "+43.97%", stratMdd: "-2.72%", niftyRet: "+25.59%", niftyMdd: "-6.61%", goldRet: "+13.18%", goldMdd: "-8.11%", blendRet: "+20.55%", blendMdd: "-3.73%" },
+        { name: "AI Bull Run", dates: "01 Aug 2023 - 31 Jul 2024", days: "366", stratRet: "+53.51%", stratMdd: "-4.92%", niftyRet: "+26.31%", niftyMdd: "-6.61%", goldRet: "+15.83%", goldMdd: "-7.25%", blendRet: "+22.23%", blendMdd: "-3.72%" },
+        { name: "FII Exit & US Election Rally", dates: "01 Sep 2024 - 31 Jan 2025", days: "153", stratRet: "+4.70%", stratMdd: "-6.47%", niftyRet: "-6.85%", niftyMdd: "-12.92%", goldRet: "+13.88%", goldMdd: "-7.80%", blendRet: "+0.92%", blendMdd: "-7.55%" },
+        { name: "Budget 2025 & Tariff War", dates: "01 Jan 2025 - 31 Jan 2026", days: "396", stratRet: "+42.79%", stratMdd: "-5.99%", niftyRet: "+7.09%", niftyMdd: "-8.71%", goldRet: "+104.59%", goldMdd: "-10.52%", blendRet: "+46.39%", blendMdd: "-6.36%" },
+        { name: "US - Iran War", dates: "28 Feb 2026 - 17 Sep 2026", days: "202", stratRet: "+5.98%", stratMdd: "-7.33%", niftyRet: "-7.58%", niftyMdd: "-11.31%", goldRet: "-5.45%", goldMdd: "-19.95%", blendRet: "-6.37%", blendMdd: "-15.56%" }
+      ].map((r) => ({
+        ...r,
+        stratRetColor: "var(--forest)", stratMddColor: "#b3403a",
+        niftyRetColor: r.niftyRet.startsWith("-") ? "#b3403a" : "var(--forest)", niftyMddColor: "#b3403a",
+        goldRetColor: r.goldRet.startsWith("-") ? "#b3403a" : "var(--forest)", goldMddColor: "#b3403a",
+        blendRetColor: r.blendRet.startsWith("-") ? "#b3403a" : "var(--forest)", blendMddColor: "#b3403a"
+      })),
+      subHeadStyle: "font:700 10px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.03em;text-align:right",
+      viewStyle_strategy: this.state.bwView !== "benchmark" ? "padding:6px 14px;border-radius:6px;border:0;background:var(--forest);color:#fff;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" : "padding:6px 14px;border-radius:6px;border:0;background:transparent;color:rgba(2,66,43,0.6);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap",
+      viewStyle_benchmark: this.state.bwView === "benchmark" ? "padding:6px 14px;border-radius:6px;border:0;background:var(--forest);color:#fff;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" : "padding:6px 14px;border-radius:6px;border:0;background:transparent;color:rgba(2,66,43,0.6);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap",
+      selectViewStrategy: () => this.setState({ bwView: "strategy" }),
+      selectViewBenchmark: () => this.setState({ bwView: "benchmark" }),
+      viewLabel: this.state.bwView === "benchmark" ? "Benchmark" : "Strategy",
+      periodStyle_day: (this.state.bwPeriod || "day") === "day" ? "padding:6px 14px;border-radius:6px;border:0;background:var(--forest);color:#fff;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" : "padding:6px 14px;border-radius:6px;border:0;background:transparent;color:rgba(2,66,43,0.6);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap",
+      periodStyle_week: this.state.bwPeriod === "week" ? "padding:6px 14px;border-radius:6px;border:0;background:var(--forest);color:#fff;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" : "padding:6px 14px;border-radius:6px;border:0;background:transparent;color:rgba(2,66,43,0.6);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap",
+      periodStyle_month: this.state.bwPeriod === "month" ? "padding:6px 14px;border-radius:6px;border:0;background:var(--forest);color:#fff;font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" : "padding:6px 14px;border-radius:6px;border:0;background:transparent;color:rgba(2,66,43,0.6);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap",
+      selectPeriodDay: () => this.setState({ bwPeriod: "day" }),
+      selectPeriodWeek: () => this.setState({ bwPeriod: "week" }),
+      selectPeriodMonth: () => this.setState({ bwPeriod: "month" }),
+      periodNounPlural: (this.state.bwPeriod || "day") === "week" ? "WEEKS" : this.state.bwPeriod === "month" ? "MONTHS" : "DAYS",
+            noop: () => {}
     };
   }
 }

@@ -70,9 +70,9 @@
 
       <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
         <div style="padding:0 12px;display:flex;flex-direction:column;gap:4px">
-          <a href="Analytics.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-            Portfolio
+          <a href="My%20Algos.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="4" height="9"/><rect x="10" y="6" width="4" height="14"/><rect x="17" y="3" width="4" height="17"/></svg>
+            My Algos
           </a>
           <a href="Positions.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--gold);color:var(--deep);font:700 14px 'Lato',sans-serif">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
@@ -85,10 +85,6 @@
           <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg>
             Holdings
-          </a>
-          <a href="Reports.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
-            Reports
           </a>
         </div>
       </sc-if>
@@ -107,12 +103,12 @@
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
-      <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Dashboard</a>
       <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Marketplace</a>
       <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
       <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
-      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;background:var(--gain-tint);flex-shrink:0;margin-left:auto"><span style="width:7px;height:7px;border-radius:50%;background:var(--gain);flex-shrink:0"></span><span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">Nuvama connected</span></div>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
         <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
       </a>
     </nav>
@@ -120,7 +116,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);gap:20px;flex-shrink:0">
       <div>
         <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:var(--forest);white-space:nowrap">Positions</h1>
-        <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">Live view of your open and closed positions</p>
+        <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">Live view of all your positions</p>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         <button style="width:38px;height:38px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--grey-12);flex-shrink:0" aria-label="Refresh" onClick="{{ noop }}">
@@ -132,28 +128,28 @@
     <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px">
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
-        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Invested value</span>
+        <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Invested value</span>
           <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">₹18,42,600</span>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Total P&amp;L</span>
+        <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Total P&amp;L</span>
           <span style="font:700 24px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">+₹5,650 <span style="font:400 14px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">(+1.24%)</span></span>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Day&#39;s P&amp;L</span>
+        <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Day&#39;s P&amp;L</span>
           <span style="font:700 24px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">+₹1,240</span>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em">Open positions</span>
+        <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Total positions</span>
           <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">5</span>
         </div>
       </div>
 
-      <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
+      <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden">
 
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border)">
-          <div style="display:flex;background:var(--grey-2);border-radius:10px;padding:4px">
+        <div style="display:flex;align-items:center;justify-content:flex-end;padding:16px 16px 8px;border-bottom:0">
+          <div style="display:none">
             <button style="{{ openTabStyle }}" onClick="{{ selectOpen }}">Open</button>
             <button style="{{ closedTabStyle }}" onClick="{{ selectClosed }}">Closed</button>
           </div>
@@ -165,7 +161,7 @@
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:0.7fr 1.5fr 0.7fr 1fr 1.1fr 1.2fr 0.8fr;column-gap:16px;padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
+        <div style="display:grid;grid-template-columns:0.7fr 1.5fr 0.7fr 1fr 1.1fr 1.2fr 0.8fr;column-gap:16px;padding:8px 16px;background:rgba(0,0,0,0.05);border-bottom:0">
           <span style="{{ headStyle }}">Product</span>
           <span style="{{ headStyle }}">Symbol</span>
           <span style="{{ headStyle }};text-align:right">Qty</span>
@@ -176,19 +172,19 @@
         </div>
 
         <sc-for list="{{ rows }}" as="row" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:0.7fr 1.5fr 0.7fr 1fr 1.1fr 1.2fr 0.8fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--grey-2)">
+          <div style="display:grid;grid-template-columns:0.7fr 1.5fr 0.7fr 1fr 1.1fr 1.2fr 0.8fr;column-gap:16px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08)">
             <span style="font:700 11.5px 'Lato',sans-serif;color:var(--grey-10);background:var(--grey-2);border-radius:6px;padding:3px 8px;width:fit-content">{{ row.product }}</span>
-            <span style="font:700 14.5px 'Lato',sans-serif;color:var(--ink)">{{ row.symbol }}</span>
-            <span style="font:400 14px 'Lato',sans-serif;color:var(--grey-12);text-align:right">{{ row.qty }}</span>
-            <span style="font:400 14px 'Lato',sans-serif;color:var(--grey-12);text-align:right">{{ row.avg }}</span>
+            <span style="font:700 12px 'Lato',sans-serif;color:#111827">{{ row.symbol }}</span>
+            <span style="font:400 12px 'Lato',sans-serif;color:#111827;text-align:right">{{ row.qty }}</span>
+            <span style="font:400 12px 'Lato',sans-serif;color:#111827;text-align:right">{{ row.avg }}</span>
             <span style="text-align:right;display:flex;flex-direction:column;line-height:1.3">
-              <span style="font:400 14px 'Lato',sans-serif;color:var(--ink)">{{ row.price }}</span>
+              <span style="font:400 12px 'Lato',sans-serif;color:#111827">{{ row.price }}</span>
               <sc-if value="{{ row.showDate }}" hint-placeholder-val="{{ false }}">
                 <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9)">{{ row.dateNote }}</span>
               </sc-if>
             </span>
-            <span style="font:700 14.5px 'Lato',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.pnl }}</span>
-            <span style="font:700 13.5px 'Lato',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.chg }}</span>
+            <span style="font:700 12px 'Lato',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.pnl }}</span>
+            <span style="font:700 12px 'Lato',sans-serif;color:{{ row.pnlColor }};text-align:right;white-space:nowrap">{{ row.chg }}</span>
           </div>
         </sc-for>
 
@@ -208,7 +204,7 @@ class Component extends DCLogic {
     const isOpen = this.state.tab !== "closed";
     const panelOpen = this.state.panelOpen;
     const tabBase = "padding:9px 22px;border-radius:8px;border:none;font:700 13.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;";
-    const headStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
+    const headStyle = "font:700 12px 'Lato',sans-serif;color:#000;text-transform:uppercase;letter-spacing:0.05em";
 
     const openRows = [
       { symbol: "NIFTYBEES", qty: "500", avg: "₹245.30", price: "₹251.80", pnl: "+₹3,250", pnlPct: "+2.65%", up: true, product: "CNC", chg: "+0.85%" },
@@ -231,8 +227,8 @@ class Component extends DCLogic {
 
     return {
       headStyle,
-      rows: isOpen ? openRows : closedRows,
-      priceColLabel: isOpen ? "LTP" : "Exit price",
+      rows: openRows.concat(closedRows),
+      priceColLabel: "LTP",
       openTabStyle: tabBase + (isOpen ? "background:var(--forest);color:var(--cream)" : "background:transparent;color:var(--grey-10)"),
       closedTabStyle: tabBase + (!isOpen ? "background:var(--forest);color:var(--cream)" : "background:transparent;color:var(--grey-10)"),
       selectOpen: () => this.setState({ tab: "open" }),

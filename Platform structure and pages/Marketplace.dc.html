@@ -142,12 +142,12 @@
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
-      <a href="Analytics.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap;background:transparent;">Dashboard</a>
       <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Marketplace</a>
       <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
       <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
-      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;margin-left:auto;border-left:1px solid var(--border);text-decoration:none;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;background:var(--gain-tint);flex-shrink:0;margin-left:auto"><span style="width:7px;height:7px;border-radius:50%;background:var(--gain);flex-shrink:0"></span><span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">Nuvama connected</span></div>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--border);text-decoration:none;flex-shrink:0">
         <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
       </a>
     </nav>
@@ -194,7 +194,7 @@
                     <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
                   </div>
                 </a>
-                <span style="display:flex;align-items:center;gap:6px;font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);white-space:nowrap;flex-shrink:0">
+                <span style="display:none">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.4"><path d="M12 2v6M12 2 8 6M12 2l4 4"/><circle cx="12" cy="15" r="7"/></svg>
                   {{ algo.subscribers }} subscribed
                 </span>
@@ -221,10 +221,6 @@
                   <span style="font:700 14px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.minAlloc }}</span>
                 </div>
                 <div style="display:flex;flex-direction:column;gap:2px">
-                  <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9)">Starts at</span>
-                  <span style="font:700 14px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.startPrice }}</span>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:2px">
                   <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9)">Risk</span>
                   <span style="font:700 14px 'Lato',sans-serif;color:{{ algo.riskColor }};white-space:nowrap">{{ algo.risk }}</span>
                 </div>
@@ -239,36 +235,7 @@
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">All algos</h2>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden">
-          <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 0.8fr 0.9fr 0.8fr;column-gap:16px;padding:12px 24px;background:var(--grey-1);border-bottom:1px solid var(--border)">
-            <span style="{{ headStyle }}">Algo</span>
-            <span style="{{ headStyle }}">Category</span>
-            <span style="{{ headStyle }};text-align:right">Min. allocation</span>
-            <span style="{{ headStyle }};text-align:right">1M / 3M / 6M</span>
-            <span style="{{ headStyle }};text-align:right">CAGR</span>
-            <span style="{{ headStyle }}">Risk</span>
-            <span style="{{ headStyle }};text-align:right">Action</span>
-          </div>
-          <sc-for list="{{ algos }}" as="algo" hint-placeholder-count="2">
-            <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 0.8fr 0.9fr 0.8fr;column-gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--grey-2)">
-              <a href="{{ algo.detailUrl }}" style="display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;cursor:pointer" style-hover="opacity:0.85">
-                <span style="width:30px;height:30px;border-radius:8px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 11px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
-                <span style="font:700 14px 'Lato',sans-serif;color:var(--ink);white-space:nowrap">{{ algo.name }}</span>
-              </a>
-              <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">{{ algo.category }}</span>
-              <span style="font:400 13.5px 'Lato',sans-serif;color:var(--grey-12);text-align:right;white-space:nowrap">{{ algo.minAlloc }}</span>
-              <span style="font:400 13px 'Lato',sans-serif;color:var(--gain);text-align:right;white-space:nowrap">{{ algo.r1m }} / {{ algo.r3m }} / {{ algo.r6m }}</span>
-              <span style="font:700 13.5px 'Lato',sans-serif;color:var(--forest);text-align:right;white-space:nowrap">{{ algo.cagr }}</span>
-              <span style="font:700 12.5px 'Lato',sans-serif;color:{{ algo.riskColor }};white-space:nowrap">{{ algo.risk }}</span>
-              <span style="text-align:right">
-                <a href="{{ algo.detailUrl }}" style="padding:7px 12px;border-radius:8px;border:1.5px solid var(--gold);background:transparent;color:var(--forest);font:700 12px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block">Deploy</a>
-              </span>
-            </div>
-          </sc-for>
-        </div>
-      </div>
+      
 
       <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0">Past performance is not indicative of future returns. Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst; trading algos are subject to market risk. Full disclosures are available on each algo&#39;s detail page.</p>
     </div>
