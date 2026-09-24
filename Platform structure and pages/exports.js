@@ -101,7 +101,7 @@
       var row = rb.closest('[data-dl-menu]').parentNode.parentNode;
       rb.closest('[data-dl-menu]').style.display = 'none';
       var c = Array.prototype.map.call(row.children, function (x) { return x.innerText.replace(/\s+/g, ' ').trim(); });
-      var data = [['Report', 'Period', 'Generated on'], [c[0], c[1], c[2]]];
+      var data = [['Report', 'Period'], [c[0], c[1]]];
       var base = c[0].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'report';
       var kind = rb.getAttribute('data-report-dl');
       if (kind === 'csv') csv(data, base); else if (kind === 'xls') xls(data, base); else pdf(data, c[0]);

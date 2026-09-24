@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#02422B; --deep:#002017; --gold:#DABD38; --cream:#EFEDC3; --brand-green:#00AE5B;
+    --all-weather:#008455; --growth:#0A3452; --tactical:#550E0E;
+    --grad-brand:linear-gradient(160deg,#00AE5B 0%,#002017 100%); --grad-app:linear-gradient(160deg,#02422B 0%,#002017 100%);
+    --page:#F7F5E9; --white:#FFFFFF; --ink:#1C2B26;
+    --grey-1:#F8F9F9; --grey-2:#ECF0F1; --grey-3:#E5E7E9; --grey-4:#D7DBDD; --grey-9:#797D7F; --grey-10:#626567; --grey-12:#2D2F30;
+    --border:#E5E7E9; --border-strong:#D7DBDD;
+    --gain:#008455; --gain-on-dark:#00AE5B; --loss:#E7000B;
+    --on-dark-tint:rgba(239,237,195,0.08); --on-dark-line:rgba(239,237,195,0.15); --on-dark-muted:rgba(239,237,195,0.6);
+    --gold-tint:rgba(218,189,56,0.16); --forest-tint:rgba(2,66,43,0.10); --growth-tint:rgba(10,52,82,0.10);
+    --gain-tint:rgba(0,132,85,0.12); --loss-tint:rgba(231,0,11,0.08); --loss-line:rgba(231,0,11,0.25); --scrim:rgba(0,32,23,0.55);
+  }
+  body{margin:0}
+  *{box-sizing:border-box}
+  a{color:var(--forest);text-decoration:none}
+  a:hover{color:var(--deep)}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:6px}
+  button:focus,input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+</style>
+</helmet>
+
+<div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
+
+  <div style="flex:0 0 240px;background:var(--grad-app);display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:28px 0 24px;position:sticky;top:0;height:100vh;align-self:flex-start">
+    <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+        <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block;filter:brightness(0) saturate(100%) invert(80%) sepia(55%) saturate(750%) hue-rotate(2deg) brightness(101%) contrast(92%)"/>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="position:relative">
+          <button style="position:relative;width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ toggleNotif }}" aria-label="Notifications">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            <span style="position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:var(--gold);color:var(--forest);font:700 9px 'Lato',sans-serif;display:flex;align-items:center;justify-content:center">3</span>
+          </button>
+          <sc-if value="{{ notifOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:36px;left:0;width:280px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 32px rgba(0,32,23,0.22);z-index:50;overflow:hidden">
+              <div style="padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">Notifications</span>
+              </div>
+              <sc-for list="{{ notifications }}" as="n" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid var(--grey-2)">
+                  <span style="{{ n.dotStyle }}"></span>
+                  <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                    <span style="font:400 12.5px/1.4 'Lato',sans-serif;color:var(--ink)">{{ n.text }}</span>
+                    <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">{{ n.time }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          </div>
+        <button style="width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0;overflow-y:auto">
+
+      <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:0 24px;display:flex;flex-direction:column;gap:14px;flex:1;min-height:0">
+
+          <div style="background:var(--on-dark-tint);border:1px solid var(--on-dark-line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Contact us</span>
+            <div style="display:flex;align-items:center;gap:9px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream)">support@qodealgo.com</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream)">+91 22 6821 4400</span>
+            </div>
+            <p style="font:400 11.5px/1.5 'Lato',sans-serif;color:var(--on-dark-muted);margin:0">Mon&ndash;Fri, 9:00&ndash;18:00 IST</p>
+          </div>
+
+          <div style="background:var(--on-dark-tint);border:1px solid var(--on-dark-line);border-radius:12px;padding:6px;display:flex;flex-direction:column">
+            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em;padding:8px 10px 2px">Popular topics</span>
+            <sc-for list="{{ popularTopics }}" as="t" hint-placeholder-count="4">
+              <button style="display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;border:none;background:transparent;color:var(--cream);font:400 12.5px 'Lato',sans-serif;cursor:pointer;text-align:left" style-hover="background:var(--on-dark-tint)" onClick="{{ noop }}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>
+                {{ t }}
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
+      <div style="height:1px;background:var(--on-dark-line);margin-bottom:6px"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--gain-on-dark);flex-shrink:0"></div>
+        <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream)">Nuvama connected</span>
+      </div>
+      <p style="font:400 11px/1.5 'Lato',sans-serif;color:var(--on-dark-muted);margin:2px 0 0">SEBI RA Reg. No. INHXXXXXXXXX</p>
+    </div>
+  </div>
+
+  <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+      
+      <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
+      <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Marketplace</a>
+      <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
+      <a href="Help%20%26%20Support.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Help &amp; Support</a>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;background:var(--gain-tint);flex-shrink:0;margin-left:auto"><span style="width:7px;height:7px;border-radius:50%;background:var(--gain);flex-shrink:0"></span><span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">Nuvama connected</span></div>
+      <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--border);text-decoration:none">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
+      </a>
+    </nav>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);gap:20px;flex-shrink:0">
+      <div>
+        <h1 style="font:600 22px 'Playfair Display',serif;margin:0 0 3px;color:var(--forest);white-space:nowrap">Frequently asked questions</h1>
+        <p style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);margin:0">Answers to common questions about brokers, algos, billing and orders</p>
+      </div>
+      <a href="Help%20%26%20Support.dc.html" style="display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--forest);font:700 13px 'Lato',sans-serif;text-decoration:none;white-space:nowrap">&larr; Help &amp; Support</a>
+    </div>
+
+    <div style="flex:1 1 auto;padding:28px 40px 48px;display:flex;flex-direction:column;gap:24px;max-width:980px;width:100%;box-sizing:border-box">
+
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+        <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9px;border:1.5px solid var(--border-strong);background:var(--grey-1)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#797D7F" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" value="{{ query }}" onInput="{{ setQuery }}" placeholder="Search questions" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:100%;color:var(--ink)"/>
+        </label>
+
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+            <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">{{ g.cat }}</h2>
+            <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:5px;padding-top:14px;border-top:1px solid rgba(0,0,0,0.08)">
+                <a href="{{ f.href }}" style="font:700 13.5px 'Lato',sans-serif;color:var(--forest);text-decoration:none;text-decoration:underline">{{ f.q }}</a>
+                <span style="font:400 12.5px/1.6 'Lato',sans-serif;color:var(--grey-10)">{{ f.a }}</span>
+                <a href="{{ f.href }}" style="font:700 12px 'Lato',sans-serif;color:var(--forest);text-decoration:none">Read full answer &rarr;</a>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:28px;text-align:center;font:400 13.5px 'Lato',sans-serif;color:var(--grey-10)">No questions match your search. Try different words or <a href="Help%20%26%20Support.dc.html" style="color:var(--forest);font-weight:700">raise a support ticket</a>.</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-9)">
+          <a href="Help%20%26%20Support.dc.html" style="color:var(--grey-10);text-decoration:none">Help &amp; Support</a><span>/</span>
+          <a href="FAQ.dc.html" style="color:var(--grey-10);text-decoration:none">FAQ</a><span>/</span>
+          <span style="color:var(--ink)">{{ current.cat }}</span>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+          <span style="align-self:flex-start;padding:4px 10px;border-radius:6px;background:var(--forest-tint);color:var(--forest);font:700 11.5px 'Lato',sans-serif">{{ current.cat }}</span>
+          <h2 style="font:600 24px/1.3 'Playfair Display',serif;margin:0;color:var(--forest)">{{ current.q }}</h2>
+          <sc-for list="{{ current.body }}" as="p" hint-placeholder-count="2">
+            <p style="font:400 14px/1.75 'Lato',sans-serif;color:var(--grey-12);margin:0">{{ p }}</p>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ hasRelated }}" hint-placeholder-val="{{ true }}">
+          <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+            <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">More questions</h2>
+            <sc-for list="{{ related }}" as="f" hint-placeholder-count="3">
+              <a href="{{ f.href }}" style="font:700 13.5px 'Lato',sans-serif;color:var(--forest);text-decoration:none;padding-top:12px;border-top:1px solid rgba(0,0,0,0.08)">{{ f.q }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <a href="FAQ.dc.html" style="padding:11px 22px;border-radius:10px;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;text-decoration:none">View all FAQs</a>
+          <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10)">Still stuck? <a href="Help%20%26%20Support.dc.html" style="color:var(--forest);font-weight:700">Raise a support ticket</a></span>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+
+    <a href="https://wa.me/910000000000?text=Hi%20Qode%2C%20I%20need%20help%20with%20the%20Algo%20Platform" target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;right:24px;bottom:24px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.25);z-index:40"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { panelOpen: true, portfolioOpen: false, query: "" };
+
+  renderVals() {
+    const panelOpen = this.state.panelOpen;
+    const FAQS = [{"id": "broker-login", "cat": "Broker & account", "q": "Is my broker login stored by Qode?", "a": "No. Authentication happens directly with your broker; Qode never sees or stores your credentials.", "body": ["You connect through your broker's own login page, and Qode receives only an access token that expires at the end of the trading day. Passwords, PINs and TOTP codes are never shared with or stored by Qode.", "You can disconnect the broker from Profile at any time, which revokes Qode's access. Reconnecting takes a fresh login with your broker."]}, {"id": "connect-broker", "cat": "Broker & account", "q": "Which brokers can I connect?", "a": "Nuvama, iRage and Dhan are supported today.", "body": ["You can connect one broker account at a time from Profile or the Connect Broker page. Each broker has its own login page and session validity, shown on the broker card.", "If you do not have an account with a supported broker, use Request a callback on the Connect Broker page and our team will help you open one."]}, {"id": "session-expiry", "cat": "Broker & account", "q": "Why does my broker session expire?", "a": "Broker access tokens are valid for one trading day.", "body": ["Brokers issue access tokens that expire at the end of each trading day, or earlier if you log in elsewhere. When a session is about to expire you will see a notification asking you to re-authorise.", "If a session lapses while an algo is running, new orders cannot be placed until you authorise again. Existing positions stay with your broker."]}, {"id": "multiple-algos", "cat": "Algos", "q": "Can I run more than one algo at a time?", "a": "Yes, subject to your subscription plan and available capital with your broker.", "body": ["You can run several algos together as long as each one has its minimum allocation available as margin in your broker account.", "Each algo trades only against the capital you allot to it, so a loss in one does not use another algo's allocation."]}, {"id": "min-allocation", "cat": "Algos", "q": "What is the minimum allocation for an algo?", "a": "Each algo shows its own minimum allocation on its page.", "body": ["The minimum allocation is the margin the strategy needs to run as designed. It is shown on the algo card in Marketplace and in the deploy flow.", "Margin is checked with your broker after you authorise, and the algo starts only if the available margin covers the requirement."]}, {"id": "drawdown", "cat": "Algos", "q": "What does drawdown mean?", "a": "The fall from a peak value to the next low, shown as a percentage.", "body": ["Maximum drawdown is the largest peak-to-trough decline in the strategy's history. It helps you judge how much loss you may need to sit through.", "Size your allocation so that a drawdown of that magnitude is one you can tolerate. Past drawdowns do not limit future ones."]}, {"id": "cancel-subscription", "cat": "Billing", "q": "How do I cancel a subscription?", "a": "Go to My Algos, open the algo, and choose Unsubscribe. Access continues until the billing period ends.", "body": ["Open My Algos, choose the algo and select Unsubscribe. Any open positions stay with you and are not squared off automatically, so review them in Positions first.", "You keep access until the end of the paid billing period and no further charges are made after it."]}, {"id": "billing-cycle", "cat": "Billing", "q": "How are subscription fees charged?", "a": "Fees are billed per algo for the billing period shown when you subscribe.", "body": ["The fee and billing period are shown in the subscribe step of the deploy flow before you confirm. Invoices for past periods are available in Reports.", "Fees are charged to Qode for the research service and are separate from your broker's brokerage and charges."]}, {"id": "withdrawals", "cat": "Funds & withdrawals", "q": "How long do withdrawals take?", "a": "Funds withdrawn from your broker typically settle in 1-2 business days, per your broker's policy.", "body": ["Withdrawals are processed by your broker, not by Qode. Most brokers settle a withdrawal request within 1-2 business days, and requests placed after the broker's cut-off time are processed on the next business day.", "Qode does not hold your funds at any point."]}, {"id": "margin", "cat": "Funds & withdrawals", "q": "Why does it say insufficient margin?", "a": "The available margin in your broker account is below the algo's requirement.", "body": ["Available margin is read from your broker after authorisation. If it is lower than the algo's minimum allocation you can add funds with your broker or pledge holdings, then refresh the margin.", "Margin can change during the day as positions move, so a check that passed earlier may need repeating."]}, {"id": "order-rejected", "cat": "Orders & trading", "q": "Why does an order show as rejected?", "a": "Rejections come from the broker or exchange, not from the algo.", "body": ["Common reasons are insufficient margin, a price outside the exchange's circuit limit, or an expired broker session. The reason is shown against the order.", "Fix the cause, for example add funds or re-authorise the broker, and the algo will place its next orders normally."]}, {"id": "positions-after-unsubscribe", "cat": "Orders & trading", "q": "What happens to open positions if I stop an algo?", "a": "They stay in your broker account until you close them.", "body": ["Stopping or unsubscribing from an algo does not square off positions automatically. Review them in Positions and close them with your broker if you no longer want the exposure.", "New orders are not placed for that algo after it is stopped."]}];
+    const withHref = (f) => ({ ...f, href: "FAQ.dc.html?q=" + f.id });
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("q") || window.location.hash.replace("#", "");
+    const found = FAQS.find((f) => f.id === id);
+    const current = found ? withHref(found) : null;
+    const related = found ? FAQS.filter((f) => f.cat === found.cat && f.id !== found.id).map(withHref) : [];
+    const needle = (this.state.query || "").trim().toLowerCase();
+    const shown = FAQS.filter((f) => !needle || (f.q + " " + f.a + " " + f.body.join(" ")).toLowerCase().includes(needle));
+    const groups = [];
+    shown.forEach((f) => {
+      let g = groups.find((x) => x.cat === f.cat);
+      if (!g) { g = { cat: f.cat, items: [] }; groups.push(g); }
+      g.items.push(withHref(f));
+    });
+
+    return {
+      panelOpen,
+      chevronStyle: "transform:rotate(" + (panelOpen ? "90deg" : "-90deg") + ");transition:transform 0.15s",
+      togglePanel: () => this.setState({ panelOpen: !panelOpen }),
+      notifOpen: this.state.notifOpen, toggleNotif: () => this.setState({ notifOpen: !this.state.notifOpen }),
+      notifications: [
+        { text: "Order rejected for Qode Yield Enhancer ++ \u2014 price outside circuit limit.", time: "10 min ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--loss);margin-top:5px;flex-shrink:0" },
+        { text: "Nuvama session expiring soon \u2014 re-authorise to keep algos running.", time: "1 hr ago", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0" },
+        { text: "Qode Yield Enhancer + deployed successfully.", time: "Yesterday", dotStyle: "width:8px;height:8px;border-radius:50%;background:var(--gain);margin-top:5px;flex-shrink:0" }
+      ],
+      portfolioOpen: this.state.portfolioOpen,
+      openPortfolio: () => this.setState({ portfolioOpen: true }),
+      closePortfolio: () => this.setState({ portfolioOpen: false }),
+      togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
+
+      query: this.state.query || "",
+      setQuery: (e) => this.setState({ query: e.target.value }),
+      isList: !current,
+      isDetail: !!current,
+      current: current || { cat: "", q: "", body: [] },
+      groups,
+      noResults: groups.length === 0,
+      related,
+      hasRelated: related.length > 0,
+      noop: () => {}
+    };
+  }
+}
+
+</script>
+</body>
+</html>

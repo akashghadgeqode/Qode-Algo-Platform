@@ -35,7 +35,7 @@
 
 <div style="display:flex;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
 
-  <div style="flex:0 0 240px;background:var(--grad-app);display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:28px 0 24px;position:sticky;top:0;height:100vh;align-self:flex-start">
+  <div style="flex:0 0 240px;background:var(--grad-app);display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:28px 0 24px;position:sticky;top:0;height:100vh;align-self:flex-start;display:none">
     <div style="padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
         <img src="assets/qode-logo-white.svg" alt="Qode" style="height:24px;display:block;filter:brightness(0) saturate(100%) invert(80%) sepia(55%) saturate(750%) hue-rotate(2deg) brightness(101%) contrast(92%)"/>
         <div style="display:flex;align-items:center;gap:8px">
@@ -61,72 +61,10 @@
             </div>
           </sc-if>
           </div>
-        <button style="width:28px;height:28px;border-radius:7px;border:none;background:var(--on-dark-tint);color:var(--cream);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ togglePanel }}" aria-label="Toggle sidebar panel">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ chevronStyle }}"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;min-height:0;overflow-y:auto">
 
-      <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
-        <div style="padding:0 24px;display:flex;flex-direction:column;gap:16px;flex:1;min-height:0">
-          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--cream)">Find algos by</span>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Risk level</span>
-            <div style="display:flex;flex-wrap:wrap;gap:6px">
-              <sc-for list="{{ riskFilters }}" as="r" hint-placeholder-count="4">
-                <button style="{{ r.style }}" onClick="{{ r.toggle }}">{{ r.name }}</button>
-              </sc-for>
-            </div>
-          </div>
-
-          <div style="height:1px;background:var(--on-dark-tint)"></div>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Strategy type</span>
-            <sc-for list="{{ strategyFilters }}" as="s" hint-placeholder-count="4">
-              <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
-                <input type="radio" name="strategy" checked="{{ s.checked }}" onChange="{{ s.select }}" style="width:14px;height:14px;accent-color:var(--gold);flex-shrink:0"/>
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream);white-space:nowrap">{{ s.name }}</span>
-              </label>
-            </sc-for>
-          </div>
-
-          <div style="height:1px;background:var(--on-dark-tint)"></div>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Underlying</span>
-            <div style="display:flex;background:var(--scrim);border-radius:9px;padding:3px">
-              <sc-for list="{{ underlyingFilters }}" as="u" hint-placeholder-count="3">
-                <button style="{{ u.style }}" onClick="{{ u.select }}">{{ u.name }}</button>
-              </sc-for>
-            </div>
-          </div>
-
-          <div style="height:1px;background:var(--on-dark-tint)"></div>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;align-items:baseline;justify-content:space-between">
-              <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Min. allocation</span>
-              <span style="font:700 12px 'Lato',sans-serif;color:var(--cream)">up to {{ maxAllocLabel }}</span>
-            </div>
-            <input type="range" min="100000" max="1000000" step="100000" value="{{ maxAlloc }}" onInput="{{ setMaxAlloc }}" style="width:100%;accent-color:var(--gold);margin:0"/>
-          </div>
-
-          <div style="height:1px;background:var(--on-dark-tint)"></div>
-
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <span style="font:700 11.5px 'Lato',sans-serif;color:var(--on-dark-muted);text-transform:uppercase;letter-spacing:0.04em">Quick filters</span>
-            <sc-for list="{{ quickFilters }}" as="q" hint-placeholder-count="3">
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer" onClick="{{ q.toggle }}">
-                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--cream);white-space:nowrap">{{ q.name }}</span>
-                <span style="{{ q.trackStyle }}"><span style="{{ q.knobStyle }}"></span></span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </sc-if>
     </div>
 
     <div style="padding:0 24px;display:flex;flex-direction:column;gap:10px;flex-shrink:0">
@@ -142,6 +80,7 @@
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
     <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+      <img src="assets/qode-logo.svg" alt="Qode" style="height:22px;display:block;margin-right:20px"/>
       <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Marketplace</a>
       <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>

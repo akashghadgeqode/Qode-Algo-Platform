@@ -82,10 +82,6 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
             Orders
           </a>
-          <a href="Holdings.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--on-dark-muted);font:400 14px 'Lato',sans-serif" style-hover="background:var(--on-dark-tint);color:var(--cream)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg>
-            Holdings
-          </a>
         </div>
       </sc-if>
     </div>
@@ -359,18 +355,16 @@
             <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">Reports</h2>
           </div>
 
-          <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;column-gap:16px;padding:8px 16px;background:rgba(0,0,0,0.05);border-bottom:0">
+          <div style="display:grid;grid-template-columns:1.5fr 1fr 1.3fr;column-gap:16px;padding:8px 16px;background:rgba(0,0,0,0.05);border-bottom:0">
             <span style="{{ headStyle }}">Report</span>
             <span style="{{ headStyle }}">Period</span>
-            <span style="{{ headStyle }}">Generated on</span>
             <span style="{{ headStyle }};text-align:right">Action</span>
           </div>
 
           <sc-for list="{{ history }}" as="h" hint-placeholder-count="3">
-            <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;column-gap:16px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08)">
+            <div style="display:grid;grid-template-columns:1.5fr 1fr 1.3fr;column-gap:16px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08)">
               <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">{{ h.name }}</span>
               <span style="font:400 13.5px 'Lato',sans-serif;color:var(--grey-10)">{{ h.period }}</span>
-              <span style="font:400 13.5px 'Lato',sans-serif;color:var(--grey-10)">{{ h.date }}</span>
               <span style="text-align:right"><button data-dl-toggle style="padding:7px 14px;border-radius:8px;border:1.5px solid var(--gold);background:transparent;color:var(--forest);font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap" style-hover="background:var(--gold-tint)">Download</button><div data-dl-menu style="display:none;position:fixed;z-index:60;min-width:150px;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.15);padding:6px 0;text-align:left"><button data-report-dl="pdf" style="display:block;width:100%;text-align:left;padding:9px 16px;border:0;background:transparent;font:400 13px 'Lato',sans-serif;color:var(--ink);cursor:pointer" style-hover="background:var(--grey-1)">PDF</button><button data-report-dl="xls" style="display:block;width:100%;text-align:left;padding:9px 16px;border:0;background:transparent;font:400 13px 'Lato',sans-serif;color:var(--ink);cursor:pointer" style-hover="background:var(--grey-1)">Excel (.xls)</button><button data-report-dl="csv" style="display:block;width:100%;text-align:left;padding:9px 16px;border:0;background:transparent;font:400 13px 'Lato',sans-serif;color:var(--ink);cursor:pointer" style-hover="background:var(--grey-1)">CSV</button></div></span>
             </div>
           </sc-for>
@@ -587,7 +581,6 @@ class Component extends DCLogic {
 
       history: [
         { name: "P&L Statement", period: "FY 2025-26", format: "PDF", date: "18 Sep 2026" },
-        { name: "Holdings Statement", period: "As of 05 Sep", format: "PDF", date: "05 Sep 2026" },
         { name: "Trade Book", period: "Aug 2026", format: "CSV", date: "01 Sep 2026" }
       ],
 
