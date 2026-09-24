@@ -239,15 +239,15 @@
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
           <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Amount invested</span>
+            <span style="font:400 14px 'Lato',sans-serif;color:var(--deep);display:flex;align-items:center;min-height:33px">Amount invested</span>
             <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ invested }}</span>
           </div>
           <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-            <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Current portfolio value</span>
+            <span style="font:400 14px 'Lato',sans-serif;color:var(--deep);display:flex;align-items:center;min-height:33px">Current portfolio value</span>
             <span style="font:700 24px 'Lato',sans-serif;color:var(--forest);white-space:nowrap">{{ current }}</span>
           </div>
           <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:33px">
               <span style="font:400 14px 'Lato',sans-serif;color:var(--deep)">Returns</span>
               <div style="display:flex;background:var(--grey-2);border-radius:10px;padding:3px">
                 <button style="{{ retValStyle }}" onClick="{{ setRetVal }}">&#8377;</button>
@@ -284,6 +284,7 @@
         <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
             <h2 style="font:600 18px 'Playfair Display',serif;margin:0;color:var(--deep)">Portfolio Performance &amp; Drawdown</h2>
+            <button data-chart-download="[data-live-chart=portfolio]" data-name="nav-chart" style="padding:8px 12px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12px 'Lato',sans-serif;color:var(--deep);cursor:pointer;white-space:nowrap">Download chart</button>
           </div>
           <div data-live-chart="portfolio" style="min-height:600px"></div>
         </div>
@@ -394,6 +395,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const hc = document.createElement('script');
     hc.src = 'live-charts.js';
+    const ex = document.createElement('script'); ex.src = 'exports.js'; document.head.appendChild(ex);
     hc.onload = () => window.QodeLiveCharts && window.QodeLiveCharts.init();
     document.head.appendChild(hc);
     try {

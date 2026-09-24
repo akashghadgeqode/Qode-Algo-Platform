@@ -124,9 +124,11 @@
             </div>
 
             <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:18px">
-              <div>
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap"><div>
                 <h2 style="font:600 18px 'Playfair Display',serif;margin:0 0 4px;color:var(--deep)">Strategy vs Benchmark</h2>
                 <p style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9);margin:0">Equity curve and drawdown comparison</p>
+              </div>
+                <button data-chart-download="[data-live-chart=portfolio]" data-name="nav-chart" style="padding:8px 12px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12px 'Lato',sans-serif;color:var(--deep);cursor:pointer;white-space:nowrap">Download chart</button>
               </div>
               <div style="display:grid;grid-template-columns:1fr;gap:28px">
                 <div data-live-chart="portfolio" style="min-height:600px"></div>
@@ -637,6 +639,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const s = document.createElement('script');
     s.src = 'live-charts.js';
+    const exs = document.createElement('script'); exs.src = 'exports.js'; document.head.appendChild(exs);
     s.onload = () => window.QodeLiveCharts && window.QodeLiveCharts.init();
     document.head.appendChild(s);
   }

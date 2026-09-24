@@ -146,11 +146,13 @@
         </div>
       </div>
 
-      <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden">
+      <div style="background:rgba(255,255,255,0.5);border:0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden" data-export-card="Holdings">
 
         <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 16px 8px;border-bottom:0;gap:16px;flex-wrap:wrap">
           <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest);white-space:nowrap">All holdings</h2>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <button data-export="csv" style="padding:8px 12px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12px 'Lato',sans-serif;color:var(--deep);cursor:pointer;white-space:nowrap">Download CSV</button>
+            <button data-export="pdf" style="padding:8px 12px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 12px 'Lato',sans-serif;color:var(--deep);cursor:pointer;white-space:nowrap">Download PDF</button>
             <label style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;border:1.5px solid var(--border-strong);background:var(--grey-1)">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#797D7F" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               <input type="text" placeholder="Search symbol" style="border:none;outline:none;font:400 13.5px 'Lato',sans-serif;background:transparent;width:180px;color:var(--ink)"/>
@@ -193,6 +195,10 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
   state = { panelOpen: true, portfolioOpen: false };
+
+  componentDidMount() {
+    const ex = document.createElement('script'); ex.src = 'exports.js'; document.head.appendChild(ex);
+  }
 
   renderVals() {
     const panelOpen = this.state.panelOpen;
