@@ -35,7 +35,7 @@
 
 <div style="display:flex;flex-direction:column;width:100%;min-height:100vh;font-family:'Lato',system-ui,sans-serif;background:var(--page);color:var(--ink)">
 
-  <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:56px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30;background:#fff">
+  <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:sticky;top:0;z-index:30;background:var(--page)">
     <a href="Marketplace.dc.html" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font:700 13px 'Lato',sans-serif;color:var(--forest);white-space:nowrap;margin-right:12px">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
       Back
@@ -47,7 +47,7 @@
     <a href="Help%20%26%20Support.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Help &amp; Support</a>
     <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9px;background:var(--gain-tint);flex-shrink:0;margin-left:auto"><span style="width:7px;height:7px;border-radius:50%;background:var(--gain);flex-shrink:0"></span><span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain);white-space:nowrap">Nuvama connected</span></div>
       <a href="Profile.dc.html" style="display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--border);text-decoration:none" aria-label="View profile">
-      <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif">AM</div>
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12.5px 'Lato',sans-serif">AM</div>
     </a>
   </nav>
 
@@ -430,7 +430,7 @@
         </sc-if>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:16px;flex:0 0 380px;position:sticky;top:20px">
+      <div style="display:flex;flex-direction:column;gap:16px;flex:0 0 380px;position:sticky;top:72px;align-self:flex-start;max-height:calc(100vh - 92px);overflow-y:auto">
         <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
           <div style="display:flex;align-items:center;gap:12px">
             <span style="width:40px;height:40px;border-radius:10px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 13px 'Lato',sans-serif;flex-shrink:0">{{ algo.initial }}</span>
@@ -635,7 +635,7 @@ class Component extends DCLogic {
   }
 
   state = {
-    portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama",
+    portfolioOpen: false, tab: "perf", deployOpen: new URLSearchParams(window.location.search).get("deploy") === "1", selectedBroker: "Nuvama",
     step: 1, legal: { tc: false, pp: false, rd: false, ic: false },
     capitalInput: "", availableMargin: 380000, authStatus: "idle", marginChecking: false
   };

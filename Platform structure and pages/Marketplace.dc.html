@@ -79,7 +79,7 @@
 
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
-    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:sticky;top:0;z-index:30;background:var(--page)">
       <img src="assets/qode-logo.svg" alt="Qode" style="height:22px;display:block;margin-right:20px"/>
       <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" aria-current="page" style="padding:8px 10px;border-radius:8px;font:700 12.5px 'Lato',sans-serif;color:var(--forest);background:var(--gold-tint);white-space:nowrap">Marketplace</a>
@@ -167,7 +167,7 @@
 
               <div style="display:flex;gap:10px">
                 <a href="{{ algo.detailUrl }}" style="flex:1;padding:10px 0;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;font:700 13px 'Lato',sans-serif;color:var(--grey-12);cursor:pointer;text-align:center;text-decoration:none">View</a>
-                <button style="flex:1;padding:10px 0;border-radius:9px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ noop }}">Deploy Algo</button>
+                <a href="{{ algo.detailUrl }}?deploy=1" style="flex:1;padding:10px 0;border-radius:9px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center;text-decoration:none" style-hover="background:var(--deep)">Deploy Algo</a>
               </div>
             </div>
           </sc-for>

@@ -135,7 +135,7 @@
 
   <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
 
-    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:30">
+    <nav style="display:flex;align-items:center;gap:1px;padding:0 40px;height:52px;border-bottom:1px solid var(--border);flex-shrink:0;position:sticky;top:0;z-index:30;background:var(--page)">
       <a href="My%20Algos.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">My Algos</a>
       <a href="Marketplace.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Marketplace</a>
       <a href="Blogs.dc.html" style="padding:8px 10px;border-radius:8px;font:400 12.5px 'Lato',sans-serif;color:var(--grey-10);white-space:nowrap">Blogs</a>
@@ -148,7 +148,7 @@
           </button>
         </sc-if>
         <sc-if value="{{ notConnected }}" hint-placeholder-val="{{ true }}">
-          <a href="Connect%20Broker.dc.html" style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:9px;border:1.5px solid var(--loss);background:var(--loss-tint);font:700 12.5px 'Lato',sans-serif;color:var(--loss);cursor:pointer;white-space:nowrap;flex-shrink:0;text-decoration:none">
+          <a href="#" onClick="{{ openBrokerModal }}" style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:9px;border:1.5px solid var(--loss);background:var(--loss-tint);font:700 12.5px 'Lato',sans-serif;color:var(--loss);cursor:pointer;white-space:nowrap;flex-shrink:0;text-decoration:none">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 2.6 17.5A1.5 1.5 0 0 0 4 20h16a1.5 1.5 0 0 0 1.3-2.5L13.7 3.9a1.5 1.5 0 0 0-2.6 0Z"/></svg>
             Connect Broker
           </a>
@@ -214,7 +214,7 @@
           <div style="display:flex;align-items:center;justify-content:space-between">
             <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Broker details</h2>
             <sc-if value="{{ notConnected }}" hint-placeholder-val="{{ true }}">
-              <a href="Connect%20Broker.dc.html" style="font:700 12.5px 'Lato',sans-serif;color:var(--forest);white-space:nowrap;flex-shrink:0">+ Connect a broker</a>
+              <a href="#" onClick="{{ openBrokerModal }}" style="font:700 12.5px 'Lato',sans-serif;color:var(--forest);white-space:nowrap;flex-shrink:0">+ Connect a broker</a>
             </sc-if>
           </div>
           <div style="display:grid;grid-template-columns:1.1fr 1fr 1fr;column-gap:20px;padding-bottom:6px;border-bottom:1px solid var(--border)">
@@ -247,14 +247,61 @@
       <p style="font:400 12px/1.6 'Lato',sans-serif;color:var(--grey-9);margin:0">Qode Algo Pvt. Ltd. is a SEBI-registered Research Analyst. Broker balances and identity details are shown as reported by your connected broker.</p>
     </div>
   </div>
+  <sc-if value="{{ brokerModalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:var(--scrim);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:50" onClick="{{ closeBrokerModal }}">
+      <div style="background:#fff;border-radius:18px;width:440px;max-width:90vw;padding:32px;display:flex;flex-direction:column;gap:22px" onClick="{{ stopClick }}">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Connect a broker</h2>
+          <button style="width:30px;height:30px;border-radius:50%;border:none;background:var(--grey-2);color:var(--grey-10);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ closeBrokerModal }}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <sc-if value="{{ modalPick }}" hint-placeholder-val="{{ true }}">
+        <p style="font:400 14px/1.5 'Lato',sans-serif;color:var(--grey-10);margin:0">Choose your broker to authorise Qode to place trades on your behalf. Your credentials are never stored by us.</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ brokers }}" as="broker" hint-placeholder-count="3">
+            <button onClick="{{ broker.select }}" style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;border:1.5px solid var(--border);background:var(--grey-1);cursor:pointer;text-align:left" style-hover="border-color:var(--forest)" onClick="{{ noop }}">
+              <span style="width:38px;height:38px;border-radius:9px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 14px 'Lato',sans-serif;flex-shrink:0">{{ broker.initial }}</span>
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <span style="font:700 15px 'Lato',sans-serif;color:var(--ink)">{{ broker.name }}</span>
+                <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-9)">{{ broker.desc }}</span>
+              </span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#797D7F" stroke-width="2.2" style="margin-left:auto;flex-shrink:0"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+          </sc-for>
+        </div>
+        <p style="font:400 11.5px/1.5 'Lato',sans-serif;color:var(--grey-9);margin:0">You&#39;ll be redirected to your broker to authenticate and grant trade permissions.</p>
+        </sc-if>
+        <sc-if value="{{ modalConnecting }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:36px 0;font:700 13.5px 'Lato',sans-serif;color:var(--forest)">Connecting to <span>{{ pickedBroker }}</span>&hellip;</div>
+        </sc-if>
+        <sc-if value="{{ modalDone }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0">
+            <span style="width:52px;height:52px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span style="font:600 17px 'Playfair Display',serif;color:var(--forest)">{{ pickedBroker }} connected</span>
+            <span style="font:400 13px 'Lato',sans-serif;color:var(--grey-10);text-align:center">Your account is linked. Qode can now place and manage orders on your behalf.</span>
+            <a href="Profile%20-%20Broker%20Connected.dc.html" style="padding:11px 26px;border-radius:9px;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;text-decoration:none;text-align:center">Continue</a>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;name&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Akash Ghadge&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+91 96895 37080&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;asghadge9@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;emailVerified&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;brokerConnected&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;balance&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;₹0.00&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { panelOpen: true, portfolioOpen: false };
+  state = { panelOpen: true, portfolioOpen: false, modalOpen: false, picked: "", stage: "pick" };
 
   renderVals() {
+    const pick = (name, url) => () => {
+      this.setState({ stage: "connecting", picked: name });
+      if (url) window.open(url, "_blank");
+      setTimeout(() => {
+        try { localStorage.setItem("qode_connected_broker", name); } catch (e) {}
+        this.setState({ stage: "done" });
+      }, 1100);
+    };
     const brokerConnected = this.props.brokerConnected ?? false;
     const panelOpen = this.state.panelOpen;
     return {
@@ -287,6 +334,17 @@ class Component extends DCLogic {
       openPortfolio: () => this.setState({ portfolioOpen: true }),
       closePortfolio: () => this.setState({ portfolioOpen: false }),
       togglePortfolio: () => this.setState({ portfolioOpen: !this.state.portfolioOpen }),
+      brokerModalOpen: this.state.modalOpen,
+      modalPick: this.state.stage === "pick", modalConnecting: this.state.stage === "connecting", modalDone: this.state.stage === "done",
+      pickedBroker: this.state.picked,
+      brokers: [
+        { initial: "N", name: "Nuvama", desc: "Full-service broking & wealth", select: pick("Nuvama") },
+        { initial: "I", name: "iRage", desc: "Algo execution infrastructure", select: pick("iRage") },
+        { initial: "D", name: "Dhan", desc: "Discount broking platform", select: pick("Dhan", "https://partner-login.dhan.co/?consentID=62913574-07c2-4784-862d-5254cad81d16") }
+      ],
+      openBrokerModal: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ modalOpen: true, stage: "pick" }); },
+      closeBrokerModal: () => this.setState({ modalOpen: false }),
+      stopClick: (e) => e.stopPropagation(),
       noop: () => {}
     };
   }
