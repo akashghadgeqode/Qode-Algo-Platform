@@ -100,126 +100,10 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 3a — Configure + margin sufficient</span>
-      <div style="{{ shell460 }}">
-        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
-            <div style="{{ p.wrap }}">
-              <div style="{{ p.dot }}"></div>
-              <span style="{{ p.text }}">{{ p.label }}</span>
-              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
-            </div>
-          </sc-for>
-        </div>
-        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Broker</span>
-          <div style="display:flex;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
-              <div style="{{ b.style }}">
-                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
-                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
-            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
-          </div>
-          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹7,40,000</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
-        </div>
-        <button style="{{ btnPrimary }}">Deploy Algo</button>
-        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 3b — Margin insufficient</span>
-      <div style="{{ shell460 }}">
-        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
-            <div style="{{ p.wrap }}">
-              <div style="{{ p.dot }}"></div>
-              <span style="{{ p.text }}">{{ p.label }}</span>
-              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
-            </div>
-          </sc-for>
-        </div>
-        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Broker</span>
-          <div style="display:flex;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
-              <div style="{{ b.style }}">
-                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
-                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="background:var(--loss-tint);border:1px solid rgba(231,0,11,0.25);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--loss)"></div>
-            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--loss)">Insufficient margin. You need ₹1,20,000 more to start this algo.</span>
-          </div>
-          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹3,80,000</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
-          <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Refresh margin</a>
-        </div>
-        <div style="display:flex;gap:8px">
-          <button style="{{ btnPrimaryFlex }}">Add funds</button>
-          <button style="{{ btnSecondaryFlex }}">Pledge holdings</button>
-        </div>
-        <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
-        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
-        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 3c — Margin checking</span>
-      <div style="{{ shell460 }}">
-        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
-            <div style="{{ p.wrap }}">
-              <div style="{{ p.dot }}"></div>
-              <span style="{{ p.text }}">{{ p.label }}</span>
-              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
-            </div>
-          </sc-for>
-        </div>
-        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Broker</span>
-          <div style="display:flex;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
-              <div style="{{ b.style }}">
-                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
-                <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:10px;justify-content:center">
-          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">Checking margin with your broker…</span>
-        </div>
-        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
-        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
-
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 4 — Authorise (default)</span>
+      <span style="{{ labelStyle }}">Deploy 3 — Authorise (default)</span>
       <div style="{{ shell420 }}">
         <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
             <div style="{{ p.wrap }}">
               <div style="{{ p.dot }}"></div>
               <span style="{{ p.text }}">{{ p.label }}</span>
@@ -243,10 +127,10 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 4 — Redirecting</span>
+      <span style="{{ labelStyle }}">Deploy 3 — Redirecting</span>
       <div style="{{ shell420 }}">
         <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
             <div style="{{ p.wrap }}">
               <div style="{{ p.dot }}"></div>
               <span style="{{ p.text }}">{{ p.label }}</span>
@@ -262,10 +146,10 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 4 — Success</span>
+      <span style="{{ labelStyle }}">Deploy 3 — Success</span>
       <div style="{{ shell420 }}">
         <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
             <div style="{{ p.wrap }}">
               <div style="{{ p.dot }}"></div>
               <span style="{{ p.text }}">{{ p.label }}</span>
@@ -285,10 +169,10 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Deploy 4 — Failed</span>
+      <span style="{{ labelStyle }}">Deploy 3 — Failed</span>
       <div style="{{ shell420 }}">
         <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
-          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
             <div style="{{ p.wrap }}">
               <div style="{{ p.dot }}"></div>
               <span style="{{ p.text }}">{{ p.label }}</span>
@@ -307,6 +191,101 @@
         <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
       </div>
     </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4a — Configure, margin sufficient (fetched after authorisation)</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:var(--grey-1)">
+          <span style="{{ microLabel }}">Broker</span>
+          <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">Nuvama · authorised</span>
+        </div>
+        <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
+            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
+          </div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹7,40,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+        </div>
+        <button style="{{ btnPrimary }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4b — Margin insufficient</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:var(--grey-1)">
+          <span style="{{ microLabel }}">Broker</span>
+          <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">Nuvama · authorised</span>
+        </div>
+        <div style="background:var(--loss-tint);border:1px solid rgba(231,0,11,0.25);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--loss)"></div>
+            <span style="font:700 12.5px 'Lato',sans-serif;color:var(--loss)">Insufficient margin. You need ₹1,20,000 more to start this algo.</span>
+          </div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Available margin</span><span style="{{ statValSm }}">₹3,80,000</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Required</span><span style="{{ statValSm }}">₹5,00,000</span></div>
+          <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Refresh margin</a>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="{{ btnPrimaryFlex }}">Add funds</button>
+          <button style="{{ btnSecondaryFlex }}">Pledge holdings</button>
+        </div>
+        <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
+        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="{{ labelStyle }}">Deploy 4c — Margin checking</span>
+      <div style="{{ shell460 }}">
+        <div style="display:flex;align-items:center;gap:6px;padding-bottom:4px">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <h2 style="{{ modalTitle }}">Configure and deploy</h2>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:var(--grey-1)">
+          <span style="{{ microLabel }}">Broker</span>
+          <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">Nuvama · authorised</span>
+        </div>
+        <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:10px;justify-content:center">
+          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">Checking margin with your broker…</span>
+        </div>
+        <button style="{{ btnPrimaryDisabled }}">Deploy Algo</button>
+        <p style="{{ disclaimerStyle }}">Trading algos are subject to market risk.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
 
     <div style="display:flex;flex-direction:column;gap:10px">
       <span style="{{ labelStyle }}">Deploy 5 — Success</span>
@@ -382,10 +361,10 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="{{ labelStyle }}">Mobile 375px — Deploy 3a</span>
+      <span style="{{ labelStyle }}">Mobile 375px — Deploy 4a</span>
       <div style="width:375px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px 16px;display:flex;flex-direction:column;gap:16px">
         <div style="display:flex;align-items:center;gap:5px;padding-bottom:4px">
-          <sc-for list="{{ progress3 }}" as="p" hint-placeholder-count="5">
+          <sc-for list="{{ progress4 }}" as="p" hint-placeholder-count="5">
             <div style="{{ p.wrapMobile }}">
               <div style="{{ p.dot }}"></div>
               <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
@@ -393,16 +372,9 @@
           </sc-for>
         </div>
         <h2 style="font:600 15px 'Playfair Display',serif;color:var(--forest);margin:0">Configure and deploy</h2>
-        <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:10px;background:var(--grey-1)">
           <span style="{{ microLabel }}">Broker</span>
-          <div style="display:flex;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
-              <div style="{{ b.styleFlex }}">
-                <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
-                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-              </div>
-            </sc-for>
-          </div>
+          <span style="font:700 12.5px 'Lato',sans-serif;color:var(--ink)">Nuvama · authorised</span>
         </div>
         <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:7px">
           <div style="display:flex;align-items:center;gap:7px">
@@ -442,7 +414,7 @@ class Component extends DCLogic {
     const shell460 = "width:460px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
     const shell420 = "width:420px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
 
-    const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
+    const stepLabels = ["Accept legal", "Subscribe", "Authorise", "Configure", "Active"];
     const makeProgress = (activeStep) => stepLabels.map((label, i) => {
       const n = i + 1;
       const state = n < activeStep ? "done" : n === activeStep ? "active" : "upcoming";

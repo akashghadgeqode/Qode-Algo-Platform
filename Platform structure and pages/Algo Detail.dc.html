@@ -531,21 +531,11 @@
           <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ goStep3 }}">Subscribe and continue</button>
         </sc-if>
 
-        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
           <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Configure and deploy</h2>
-          <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:var(--grey-1)">
             <span style="{{ headStyle }}">Broker</span>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
-                <button style="{{ b.style }}" onClick="{{ b.select }}">
-                  <span style="width:30px;height:30px;border-radius:8px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
-                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-                  <sc-if value="{{ b.selected }}" hint-placeholder-val="{{ false }}">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="3" style="margin-left:auto"><path d="M20 6 9 17l-5-5"/></svg>
-                  </sc-if>
-                </button>
-              </sc-for>
-            </div>
+            <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ selectedBroker }} &middot; authorised</span>
           </div>
 
           <sc-if value="{{ marginChecking }}" hint-placeholder-val="{{ false }}">
@@ -580,10 +570,10 @@
             <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
           </sc-if>
 
-          <button style="{{ deployBtnStyle }}" onClick="{{ goStep4 }}">Deploy Algo</button>
+          <button style="{{ deployBtnStyle }}" onClick="{{ goStep5 }}">Deploy Algo</button>
         </sc-if>
 
-        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
           <sc-if value="{{ authIdle }}" hint-placeholder-val="{{ true }}">
             <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Authorise {{ selectedBroker }}</h2>
             <p style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">You&#39;ll be redirected to {{ selectedBroker }} to authorise Qode to place orders on your behalf.</p>
@@ -607,7 +597,7 @@
               <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
               <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">Broker connected</span>
             </div>
-            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ goStep5 }}">Continue</button>
+            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ goStep4 }}">Continue</button>
           </sc-if>
         </sc-if>
 
@@ -702,7 +692,7 @@ class Component extends DCLogic {
     ];
 
     const step = this.state.step;
-    const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
+    const stepLabels = ["Accept legal", "Subscribe", "Authorise", "Configure", "Active"];
     const progress = stepLabels.map((label, i) => {
       const n = i + 1;
       const state2 = n < step ? "done" : n === step ? "active" : "upcoming";
@@ -808,9 +798,9 @@ class Component extends DCLogic {
         ? "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer"
         : "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed",
       goStep2: () => { if (allLegalChecked) this.setState({ step: 2 }); },
-      goStep3: () => { this.setState({ step: 3, marginChecking: true }); setTimeout(() => this.setState({ marginChecking: false }), 900); },
-      goStep4: () => { if (marginSufficient) this.setState({ step: 4, authStatus: "idle" }); },
-      goStep5: () => this.setState({ step: 5 }),
+      goStep3: () => this.setState({ step: 3, authStatus: "idle" }),
+      goStep4: () => { this.setState({ step: 4, marginChecking: true }); setTimeout(() => this.setState({ marginChecking: false }), 900); },
+      goStep5: () => { if (marginSufficient) this.setState({ step: 5 }); },
 
       headStyle, subscribeStatStyle, subscribeStatLossStyle, marginValStyle,
       capitalInput: this.state.capitalInput,
