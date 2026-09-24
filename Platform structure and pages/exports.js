@@ -67,7 +67,46 @@
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(clone));
   }
 
+  function xls(rows, name) {
+    var esc = function (v) { return v.replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
+    var body = rows.map(function (r, i) {
+      return '<tr>' + r.map(function (v) { return (i ? '<td>' : '<th>') + esc(v) + (i ? '</td>' : '</th>'); }).join('') + '</tr>';
+    }).join('');
+    var html = '<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body><table border="1">' + body + '</table></body></html>';
+    save(new Blob(['﻿' + html], { type: 'application/vnd.ms-excel' }), name + '.xls');
+  }
+
+  function closeMenus(except) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-dl-menu]'), function (m) { if (m !== except) m.style.display = 'none'; });
+  }
+  window.addEventListener('scroll', function () { closeMenus(); }, true);
+
   document.addEventListener('click', function (e) {
+    var tg = e.target.closest && e.target.closest('[data-dl-toggle]');
+    if (tg) {
+      var m = tg.parentNode.querySelector('[data-dl-menu]');
+      var open = m.style.display === 'block';
+      closeMenus();
+      if (!open) {
+        var r = tg.getBoundingClientRect();
+        m.style.display = 'block';
+        m.style.top = r.bottom + 4 + 'px';
+        m.style.left = Math.max(8, r.right - m.offsetWidth) + 'px';
+      }
+      return;
+    }
+    if (!(e.target.closest && e.target.closest('[data-report-dl]'))) closeMenus();
+    var rb = e.target.closest && e.target.closest('[data-report-dl]');
+    if (rb) {
+      var row = rb.closest('[data-dl-menu]').parentNode.parentNode;
+      rb.closest('[data-dl-menu]').style.display = 'none';
+      var c = Array.prototype.map.call(row.children, function (x) { return x.innerText.replace(/\s+/g, ' ').trim(); });
+      var data = [['Report', 'Period', 'Generated on'], [c[0], c[1], c[2]]];
+      var base = c[0].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'report';
+      var kind = rb.getAttribute('data-report-dl');
+      if (kind === 'csv') csv(data, base); else if (kind === 'xls') xls(data, base); else pdf(data, c[0]);
+      return;
+    }
     var b = e.target.closest && e.target.closest('[data-export],[data-chart-download]');
     if (!b) return;
     var stamp = new Date().toISOString().slice(0, 10);
