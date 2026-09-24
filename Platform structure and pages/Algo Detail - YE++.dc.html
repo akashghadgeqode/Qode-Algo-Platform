@@ -344,41 +344,169 @@
 
   <sc-if value="{{ deployOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;background:var(--scrim);display:flex;align-items:center;justify-content:center;z-index:50" onClick="{{ closeDeploy }}">
-      <div style="background:#fff;border-radius:18px;width:420px;max-width:90vw;padding:30px;display:flex;flex-direction:column;gap:20px" onClick="{{ stopClick }}">
+      <div style="background:#fff;border-radius:18px;width:460px;max-width:90vw;max-height:88vh;overflow-y:auto;padding:28px 28px 26px;display:flex;flex-direction:column;gap:18px" onClick="{{ stopClick }}">
         <div style="display:flex;align-items:center;justify-content:space-between">
           <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest)">Deploy {{ algo.name }}</h2>
           <button style="width:28px;height:28px;border-radius:50%;border:none;background:var(--grey-2);color:var(--grey-10);cursor:pointer;display:flex;align-items:center;justify-content:center" onClick="{{ closeDeploy }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:700 13px 'Lato',sans-serif;color:var(--grey-12)">Connect a broker</span>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="3">
-              <button style="{{ b.style }}" onClick="{{ b.select }}">
-                <span style="width:30px;height:30px;border-radius:8px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
-                <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
-                <sc-if value="{{ b.selected }}" hint-placeholder-val="{{ false }}">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="3" style="margin-left:auto"><path d="M20 6 9 17l-5-5"/></svg>
-                </sc-if>
-              </button>
+
+        <div style="display:flex;align-items:center;gap:6px">
+          <sc-for list="{{ progress }}" as="p" hint-placeholder-count="5">
+            <div style="{{ p.wrap }}">
+              <div style="{{ p.dot }}"></div>
+              <span style="{{ p.text }}">{{ p.label }}</span>
+              <sc-if value="{{ p.showLine }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:1px;background:var(--border)"></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+          <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Accept the legal documents</h2>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ legalDocs }}" as="d" hint-placeholder-count="4">
+              <label style="display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid var(--border)">
+                <input type="checkbox" checked="{{ d.checked }}" onChange="{{ d.toggle }}" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+                <span style="font:400 13.5px 'Lato',sans-serif;color:var(--ink);flex:1">{{ d.name }}</span>
+                <a href="#" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Read</a>
+              </label>
             </sc-for>
+            <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--forest-tint);border-radius:10px;margin-top:8px">
+              <input type="checkbox" checked="{{ allLegalChecked }}" onChange="{{ toggleAllLegal }}" style="width:16px;height:16px;accent-color:var(--forest);flex-shrink:0"/>
+              <span style="font:700 13px 'Lato',sans-serif;color:var(--forest)">I have read and accept all of the above</span>
+            </label>
+            <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9);margin-top:4px">Your acceptance is recorded with date and time.</span>
           </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:700 13px 'Lato',sans-serif;color:var(--grey-12)">Run this algo on which weekdays?</span>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="5">
-              <button style="{{ d.style }}" onClick="{{ d.toggle }}">{{ d.label }}</button>
-            </sc-for>
+          <button style="{{ legalContinueStyle }}" onClick="{{ goStep2 }}">Continue</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+          <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Subscribe to {{ algo.name }}</h2>
+          <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="{{ algo.tagStyle }}">{{ algo.category }}</span>
+              <span style="font:700 12px 'Lato',sans-serif;color:{{ algo.riskColor }}">Risk: {{ algo.risk }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">CAGR</span><span style="{{ subscribeStatStyle }}">{{ algo.cagr }}</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">Sharpe</span><span style="{{ subscribeStatStyle }}">{{ algo.sharpe }}</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="{{ headStyle }}">Max DD</span><span style="{{ subscribeStatLossStyle }}">{{ algo.maxDD }}</span></div>
+            </div>
           </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-12)">Capital to allocate</span>
-          <input type="text" placeholder="{{ algo.minAlloc }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-strong);font:400 14px 'Lato',sans-serif;background:#fff;color:var(--ink)"/>
-        </div>
-        <p style="font:400 12px/1.5 'Lato',sans-serif;color:var(--grey-9);margin:0">You&#39;ll be redirected to your connected broker to confirm the mandate. Trading algos are subject to market risk.</p>
-        <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ noop }}">Confirm &amp; Deploy</button>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="{{ headStyle }}">Capital to allocate (min. {{ algo.minAlloc }})</span>
+            <input type="text" value="{{ capitalInput }}" onChange="{{ setCapital }}" placeholder="{{ algo.minAlloc }}" style="padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-strong);font:400 14px 'Lato',sans-serif;background:#fff;color:var(--ink)"/>
+          </div>
+          <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" style-hover="background:var(--deep)" onClick="{{ goStep3 }}">Subscribe and continue</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Configure and deploy</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="{{ headStyle }}">Broker</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ brokers }}" as="b" hint-placeholder-count="2">
+                <button style="{{ b.style }}" onClick="{{ b.select }}">
+                  <span style="width:30px;height:30px;border-radius:8px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 12px 'Lato',sans-serif;flex-shrink:0">{{ b.initial }}</span>
+                  <span style="font:700 13.5px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
+                  <sc-if value="{{ b.selected }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="3" style="margin-left:auto"><path d="M20 6 9 17l-5-5"/></svg>
+                  </sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="{{ headStyle }}">Run this algo on which weekdays?</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="5">
+                <button style="{{ d.style }}" onClick="{{ d.toggle }}">{{ d.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <sc-if value="{{ marginChecking }}" hint-placeholder-val="{{ false }}">
+            <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:10px;justify-content:center">
+              <span style="font:700 12.5px 'Lato',sans-serif;color:var(--grey-12)">Checking margin with your broker&hellip;</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showMarginOk }}" hint-placeholder-val="{{ true }}">
+            <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
+                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--gain)">Margin sufficient</span>
+              </div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Available margin</span><span style="{{ marginValStyle }}">{{ availableMarginText }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Required</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showMarginLow }}" hint-placeholder-val="{{ false }}">
+            <div style="background:var(--loss-tint);border:1px solid var(--loss-line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--loss)"></div>
+                <span style="font:700 12.5px 'Lato',sans-serif;color:var(--loss)">Insufficient margin. You need {{ marginShortfallText }} more to start this algo.</span>
+              </div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Available margin</span><span style="{{ marginValStyle }}">{{ availableMarginText }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Required</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+              <a href="#" onClick="{{ refreshMargin }}" style="font:700 12px 'Lato',sans-serif;color:var(--forest)">Refresh margin</a>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button style="flex:1;padding:11px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer" onClick="{{ addFunds }}">Add funds</button>
+              <a href="Connect%20Broker.dc.html" style="flex:1;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center;text-decoration:none">Pledge holdings</a>
+            </div>
+            <span style="font:400 11px 'Lato',sans-serif;color:var(--grey-9)">Pledge holdings redirects to iRage.</span>
+          </sc-if>
+
+          <button style="{{ deployBtnStyle }}" onClick="{{ goStep4 }}">Deploy Algo</button>
+        </sc-if>
+
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ authIdle }}" hint-placeholder-val="{{ true }}">
+            <h2 style="font:600 17px 'Playfair Display',serif;margin:0;color:var(--forest)">Authorise {{ selectedBroker }}</h2>
+            <p style="font:400 13px/1.6 'Lato',sans-serif;color:var(--grey-10);margin:0">You&#39;ll be redirected to {{ selectedBroker }} to authorise Qode to place orders on your behalf.</p>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="{{ headStyle }}">Granted</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--ink)">&#10003; Place and modify orders</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--ink)">&#10003; Read positions and margin</span>
+              <span style="{{ headStyle }};margin-top:6px">Not granted</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">&#10007; No withdrawals</span>
+              <span style="font:400 12.5px 'Lato',sans-serif;color:var(--grey-10)">&#10007; No access to other accounts</span>
+            </div>
+            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ authorise }}">Authorise with {{ selectedBroker }}</button>
+          </sc-if>
+          <sc-if value="{{ authRedirecting }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:26px 0">
+              <span style="font:700 13.5px 'Lato',sans-serif;color:var(--grey-12)">Redirecting to {{ selectedBroker }}&hellip;</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ authSuccess }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0">
+              <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span style="font:700 14px 'Lato',sans-serif;color:var(--ink)">Broker connected</span>
+            </div>
+            <button style="width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer" onClick="{{ goStep5 }}">Continue</button>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isStep5 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0">
+            <span style="width:46px;height:46px;border-radius:50%;background:var(--forest-tint);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gain)" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <h2 style="font:600 16px 'Playfair Display',serif;margin:0;color:var(--forest);text-align:center">{{ algo.name }} is now active</h2>
+          </div>
+          <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Broker</span><span style="{{ marginValStyle }}">{{ selectedBroker }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Weekdays</span><span style="{{ marginValStyle }}">{{ selectedDaysText }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Capital</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Start date</span><span style="{{ marginValStyle }}">{{ startDate }}</span></div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button style="flex:1;padding:11px 0;border-radius:10px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-12);font:700 13px 'Lato',sans-serif;cursor:pointer" onClick="{{ closeDeploy }}">Back to algo</button>
+            <a href="My%20Algos.dc.html" style="flex:1;padding:11px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;text-align:center">View in My Algos</a>
+          </div>
+        </sc-if>
+
+        <p style="font:400 11px/1.5 'Lato',sans-serif;color:var(--grey-9);margin:0">Trading algos are subject to market risk.</p>
       </div>
     </div>
   </sc-if>
@@ -387,9 +515,15 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
 class Component extends DCLogic {
-  state = { portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama", days: { Mon: true, Tue: true, Wed: true, Thu: true, Fri: true } };
+  state = {
+    portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama",
+    days: { Mon: true, Tue: true, Wed: true, Thu: true, Fri: true },
+    step: 1, legal: { tc: false, pp: false, rd: false, ic: false },
+    capitalInput: "", availableMargin: 380000, authStatus: "idle", marginChecking: false
+  };
 
   renderVals() {
+    const MIN_ALLOC = 500000;
     const tab = this.state.tab;
     const tabBase = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--border-strong);background:#fff;color:var(--grey-10);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
     const tabActive = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
@@ -404,6 +538,38 @@ class Component extends DCLogic {
       style: dayStyle(days[d]),
       toggle: () => this.setState({ days: { ...days, [d]: !days[d] } })
     }));
+
+    const step = this.state.step;
+    const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
+    const progress = stepLabels.map((label, i) => {
+      const n = i + 1;
+      const state2 = n < step ? "done" : n === step ? "active" : "upcoming";
+      const dotColor = state2 === "upcoming" ? "var(--border-strong)" : "var(--forest)";
+      const textColor = state2 === "upcoming" ? "var(--grey-9)" : "var(--forest)";
+      const weight = state2 === "active" ? "700" : "400";
+      return {
+        label,
+        wrap: "display:flex;align-items:center;gap:6px;" + (n < 5 ? "flex:1" : "flex:0 0 auto"),
+        dot: "width:8px;height:8px;border-radius:50%;background:" + dotColor + ";flex-shrink:0",
+        text: "font:" + weight + " 10px 'Lato',sans-serif;color:" + textColor + ";white-space:nowrap",
+        showLine: n < 5
+      };
+    });
+
+    const legal = this.state.legal;
+    const legalDocs = [
+      { key: "tc", name: "Terms & Conditions" }, { key: "pp", name: "Privacy Policy" },
+      { key: "rd", name: "Risk Disclosures" }, { key: "ic", name: "Investor Charter" }
+    ].map((d) => ({ ...d, checked: legal[d.key], toggle: () => this.setState({ legal: { ...legal, [d.key]: !legal[d.key] } }) }));
+    const allLegalChecked = legal.tc && legal.pp && legal.rd && legal.ic;
+
+    const subscribeStatStyle = "font:700 17px 'Lato',sans-serif;color:var(--forest)";
+    const subscribeStatLossStyle = "font:700 17px 'Lato',sans-serif;color:var(--loss)";
+    const marginValStyle = "font:700 13px 'Lato',sans-serif;color:var(--ink)";
+
+    const requiredMargin = parseInt(this.state.capitalInput, 10) || MIN_ALLOC;
+    const marginSufficient = !this.state.marginChecking && this.state.availableMargin >= requiredMargin;
+    const marginInsufficient = !this.state.marginChecking && !marginSufficient;
 
     return {
       portfolioOpen: this.state.portfolioOpen,
@@ -426,7 +592,7 @@ class Component extends DCLogic {
       showAbout: tab === "about",
 
       deployOpen: this.state.deployOpen,
-      openDeploy: () => this.setState({ deployOpen: true }),
+      openDeploy: () => this.setState({ deployOpen: true, step: 1 }),
       closeDeploy: () => this.setState({ deployOpen: false }),
       stopClick: (e) => e.stopPropagation(),
       weekdays,
@@ -438,6 +604,44 @@ class Component extends DCLogic {
           select: () => this.setState({ selectedBroker: name })
         };
       }),
+      selectedBroker: this.state.selectedBroker,
+
+      progress,
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3, isStep4: step === 4, isStep5: step === 5,
+      legalDocs, allLegalChecked, toggleAllLegal: () => {
+        const v = !allLegalChecked;
+        this.setState({ legal: { tc: v, pp: v, rd: v, ic: v } });
+      },
+      legalContinueStyle: allLegalChecked
+        ? "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer"
+        : "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed",
+      goStep2: () => { if (allLegalChecked) this.setState({ step: 2 }); },
+      goStep3: () => { this.setState({ step: 3, marginChecking: true }); setTimeout(() => this.setState({ marginChecking: false }), 900); },
+      goStep4: () => { if (marginSufficient) this.setState({ step: 4, authStatus: "idle" }); },
+      goStep5: () => this.setState({ step: 5 }),
+
+      headStyle, subscribeStatStyle, subscribeStatLossStyle, marginValStyle,
+      capitalInput: this.state.capitalInput,
+      setCapital: (e) => this.setState({ capitalInput: e.target.value.replace(/[^0-9]/g, "") }),
+
+      marginChecking: this.state.marginChecking, showMarginOk: marginSufficient, showMarginLow: marginInsufficient,
+      availableMarginText: "\u20b9" + this.state.availableMargin.toLocaleString("en-IN"),
+      requiredMarginText: "\u20b9" + requiredMargin.toLocaleString("en-IN"),
+      marginShortfallText: "\u20b9" + Math.max(0, requiredMargin - this.state.availableMargin).toLocaleString("en-IN"),
+      deployBtnStyle: marginSufficient
+        ? "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--forest);color:var(--cream);font:700 13.5px 'Lato',sans-serif;cursor:pointer"
+        : "width:100%;padding:12px 0;border-radius:10px;border:none;background:var(--border-strong);color:var(--grey-9);font:700 13.5px 'Lato',sans-serif;cursor:not-allowed",
+      addFunds: () => this.setState({ availableMargin: this.state.availableMargin + 200000 }),
+      refreshMargin: (e) => { e.preventDefault(); this.setState({ marginChecking: true }); setTimeout(() => this.setState({ marginChecking: false }), 900); },
+
+      authIdle: this.state.authStatus === "idle", authRedirecting: this.state.authStatus === "redirecting", authSuccess: this.state.authStatus === "success",
+      authorise: () => {
+        this.setState({ authStatus: "redirecting" });
+        setTimeout(() => this.setState({ authStatus: "success" }), 1000);
+      },
+
+      selectedDaysText: Object.keys(days).filter((d) => days[d]).join(", ") || "None",
+      startDate: "24 Sep 2026",
 
       algo: {
         initial: "YE++", name: "Qode Yield Enhancer ++", category: "Options Selling", tagStyle,
