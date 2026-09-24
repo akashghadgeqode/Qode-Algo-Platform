@@ -417,14 +417,6 @@
               </sc-for>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="{{ headStyle }}">Run this algo on which weekdays?</span>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
-              <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="5">
-                <button style="{{ d.style }}" onClick="{{ d.toggle }}">{{ d.label }}</button>
-              </sc-for>
-            </div>
-          </div>
 
           <sc-if value="{{ marginChecking }}" hint-placeholder-val="{{ false }}">
             <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:10px;justify-content:center">
@@ -496,7 +488,6 @@
           </div>
           <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
             <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Broker</span><span style="{{ marginValStyle }}">{{ selectedBroker }}</span></div>
-            <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Weekdays</span><span style="{{ marginValStyle }}">{{ selectedDaysText }}</span></div>
             <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Capital</span><span style="{{ marginValStyle }}">{{ requiredMarginText }}</span></div>
             <div style="display:flex;justify-content:space-between"><span style="{{ headStyle }}">Start date</span><span style="{{ marginValStyle }}">{{ startDate }}</span></div>
           </div>
@@ -517,7 +508,6 @@
 class Component extends DCLogic {
   state = {
     portfolioOpen: false, tab: "perf", deployOpen: false, selectedBroker: "Nuvama",
-    days: { Mon: true, Tue: true, Wed: true, Thu: true, Fri: true },
     step: 1, legal: { tc: false, pp: false, rd: false, ic: false },
     capitalInput: "", availableMargin: 380000, authStatus: "idle", marginChecking: false
   };
@@ -529,15 +519,6 @@ class Component extends DCLogic {
     const tabActive = "padding:9px 18px;border-radius:9px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 13px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
     const headStyle = "font:700 11.5px 'Lato',sans-serif;color:var(--grey-9);text-transform:uppercase;letter-spacing:0.04em";
     const tagStyle = "display:inline-block;padding:3px 9px;border-radius:6px;font:700 11px 'Lato',sans-serif;background:var(--forest-tint);color:var(--forest);width:fit-content;white-space:nowrap";
-
-    const dayStyle = (on) => "padding:8px 14px;border-radius:8px;border:1.5px solid " + (on ? "var(--forest)" : "var(--border-strong)") + ";background:" + (on ? "var(--forest)" : "#fff") + ";color:" + (on ? "var(--cream)" : "var(--grey-10)") + ";font:700 12.5px 'Lato',sans-serif;cursor:pointer;white-space:nowrap";
-
-    const days = this.state.days;
-    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"].map((d) => ({
-      label: d,
-      style: dayStyle(days[d]),
-      toggle: () => this.setState({ days: { ...days, [d]: !days[d] } })
-    }));
 
     const step = this.state.step;
     const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
@@ -595,7 +576,6 @@ class Component extends DCLogic {
       openDeploy: () => this.setState({ deployOpen: true, step: 1 }),
       closeDeploy: () => this.setState({ deployOpen: false }),
       stopClick: (e) => e.stopPropagation(),
-      weekdays,
       brokers: ["Nuvama", "iRage"].map((name) => {
         const selected = this.state.selectedBroker === name;
         return {
@@ -640,7 +620,6 @@ class Component extends DCLogic {
         setTimeout(() => this.setState({ authStatus: "success" }), 1000);
       },
 
-      selectedDaysText: Object.keys(days).filter((d) => days[d]).join(", ") || "None",
       startDate: "24 Sep 2026",
 
       algo: {

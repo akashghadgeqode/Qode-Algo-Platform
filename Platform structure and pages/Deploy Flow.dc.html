@@ -123,14 +123,6 @@
             </sc-for>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Run on which weekdays?</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
-              <div style="{{ dayStyle }}">{{ w.label }}</div>
-            </sc-for>
-          </div>
-        </div>
         <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;align-items:center;gap:8px">
             <div style="width:8px;height:8px;border-radius:50%;background:var(--gain)"></div>
@@ -165,14 +157,6 @@
                 <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
                 <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
               </div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Run on which weekdays?</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
-              <div style="{{ dayStyle }}">{{ w.label }}</div>
             </sc-for>
           </div>
         </div>
@@ -216,14 +200,6 @@
                 <span style="{{ b.iconStyle }}">{{ b.initial }}</span>
                 <span style="font:700 13px 'Lato',sans-serif;color:var(--ink)">{{ b.name }}</span>
               </div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Run on which weekdays?</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
-              <div style="{{ dayStyle }}">{{ w.label }}</div>
             </sc-for>
           </div>
         </div>
@@ -352,7 +328,6 @@
         </div>
         <div style="background:var(--page);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
           <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Broker</span><span style="{{ statValSm }}">Nuvama</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Weekdays</span><span style="{{ statValSm }}">Mon–Fri</span></div>
           <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Capital</span><span style="{{ statValSm }}">₹5,00,000</span></div>
           <div style="display:flex;justify-content:space-between"><span style="{{ microLabel }}">Start date</span><span style="{{ statValSm }}">23 Sep 2026</span></div>
         </div>
@@ -429,14 +404,6 @@
             </sc-for>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="{{ microLabel }}">Run on which weekdays?</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="5">
-              <div style="{{ dayStyle }}">{{ w.label }}</div>
-            </sc-for>
-          </div>
-        </div>
         <div style="background:var(--forest-tint);border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:7px">
           <div style="display:flex;align-items:center;gap:7px">
             <div style="width:7px;height:7px;border-radius:50%;background:var(--gain)"></div>
@@ -474,7 +441,6 @@ class Component extends DCLogic {
     const shell440 = "width:440px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
     const shell460 = "width:460px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
     const shell420 = "width:420px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(0,32,23,0.10)";
-    const dayStyle = "padding:7px 12px;border-radius:8px;border:1.5px solid var(--forest);background:var(--forest);color:var(--cream);font:700 11.5px 'Lato',sans-serif";
 
     const stepLabels = ["Accept legal", "Subscribe", "Configure", "Authorise", "Active"];
     const makeProgress = (activeStep) => stepLabels.map((label, i) => {
@@ -496,7 +462,6 @@ class Component extends DCLogic {
     const legalDocs = [
       { name: "Terms & Conditions" }, { name: "Privacy Policy" }, { name: "Risk Disclosures" }, { name: "Investor Charter" }
     ];
-    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"].map((label) => ({ label }));
     const brokerBase = "display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;";
     const brokers = [
       { name: "Nuvama", initial: "N", style: brokerBase + "border:1.5px solid var(--forest);background:var(--forest-tint)", styleFlex: brokerBase + "flex:1;border:1.5px solid var(--forest);background:var(--forest-tint)", iconStyle: "width:26px;height:26px;border-radius:7px;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font:700 11px 'Lato',sans-serif;flex-shrink:0" },
@@ -505,9 +470,9 @@ class Component extends DCLogic {
 
     return {
       microLabel, statVal, statValLoss, statValSm, inputStyle, btnPrimary, btnPrimaryFlex, btnPrimaryDisabled, btnSecondaryFlex,
-      tagStyle, permRow, permRowNo, modalTitle, labelStyle, disclaimerStyle, shell440, shell460, shell420, dayStyle,
+      tagStyle, permRow, permRowNo, modalTitle, labelStyle, disclaimerStyle, shell440, shell460, shell420,
       progress1: makeProgress(1), progress2: makeProgress(2), progress3: makeProgress(3), progress4: makeProgress(4), progress5: makeProgress(5),
-      legalDocs, weekdays, brokers,
+      legalDocs, brokers,
       toasts: [
         { msg: "Broker session expired — please re-authorise to keep this algo running." },
         { msg: "Order rejected by exchange: price out of circuit limit." },
