@@ -25,9 +25,9 @@ Email+password, phone OTP, and Google OAuth, backed by Supabase.
 |---|---|---|
 | Sign Up | `Sign Up.dc.html` | Split layout: brand/trust panel (dark gradient) + form (email/phone tabs, Google OAuth, T&C checkbox) |
 | Login | `Login.dc.html` | Same shell as Sign Up; email/phone tabs, forgot-password link, no name/T&C fields |
-| Positions | `Positions.dc.html` | Sidebar-shell app page; Open/Closed tabs, summary cards, per-broker/algo position table |
-| Orders | `Orders.dc.html` | Sidebar-shell app page; Pending/Executed/Cancelled tabs, order table |
-| Holdings | `Holdings.dc.html` | Sidebar-shell app page; holdings table with P&L, day change |
+| Positions | `Positions.dc.html` | Sidebar-shell app page; Open/Closed tabs, summary cards, Kite-style table (Product, Symbol, Qty, Avg. price, LTP, P&L, Chg.) |
+| Orders | `Orders.dc.html` | Sidebar-shell app page; Pending/Executed/Cancelled tabs, Kite-style table (Time, Side, Symbol, Product, Qty, LTP, Price, Status) |
+| Holdings | `Holdings.dc.html` | Sidebar-shell app page; Kite-style table (Symbol, Qty, Avg. cost, LTP, Current value, P&L, Net chg., Day chg.) |
 | Profile | `Profile.dc.html` | Sidebar-shell app page; Personal details, Broker details, Funds cards; tweaks for name/phone/email/verification/broker/balance |
 | Profile (broker connected) | `Profile - Broker Connected.dc.html` | Same as Profile, defaults to connected state with real broker row; includes "Connect a broker" modal (Nuvama/iRage/Dhan picker) |
 | My Algos | `My Algos.dc.html` | Sidebar-shell app page; market ticker, summary stats (Today/Overall toggle), status tabs (Active/Subscribed/Paused/Expired), algo table, empty state; tweak for hasAlgos |
