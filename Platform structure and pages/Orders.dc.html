@@ -173,7 +173,7 @@
               <span style="font:400 11.5px 'Lato',sans-serif;color:var(--grey-9)">{{ row.orderType }}</span>
             </span>
             <span style="text-align:right">
-              <span style="display:inline-block;padding:6px 14px;border-radius:20px;background:{{ row.statusBg }};color:{{ row.statusColor }};font:700 12px 'Lato',sans-serif;white-space:nowrap">{{ row.status }}</span>
+              <span style="color:{{ row.statusColor }};font:700 12px 'Lato',sans-serif;white-space:nowrap">{{ row.status }}</span>
             </span>
           </div>
         </sc-for>
@@ -217,8 +217,7 @@ class Component extends DCLogic {
       ...r,
       sideColor: r.side === "BUY" ? "var(--gain)" : "var(--loss)",
       status: kind === "pending" ? "Open" : kind === "executed" ? "Complete" : "Cancelled",
-      statusBg: kind === "pending" ? "var(--gold-tint)" : kind === "executed" ? "var(--gain-tint)" : "var(--grey-2)",
-      statusColor: kind === "pending" ? "var(--forest)" : kind === "executed" ? "var(--gain)" : "var(--grey-10)"
+      statusColor: kind === "pending" ? "var(--forest)" : kind === "executed" ? "var(--gain)" : "var(--loss)"
     }));
 
     const rows = [...decorate(pendingRows, "pending"), ...decorate(executedRows, "executed"), ...decorate(cancelledRows, "cancelled")].sort((x, y) => (x.time < y.time ? -1 : 1));
